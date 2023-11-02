@@ -16,7 +16,7 @@ namespace DAE.DAO
 
         public ConnectionDataBase()
         {
-            connectionString = "Data Source=THELOL952\\SQLEXPRESS; DataBase=Registro; Integrated Security=True";
+           connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
         }
         protected SqlConnection GetConnection()
         {
