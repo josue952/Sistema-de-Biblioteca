@@ -35,3 +35,4 @@ C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\bin\Debug\DAE
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\bin\Debug\DAE.pdb
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Properties.Resources.resources
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.csproj.CoreCompileInputs.cache
+C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.frmLogin.resources

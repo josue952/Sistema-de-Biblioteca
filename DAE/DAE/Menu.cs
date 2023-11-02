@@ -1,4 +1,5 @@
-﻿using DAE.Interfaz;
+﻿using DAE.Clases;
+using DAE.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,30 @@ namespace DAE
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            //agregando datos de sesion para mostrar datos en pantalla
+            lblUser.Text = "Usuario: " + UserLoginCache.userName;
+            lblRol.Text = "Nivel de Acceso: \n" + UserLoginCache.rolUser;
+            if (UserLoginCache.rolUser == "Administrador")
+            {
+
+            }
+            else if (UserLoginCache.rolUser == "Docente")
+            {
+            }
+            else//cuando el usuario es estudiante
+            {
+            }
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+
+        }
+
+        private void btnAdministrar_Click(object sender, EventArgs e)
+        {
+            panelSubMenuAdmin.Visible = true;//muestrame el panel submenu de administrar
         }
     }
 }

@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ClsUsuario.cs" />
+    <Compile Include="Clases\UserLoginCache.cs" />
     <Compile Include="DAO\ConnectionDataBase.cs" />
+    <Compile Include="DAO\UsuarioDao.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

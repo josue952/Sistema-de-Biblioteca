@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
 
-namespace ProyectoBase.DAO
+namespace DAE.DAO
 {
      public abstract class ConnectionDataBase
      {
