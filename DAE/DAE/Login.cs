@@ -59,6 +59,6 @@ namespace DAE
             txtPassword.Clear();
             this.Show();
             txtUser.Focus();    
-        } 
+        }
     }
 }

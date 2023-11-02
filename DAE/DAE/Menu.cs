@@ -18,6 +18,7 @@ namespace DAE
         {
             InitializeComponent();
         }
+        //variable para saber cual formulario esta abierto
         private Form FormularioActivo = null;
         private void AbrirFormulario(Form FormularioHijo)
         {
@@ -40,10 +41,6 @@ namespace DAE
            
         }
 
-        private void btnPrestamo_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
@@ -68,5 +65,23 @@ namespace DAE
         {
             panelSubMenuAdmin.Visible = true;//muestrame el panel submenu de administrar
         }
+
+        private void btnAutor_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmAutor());
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+
+        }
+        private void btnPrestamo_Click(object sender, EventArgs e)
+        {
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+
+        }
+
     }
 }
