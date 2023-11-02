@@ -34,14 +34,6 @@ namespace DAE
             FormularioHijo.Show();
 
         }
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            
-            //Aca abra mas codigo si es necesario
-           
-        }
-
-
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             //agregando datos de sesion para mostrar datos en pantalla
@@ -60,10 +52,14 @@ namespace DAE
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
 
         }
-
         private void btnAdministrar_Click(object sender, EventArgs e)
         {
             panelSubMenuAdmin.Visible = true;//muestrame el panel submenu de administrar
+        }
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmUsuarios());
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
         }
 
         private void btnAutor_Click(object sender, EventArgs e)

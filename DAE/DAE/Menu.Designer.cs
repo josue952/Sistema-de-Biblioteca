@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCompras = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelSubMenuAdmin.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,6 +70,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 1055);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCompras
+            // 
+            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.btnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCompras.Location = new System.Drawing.Point(0, 488);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnCompras.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCompras.Size = new System.Drawing.Size(186, 57);
+            this.btnCompras.TabIndex = 14;
+            this.btnCompras.Text = "Comprar";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnCompras.UseVisualStyleBackColor = false;
             // 
             // btnPrestamo
             // 
@@ -252,6 +274,7 @@
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnAdministrar
             // 
@@ -357,28 +380,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnCompras
-            // 
-            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.btnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCompras.FlatAppearance.BorderSize = 0;
-            this.btnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompras.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCompras.Location = new System.Drawing.Point(0, 488);
-            this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnCompras.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCompras.Size = new System.Drawing.Size(186, 57);
-            this.btnCompras.TabIndex = 14;
-            this.btnCompras.Text = "Comprar";
-            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnCompras.UseVisualStyleBackColor = false;
             // 
             // FrmMenu
             // 

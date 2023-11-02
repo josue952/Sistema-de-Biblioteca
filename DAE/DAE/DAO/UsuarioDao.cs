@@ -24,6 +24,7 @@ namespace DAE.DAO
             string sql = "";
             DataTable datos = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
+            //muestra todos los usuarios
             sql = "SELECT * FROM Usuarios";
             SqlConnection con = GetConnection();//extaer conexion
             try
@@ -73,7 +74,8 @@ namespace DAE.DAO
         {
             ClsUsuario us = new ClsUsuario();
             us = (ClsUsuario)objDatos;
-            string sql = "INSERT INTO Usuarios VALUES('"+us.Usuario+"','"+us.Contra+"','"+us.Rol+"')";
+            //Inserta datos en la tabla usuarios
+            string sql = "INSERT INTO Usuarios VALUES('"+us.Usuario+"','"+us.Contra+"','"+us.Rol+ "','"+us.Departamento+"')";
             if (ejecutar(sql))
             {
                 return true;
@@ -84,7 +86,8 @@ namespace DAE.DAO
         {
             ClsUsuario us = new ClsUsuario();
             us = (ClsUsuario)objDatos;
-            string sql = "UPDATE Usuarios SET username = '"+us.Usuario+"', userPassword = '"+us.Contra+"', userRol = '"+us.Rol+"' WHERE userId = "+us.UserId;
+            //modifica el usuario segun su id(codigo)
+            string sql = "UPDATE Usuarios SET Username = '"+us.Usuario+"', UserPassword = '"+us.Contra+"', UserRol = '"+us.Rol+ "', UserDepartamento = '" + us.Departamento+"' WHERE CodigoUser = " + us.UserId;
             if (ejecutar(sql))
             {
                 return true;
@@ -94,7 +97,7 @@ namespace DAE.DAO
 
         public bool eliminar(string codUsuario)
         {
-            string sql = "DELETE FROM Usuarios WHERE userId ="+codUsuario;
+            string sql = "DELETE FROM Usuarios WHERE CodigoUser =" + codUsuario;
             if (ejecutar(sql))
             {
                 return true;
@@ -108,10 +111,10 @@ namespace DAE.DAO
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlConnection con = GetConnection();//extaer conexion
             string sql = "";
-
-            if (campo == "userId")
+            //codigo para buscar por id
+            if (campo == "UserId")
             {
-                sql = "SELECT * FROM Usuarios WHERE userId =" + valorCampo;
+                sql = "SELECT * FROM Usuarios WHERE CodigoUser =" + valorCampo;
 
             }
             else 
@@ -151,7 +154,7 @@ namespace DAE.DAO
                 cmd.Parameters.AddWithValue("@user", user);
                 cmd.Parameters.AddWithValue("@pass", pass);
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * FROM Usuarios WHERE username = @user AND userPassword = @pass";
+                cmd.CommandText = "SELECT * FROM Usuarios WHERE UserName = @user AND UserPassword = @pass";
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {

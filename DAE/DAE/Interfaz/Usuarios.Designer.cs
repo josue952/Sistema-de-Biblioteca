@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbCargoUsuario = new System.Windows.Forms.ComboBox();
-            this.cbDepartamentoUsuario = new System.Windows.Forms.ComboBox();
+            this.cmbCargoUsuario = new System.Windows.Forms.ComboBox();
+            this.cmbDepartamentoUsuario = new System.Windows.Forms.ComboBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseñaUsuario = new System.Windows.Forms.TextBox();
             this.txtCodigoUsuario = new System.Windows.Forms.TextBox();
@@ -44,10 +44,10 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtTablaUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtBuscarUsuarios = new System.Windows.Forms.TextBox();
-            this.cbPorUsuarios = new System.Windows.Forms.ComboBox();
+            this.cmbPorUsuarios = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -55,15 +55,15 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTablaUsuarios)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.groupBox1.Controls.Add(this.cbCargoUsuario);
-            this.groupBox1.Controls.Add(this.cbDepartamentoUsuario);
+            this.groupBox1.Controls.Add(this.cmbCargoUsuario);
+            this.groupBox1.Controls.Add(this.cmbDepartamentoUsuario);
             this.groupBox1.Controls.Add(this.txtNombreUsuario);
             this.groupBox1.Controls.Add(this.txtContraseñaUsuario);
             this.groupBox1.Controls.Add(this.txtCodigoUsuario);
@@ -80,24 +80,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // cbCargoUsuario
+            // cmbCargoUsuario
             // 
-            this.cbCargoUsuario.FormattingEnabled = true;
-            this.cbCargoUsuario.Items.AddRange(new object[] {
+            this.cmbCargoUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCargoUsuario.FormattingEnabled = true;
+            this.cmbCargoUsuario.Items.AddRange(new object[] {
             "Usuario",
             "Administrador",
             "Bibliotecario"});
-            this.cbCargoUsuario.Location = new System.Drawing.Point(264, 81);
-            this.cbCargoUsuario.Name = "cbCargoUsuario";
-            this.cbCargoUsuario.Size = new System.Drawing.Size(100, 28);
-            this.cbCargoUsuario.TabIndex = 10;
+            this.cmbCargoUsuario.Location = new System.Drawing.Point(264, 81);
+            this.cmbCargoUsuario.Name = "cmbCargoUsuario";
+            this.cmbCargoUsuario.Size = new System.Drawing.Size(100, 27);
+            this.cmbCargoUsuario.TabIndex = 10;
             // 
-            // cbDepartamentoUsuario
+            // cmbDepartamentoUsuario
             // 
-            this.cbDepartamentoUsuario.FormattingEnabled = true;
-            this.cbDepartamentoUsuario.Items.AddRange(new object[] {
+            this.cmbDepartamentoUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDepartamentoUsuario.FormattingEnabled = true;
+            this.cmbDepartamentoUsuario.Items.AddRange(new object[] {
             "Ahuachapán",
             "Santa Ana",
             "Sonsonate",
@@ -113,13 +114,14 @@
             "Morazán",
             "La Unión",
             "Otro"});
-            this.cbDepartamentoUsuario.Location = new System.Drawing.Point(414, 55);
-            this.cbDepartamentoUsuario.Name = "cbDepartamentoUsuario";
-            this.cbDepartamentoUsuario.Size = new System.Drawing.Size(84, 28);
-            this.cbDepartamentoUsuario.TabIndex = 9;
+            this.cmbDepartamentoUsuario.Location = new System.Drawing.Point(414, 55);
+            this.cmbDepartamentoUsuario.Name = "cmbDepartamentoUsuario";
+            this.cmbDepartamentoUsuario.Size = new System.Drawing.Size(84, 27);
+            this.cmbDepartamentoUsuario.TabIndex = 9;
             // 
             // txtNombreUsuario
             // 
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreUsuario.Location = new System.Drawing.Point(264, 29);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(100, 27);
@@ -127,13 +129,17 @@
             // 
             // txtContraseñaUsuario
             // 
+            this.txtContraseñaUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseñaUsuario.Location = new System.Drawing.Point(86, 78);
             this.txtContraseñaUsuario.Name = "txtContraseñaUsuario";
+            this.txtContraseñaUsuario.PasswordChar = '*';
             this.txtContraseñaUsuario.Size = new System.Drawing.Size(100, 27);
             this.txtContraseñaUsuario.TabIndex = 6;
             // 
             // txtCodigoUsuario
             // 
+            this.txtCodigoUsuario.Enabled = false;
+            this.txtCodigoUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoUsuario.Location = new System.Drawing.Point(86, 27);
             this.txtCodigoUsuario.Name = "txtCodigoUsuario";
             this.txtCodigoUsuario.Size = new System.Drawing.Size(100, 27);
@@ -149,7 +155,6 @@
             this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Nombre";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -161,7 +166,6 @@
             this.label4.Size = new System.Drawing.Size(87, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Departamento";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -173,7 +177,6 @@
             this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Contraseña";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -185,7 +188,6 @@
             this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cargo";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -197,7 +199,6 @@
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox2
             // 
@@ -223,6 +224,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eilminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminarUs_Click);
             // 
             // btnEditar
             // 
@@ -234,6 +236,7 @@
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditarUs_Click);
             // 
             // btnAgregar
             // 
@@ -245,13 +248,14 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregarUs_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox3.Controls.Add(this.dtTablaUsuarios);
+            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox3.Location = new System.Drawing.Point(36, 249);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(526, 200);
@@ -259,19 +263,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tabla Usuarios";
             // 
-            // dataGridView1
+            // dtTablaUsuarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(514, 175);
-            this.dataGridView1.TabIndex = 0;
+            this.dtTablaUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtTablaUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtTablaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtTablaUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtTablaUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.dtTablaUsuarios.Location = new System.Drawing.Point(6, 19);
+            this.dtTablaUsuarios.Name = "dtTablaUsuarios";
+            this.dtTablaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtTablaUsuarios.Size = new System.Drawing.Size(514, 175);
+            this.dtTablaUsuarios.TabIndex = 0;
+            this.dtTablaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTablaUsuarios_CellClick);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtBuscarUsuarios);
-            this.groupBox4.Controls.Add(this.cbPorUsuarios);
+            this.groupBox4.Controls.Add(this.cmbPorUsuarios);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.btnActualizar);
@@ -287,22 +296,24 @@
             // 
             // txtBuscarUsuarios
             // 
+            this.txtBuscarUsuarios.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarUsuarios.Location = new System.Drawing.Point(102, 32);
             this.txtBuscarUsuarios.Name = "txtBuscarUsuarios";
             this.txtBuscarUsuarios.Size = new System.Drawing.Size(100, 27);
             this.txtBuscarUsuarios.TabIndex = 6;
             // 
-            // cbPorUsuarios
+            // cmbPorUsuarios
             // 
-            this.cbPorUsuarios.FormattingEnabled = true;
-            this.cbPorUsuarios.Items.AddRange(new object[] {
+            this.cmbPorUsuarios.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPorUsuarios.FormattingEnabled = true;
+            this.cmbPorUsuarios.Items.AddRange(new object[] {
             "Departamento",
             "Código",
             "Cargo"});
-            this.cbPorUsuarios.Location = new System.Drawing.Point(350, 31);
-            this.cbPorUsuarios.Name = "cbPorUsuarios";
-            this.cbPorUsuarios.Size = new System.Drawing.Size(121, 28);
-            this.cbPorUsuarios.TabIndex = 5;
+            this.cmbPorUsuarios.Location = new System.Drawing.Point(350, 31);
+            this.cmbPorUsuarios.Name = "cmbPorUsuarios";
+            this.cmbPorUsuarios.Size = new System.Drawing.Size(121, 27);
+            this.cmbPorUsuarios.TabIndex = 5;
             // 
             // label7
             // 
@@ -334,6 +345,7 @@
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnUpdateTableUs_Click);
             // 
             // btnFiltrar
             // 
@@ -345,6 +357,7 @@
             this.btnFiltrar.TabIndex = 0;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnBuscarUs_Click);
             // 
             // frmUsuarios
             // 
@@ -359,11 +372,12 @@
             this.MinimumSize = new System.Drawing.Size(608, 621);
             this.Name = "frmUsuarios";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTablaUsuarios)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -384,15 +398,15 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.ComboBox cbCargoUsuario;
-        private System.Windows.Forms.ComboBox cbDepartamentoUsuario;
+        private System.Windows.Forms.ComboBox cmbCargoUsuario;
+        private System.Windows.Forms.ComboBox cmbDepartamentoUsuario;
         private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.TextBox txtContraseñaUsuario;
         private System.Windows.Forms.TextBox txtCodigoUsuario;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtTablaUsuarios;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.TextBox txtBuscarUsuarios;
-        private System.Windows.Forms.ComboBox cbPorUsuarios;
+        private System.Windows.Forms.ComboBox cmbPorUsuarios;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnActualizar;

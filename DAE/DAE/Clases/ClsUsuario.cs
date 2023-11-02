@@ -16,23 +16,26 @@ namespace DAE.Clases
         private string usuario;
         private string contra;
         private string rol;
+        private string departamento;
 
         public ClsUsuario()
         {
         }
 
-        public ClsUsuario(int userId, string usuario, string contra, string rol)
+        public ClsUsuario(int userId, string usuario, string contra, string rol, string departamento)
         {
             this.userId = userId;
             this.usuario = usuario;
             this.contra = contra;
             this.rol = rol;
+            this.departamento = departamento;   
         }
 
         public int UserId { get => userId; set => userId = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Contra { get => contra; set => contra = value; }
         public string Rol { get => rol; set => rol = value; }
+        public string Departamento { get => departamento; set => departamento = value; }
 
         UsuarioDao us = new UsuarioDao();
 
