@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\ClsLibro.cs" />
     <Compile Include="Clases\ClsUsuario.cs" />
     <Compile Include="Clases\UserLoginCache.cs" />
     <Compile Include="DAO\ConnectionDataBase.cs" />

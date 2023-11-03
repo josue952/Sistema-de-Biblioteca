@@ -215,7 +215,7 @@
             // 
             // btnEditorial
             // 
-            this.btnEditorial.BackColor = System.Drawing.Color.Teal;
+            this.btnEditorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
             this.btnEditorial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditorial.FlatAppearance.BorderSize = 0;
             this.btnEditorial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
@@ -223,7 +223,7 @@
             this.btnEditorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditorial.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditorial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditorial.Location = new System.Drawing.Point(33, 75);
+            this.btnEditorial.Location = new System.Drawing.Point(33, 36);
             this.btnEditorial.Name = "btnEditorial";
             this.btnEditorial.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnEditorial.Size = new System.Drawing.Size(153, 41);
@@ -235,7 +235,7 @@
             // 
             // btnLibros
             // 
-            this.btnLibros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.btnLibros.BackColor = System.Drawing.Color.Teal;
             this.btnLibros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLibros.FlatAppearance.BorderSize = 0;
             this.btnLibros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -244,7 +244,7 @@
             this.btnLibros.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLibros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLibros.Location = new System.Drawing.Point(33, 38);
+            this.btnLibros.Location = new System.Drawing.Point(33, 75);
             this.btnLibros.Name = "btnLibros";
             this.btnLibros.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnLibros.Size = new System.Drawing.Size(153, 41);
@@ -253,6 +253,7 @@
             this.btnLibros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLibros.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnLibros.UseVisualStyleBackColor = false;
+            this.btnLibros.Click += new System.EventHandler(this.btnLibros_Click);
             // 
             // btnUsuarios
             // 

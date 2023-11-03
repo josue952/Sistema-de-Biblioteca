@@ -92,5 +92,10 @@ namespace DAE
             }
 
         }
+
+        private void btnLibros_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmLibros());
+        }
     }
 }
