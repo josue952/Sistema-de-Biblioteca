@@ -307,7 +307,7 @@
             this.btnCerrarSesion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 992);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(10);
@@ -318,6 +318,7 @@
             this.btnCerrarSesion.Text = "Cerrar sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // panel2
             // 

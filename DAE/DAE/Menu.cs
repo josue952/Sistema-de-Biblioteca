@@ -79,5 +79,18 @@ namespace DAE
 
         }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            string mensaje = "Seguro que desea cerrar sesion?";
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+            DialogResult result = MessageBox.Show(mensaje, "Cerrando Sesion", botones, icon);
+            if (result == DialogResult.Yes)
+            {
+                //cerrar el formulario menu y mostrar el login
+                this.Close();
+            }
+
+        }
     }
 }
