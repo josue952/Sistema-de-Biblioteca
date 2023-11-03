@@ -43,6 +43,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.gpLibros = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cbAutor = new System.Windows.Forms.ComboBox();
             this.txtNombreAutor = new System.Windows.Forms.TextBox();
             this.txtCodigoAutor = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtAutores)).BeginInit();
@@ -77,7 +77,7 @@
             // 
             // txtBuscarAutor
             // 
-            this.txtBuscarAutor.Location = new System.Drawing.Point(201, 38);
+            this.txtBuscarAutor.Location = new System.Drawing.Point(201, 51);
             this.txtBuscarAutor.Name = "txtBuscarAutor";
             this.txtBuscarAutor.Size = new System.Drawing.Size(214, 27);
             this.txtBuscarAutor.TabIndex = 6;
@@ -89,16 +89,16 @@
             "Código",
             "Nombre",
             "Libro"});
-            this.cbPorAutor.Location = new System.Drawing.Point(805, 37);
+            this.cbPorAutor.Location = new System.Drawing.Point(510, 50);
             this.cbPorAutor.Name = "cbPorAutor";
-            this.cbPorAutor.Size = new System.Drawing.Size(204, 28);
+            this.cbPorAutor.Size = new System.Drawing.Size(214, 28);
             this.cbPorAutor.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(745, 38);
+            this.label7.Location = new System.Drawing.Point(450, 51);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 29);
             this.label7.TabIndex = 4;
@@ -108,7 +108,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(102, 38);
+            this.label6.Location = new System.Drawing.Point(102, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 29);
             this.label6.TabIndex = 3;
@@ -122,7 +122,7 @@
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Location = new System.Drawing.Point(1020, 29);
+            this.btnActualizar.Location = new System.Drawing.Point(1093, 37);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(132, 52);
             this.btnActualizar.TabIndex = 1;
@@ -138,7 +138,7 @@
             this.btnFiltrar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
             this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFiltrar.Location = new System.Drawing.Point(430, 29);
+            this.btnFiltrar.Location = new System.Drawing.Point(744, 35);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(132, 52);
             this.btnFiltrar.TabIndex = 0;
@@ -246,6 +246,15 @@
             this.gpLibros.TabStop = false;
             this.gpLibros.Text = "Autor";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(503, 56);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
+            this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 11, 1, 0, 0, 0, 0);
+            // 
             // cbAutor
             // 
             this.cbAutor.FormattingEnabled = true;
@@ -261,14 +270,14 @@
             "Filosofía",
             "Cuento",
             "Otro"});
-            this.cbAutor.Location = new System.Drawing.Point(689, 55);
+            this.cbAutor.Location = new System.Drawing.Point(755, 55);
             this.cbAutor.Name = "cbAutor";
             this.cbAutor.Size = new System.Drawing.Size(146, 28);
             this.cbAutor.TabIndex = 9;
             // 
             // txtNombreAutor
             // 
-            this.txtNombreAutor.Location = new System.Drawing.Point(172, 55);
+            this.txtNombreAutor.Location = new System.Drawing.Point(238, 55);
             this.txtNombreAutor.Name = "txtNombreAutor";
             this.txtNombreAutor.Size = new System.Drawing.Size(222, 27);
             this.txtNombreAutor.TabIndex = 7;
@@ -276,7 +285,7 @@
             // txtCodigoAutor
             // 
             this.txtCodigoAutor.Enabled = false;
-            this.txtCodigoAutor.Location = new System.Drawing.Point(35, 55);
+            this.txtCodigoAutor.Location = new System.Drawing.Point(101, 55);
             this.txtCodigoAutor.Name = "txtCodigoAutor";
             this.txtCodigoAutor.Size = new System.Drawing.Size(100, 27);
             this.txtCodigoAutor.TabIndex = 5;
@@ -286,7 +295,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label5.Location = new System.Drawing.Point(249, 26);
+            this.label5.Location = new System.Drawing.Point(315, 26);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 4;
@@ -297,7 +306,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Location = new System.Drawing.Point(715, 23);
+            this.label4.Location = new System.Drawing.Point(781, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 3;
@@ -308,7 +317,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label2.Location = new System.Drawing.Point(471, 26);
+            this.label2.Location = new System.Drawing.Point(537, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 20);
             this.label2.TabIndex = 1;
@@ -319,20 +328,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label1.Location = new System.Drawing.Point(51, 26);
+            this.label1.Location = new System.Drawing.Point(117, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(437, 56);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker1.TabIndex = 10;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 11, 1, 0, 0, 0, 0);
             // 
             // frmAutor
             // 

@@ -3,8 +3,9 @@
     "",
     "\\DAE",
     "\\DAE\\DAE",
-    "\\DAE\\DAE\\Clases"
+    "\\DAE\\DAE\\Clases",
+    "\\DAE\\DAE\\Interfaz"
   ],
-  "SelectedNode": "\\DAE\\DAE\\Clases\\ClsUsuario.cs",
+  "SelectedNode": "\\DAE\\DAE\\Interfaz\\Autor.cs",
   "PreviewInSolutionExplorer": false
 }
