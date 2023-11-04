@@ -10,7 +10,6 @@ namespace DAE.Clases
     {
         public static int idUser { get; set; }
         public static string userName { get; set; }
-
         public static string rolUser { get; set; }
     }
 }

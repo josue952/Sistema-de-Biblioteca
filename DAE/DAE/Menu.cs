@@ -43,10 +43,19 @@ namespace DAE
             {
 
             }
-            else if (UserLoginCache.rolUser == "Docente")
+            else if (UserLoginCache.rolUser == "Bibliotecario")
             {
             }
-            else//cuando el usuario es estudiante
+            else if (UserLoginCache.rolUser == "Estudiante")
+            {
+            }
+            else if (UserLoginCache.rolUser == "Proveedor")
+            {
+            }
+            else if (UserLoginCache.rolUser == "Normal")
+            {
+            }
+            else //cuando el usuario no esta registrado
             {
             }
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
@@ -59,18 +68,15 @@ namespace DAE
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmUsuarios());
-            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
         }
 
         private void btnAutor_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmAutor());
-            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
         {
-            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
 
         }
         private void btnPrestamo_Click(object sender, EventArgs e)
@@ -78,7 +84,6 @@ namespace DAE
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
 
         }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             string mensaje = "Seguro que desea cerrar sesion?";
@@ -87,7 +92,7 @@ namespace DAE
             DialogResult result = MessageBox.Show(mensaje, "Cerrando Sesion", botones, icon);
             if (result == DialogResult.Yes)
             {
-                //cerrar el formulario menu y mostrar el login
+                // Cerrar el formulario menu y mostrar el formulario login
                 this.Close();
             }
 
@@ -96,6 +101,12 @@ namespace DAE
         private void btnLibros_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmLibros());
+        }
+
+        private void btnCompras_Click_1(object sender, EventArgs e)
+        {
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+
         }
     }
 }

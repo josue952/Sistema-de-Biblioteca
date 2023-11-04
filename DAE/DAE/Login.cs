@@ -60,5 +60,26 @@ namespace DAE
             this.Show();
             txtUser.Focus();    
         }
+
+        private void btnUserNotRegistred_Click(object sender, EventArgs e)
+        {
+            // Crear un nuevo usuario temporal
+            ClsUsuario us = new ClsUsuario();
+            UserLoginCache.userName = "Sin Usuario";
+            UserLoginCache.rolUser = "Temporal";
+
+            // Mostrar el formulario del menú
+            FrmMenu menu = new FrmMenu();
+            menu.Show();
+
+            // Ocultar el formulario de login
+            this.Hide();
+            menu.FormClosed += LogOut;
+        }
+
+        private void btnRegistrarUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
