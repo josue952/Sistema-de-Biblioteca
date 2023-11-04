@@ -40,24 +40,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CrudUsers = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TablaUsers = new System.Windows.Forms.GroupBox();
             this.dtTablaUsuarios = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BuscarDatos = new System.Windows.Forms.GroupBox();
             this.txtBuscarUsuarios = new System.Windows.Forms.TextBox();
             this.cmbPorUsuarios = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnRegresarLogin = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.CrudUsers.SuspendLayout();
+            this.TablaUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTablaUsuarios)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.BuscarDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,9 +88,10 @@
             this.cmbCargoUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCargoUsuario.FormattingEnabled = true;
             this.cmbCargoUsuario.Items.AddRange(new object[] {
-            "Usuario",
             "Administrador",
-            "Bibliotecario"});
+            "Bibliotecario",
+            "Proveedor",
+            "Normal"});
             this.cmbCargoUsuario.Location = new System.Drawing.Point(325, 77);
             this.cmbCargoUsuario.Name = "cmbCargoUsuario";
             this.cmbCargoUsuario.Size = new System.Drawing.Size(157, 27);
@@ -201,19 +203,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // groupBox2
+            // CrudUsers
             // 
-            this.groupBox2.Controls.Add(this.btnEliminar);
-            this.groupBox2.Controls.Add(this.btnEditar);
-            this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(1063, 29);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(645, 118);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Acciones";
+            this.CrudUsers.Controls.Add(this.btnEliminar);
+            this.CrudUsers.Controls.Add(this.btnEditar);
+            this.CrudUsers.Controls.Add(this.btnAgregar);
+            this.CrudUsers.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CrudUsers.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.CrudUsers.Location = new System.Drawing.Point(1063, 29);
+            this.CrudUsers.Name = "CrudUsers";
+            this.CrudUsers.Size = new System.Drawing.Size(645, 118);
+            this.CrudUsers.TabIndex = 1;
+            this.CrudUsers.TabStop = false;
+            this.CrudUsers.Text = "Acciones";
             // 
             // btnEliminar
             // 
@@ -263,18 +265,18 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregarUs_Click);
             // 
-            // groupBox3
+            // TablaUsers
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.groupBox3.Controls.Add(this.dtTablaUsuarios);
-            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox3.Location = new System.Drawing.Point(228, 169);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1285, 571);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tabla Usuarios";
+            this.TablaUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.TablaUsers.Controls.Add(this.dtTablaUsuarios);
+            this.TablaUsers.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TablaUsers.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.TablaUsers.Location = new System.Drawing.Point(228, 169);
+            this.TablaUsers.Name = "TablaUsers";
+            this.TablaUsers.Size = new System.Drawing.Size(1285, 571);
+            this.TablaUsers.TabIndex = 2;
+            this.TablaUsers.TabStop = false;
+            this.TablaUsers.Text = "Tabla Usuarios";
             // 
             // dtTablaUsuarios
             // 
@@ -290,22 +292,22 @@
             this.dtTablaUsuarios.TabIndex = 0;
             this.dtTablaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTablaUsuarios_CellClick);
             // 
-            // groupBox4
+            // BuscarDatos
             // 
-            this.groupBox4.Controls.Add(this.txtBuscarUsuarios);
-            this.groupBox4.Controls.Add(this.cmbPorUsuarios);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.btnActualizar);
-            this.groupBox4.Controls.Add(this.btnFiltrar);
-            this.groupBox4.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox4.Location = new System.Drawing.Point(228, 746);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1285, 114);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Buscador";
+            this.BuscarDatos.Controls.Add(this.txtBuscarUsuarios);
+            this.BuscarDatos.Controls.Add(this.cmbPorUsuarios);
+            this.BuscarDatos.Controls.Add(this.label7);
+            this.BuscarDatos.Controls.Add(this.label6);
+            this.BuscarDatos.Controls.Add(this.btnActualizar);
+            this.BuscarDatos.Controls.Add(this.btnFiltrar);
+            this.BuscarDatos.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarDatos.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BuscarDatos.Location = new System.Drawing.Point(228, 746);
+            this.BuscarDatos.Name = "BuscarDatos";
+            this.BuscarDatos.Size = new System.Drawing.Size(1285, 114);
+            this.BuscarDatos.TabIndex = 3;
+            this.BuscarDatos.TabStop = false;
+            this.BuscarDatos.Text = "Buscador";
             // 
             // txtBuscarUsuarios
             // 
@@ -381,15 +383,32 @@
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnBuscarUs_Click);
             // 
+            // btnRegresarLogin
+            // 
+            this.btnRegresarLogin.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnRegresarLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresarLogin.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnRegresarLogin.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnRegresarLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegresarLogin.Location = new System.Drawing.Point(36, 178);
+            this.btnRegresarLogin.Name = "btnRegresarLogin";
+            this.btnRegresarLogin.Size = new System.Drawing.Size(158, 62);
+            this.btnRegresarLogin.TabIndex = 3;
+            this.btnRegresarLogin.Text = "Regresar";
+            this.btnRegresarLogin.UseVisualStyleBackColor = false;
+            this.btnRegresarLogin.Visible = false;
+            this.btnRegresarLogin.Click += new System.EventHandler(this.btnRegresarLogin_Click);
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1720, 888);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnRegresarLogin);
+            this.Controls.Add(this.BuscarDatos);
+            this.Controls.Add(this.TablaUsers);
+            this.Controls.Add(this.CrudUsers);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(608, 621);
             this.Name = "frmUsuarios";
@@ -397,40 +416,40 @@
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.CrudUsers.ResumeLayout(false);
+            this.TablaUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtTablaUsuarios)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.BuscarDatos.ResumeLayout(false);
+            this.BuscarDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.ComboBox cmbCargoUsuario;
+        public System.Windows.Forms.Button btnEliminar;
+        public System.Windows.Forms.Button btnEditar;
+        public System.Windows.Forms.Button btnAgregar;
+        public System.Windows.Forms.ComboBox cmbCargoUsuario;
         private System.Windows.Forms.ComboBox cmbDepartamentoUsuario;
         private System.Windows.Forms.TextBox txtNombreUsuario;
-        private System.Windows.Forms.TextBox txtContraseñaUsuario;
+        public System.Windows.Forms.TextBox txtContraseñaUsuario;
         private System.Windows.Forms.TextBox txtCodigoUsuario;
         private System.Windows.Forms.DataGridView dtTablaUsuarios;
-        private System.Windows.Forms.Button btnFiltrar;
+        public System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.TextBox txtBuscarUsuarios;
         private System.Windows.Forms.ComboBox cmbPorUsuarios;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnActualizar;
+        public System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.GroupBox CrudUsers;
+        public System.Windows.Forms.GroupBox TablaUsers;
+        public System.Windows.Forms.GroupBox BuscarDatos;
+        public System.Windows.Forms.Button btnRegresarLogin;
     }
 }

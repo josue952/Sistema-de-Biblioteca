@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAE.Clases;
+using DAE.Interfaz;
 
 namespace DAE
 {
@@ -79,7 +80,19 @@ namespace DAE
 
         private void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
+            frmUsuarios frm = new frmUsuarios();
+            frm.btnEditar.Enabled = false;
+            frm.btnEliminar.Enabled = false;
+            frm.TablaUsers.Visible = false;
+            frm.BuscarDatos.Visible = false;
+            frm.cmbCargoUsuario.Enabled = false;
+            frm.cmbCargoUsuario.Text = "Normal";
+            frm.btnRegresarLogin.Visible = true;
+            frm.txtContraseñaUsuario.PasswordChar = '\0';
+            frm.CrudUsers.Location = new Point(207, 179);
+            frm.Size = new Size(1075, 50);
 
+            frm.Show();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAE.Interfaz;
 
 namespace DAE.Interfaz
 {
@@ -19,6 +20,7 @@ namespace DAE.Interfaz
         }
 
         ClsUsuario obj = new ClsUsuario();
+
         private void cargar()//carga los datos de la tabla usuarios
         {
             dtTablaUsuarios.DataSource = obj.getDatos();
@@ -131,7 +133,6 @@ namespace DAE.Interfaz
         {
             cargar();
             dtTablaUsuarios.Columns[2].Visible = false;//oculta el campo contraseña
-
         }
 
         private void dtTablaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -143,6 +144,19 @@ namespace DAE.Interfaz
                 this.cmbCargoUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[3].Value.ToString();
                 this.cmbDepartamentoUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[4].Value.ToString();
             
+        }
+
+        private void btnRegresarLogin_Click(object sender, EventArgs e)
+        {
+            string mensaje = "Seguro que desea regresar al login?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+            DialogResult result = MessageBox.Show(mensaje, "Regresando", buttons, icon);
+            if (result == DialogResult.Yes)
+            {
+                // Cerrar el formulario menu y mostrar el formulario login
+                this.Close();
+            }   
         }
     }
 }

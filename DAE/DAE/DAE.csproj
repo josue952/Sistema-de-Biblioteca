@@ -51,6 +51,11 @@
     <Compile Include="Clases\UserLoginCache.cs" />
     <Compile Include="DAO\ConnectionDataBase.cs" />
     <Compile Include="DAO\UsuarioDao.cs" />
+    <Compile Include="Interfaz\Usuarios1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuarios.resx</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +147,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Usuarios1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

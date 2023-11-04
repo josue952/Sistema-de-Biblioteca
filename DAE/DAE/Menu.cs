@@ -67,7 +67,7 @@ namespace DAE
         }
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new frmUsuarios());
+            AbrirFormulario(new frmUsuarios()); 
         }
 
         private void btnAutor_Click(object sender, EventArgs e)
