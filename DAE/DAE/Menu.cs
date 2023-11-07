@@ -103,10 +103,9 @@ namespace DAE
             AbrirFormulario(new frmLibros());
         }
 
-        private void btnCompras_Click_1(object sender, EventArgs e)
+        private void brnCompras_Click(object sender, EventArgs e)
         {
-            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
-
+            AbrirFormulario(new frmCompras());
         }
     }
 }

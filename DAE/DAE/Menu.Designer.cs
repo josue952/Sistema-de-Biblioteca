@@ -30,9 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
+            this.brnCompras = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnAutor = new System.Windows.Forms.Button();
             this.btnEditorial = new System.Windows.Forms.Button();
@@ -46,9 +49,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelSubMenuAdmin.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,6 +73,27 @@
             this.panel1.Size = new System.Drawing.Size(186, 1055);
             this.panel1.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(0, 561);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.button3.Size = new System.Drawing.Size(186, 57);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Reportes";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // btnCompras
             // 
             this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
@@ -94,7 +115,6 @@
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnCompras.UseVisualStyleBackColor = false;
-            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click_1);
             // 
             // btnPrestamo
             // 
@@ -121,7 +141,7 @@
             // panelSubMenuAdmin
             // 
             this.panelSubMenuAdmin.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panelSubMenuAdmin.Controls.Add(this.button2);
+            this.panelSubMenuAdmin.Controls.Add(this.brnCompras);
             this.panelSubMenuAdmin.Controls.Add(this.button1);
             this.panelSubMenuAdmin.Controls.Add(this.btnVentas);
             this.panelSubMenuAdmin.Controls.Add(this.btnAutor);
@@ -133,6 +153,48 @@
             this.panelSubMenuAdmin.Name = "panelSubMenuAdmin";
             this.panelSubMenuAdmin.Size = new System.Drawing.Size(186, 287);
             this.panelSubMenuAdmin.TabIndex = 1;
+            // 
+            // brnCompras
+            // 
+            this.brnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.brnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.brnCompras.FlatAppearance.BorderSize = 0;
+            this.brnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.brnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.brnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brnCompras.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.brnCompras.Location = new System.Drawing.Point(33, 204);
+            this.brnCompras.Name = "brnCompras";
+            this.brnCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.brnCompras.Size = new System.Drawing.Size(153, 41);
+            this.brnCompras.TabIndex = 20;
+            this.brnCompras.Text = "Compras";
+            this.brnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.brnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.brnCompras.UseVisualStyleBackColor = false;
+            this.brnCompras.Click += new System.EventHandler(this.brnCompras_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(33, 82);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.button1.Size = new System.Drawing.Size(153, 41);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Categoria";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnVentas
             // 
@@ -346,68 +408,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Teal;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(33, 82);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button1.Size = new System.Drawing.Size(153, 41);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Categoria";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(33, 204);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button2.Size = new System.Drawing.Size(153, 41);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Compras";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(0, 561);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button3.Size = new System.Drawing.Size(186, 57);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Reportes";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,7 +453,7 @@
         private System.Windows.Forms.Button btnPrestamo;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button brnCompras;
         private System.Windows.Forms.Button button3;
     }
 }
