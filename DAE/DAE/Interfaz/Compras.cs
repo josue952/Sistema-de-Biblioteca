@@ -156,18 +156,13 @@ namespace DAE.Interfaz
             this.txtPrecioLibro.Text = dtTablaCompras.SelectedRows[0].Cells[5].Value.ToString();
         }
 
-        public string consulta = "SELECT * FROM Compras";
-
-
-        public void btnVerCompUnit_Click(object sender, EventArgs e)
+        private void btnVerCompUnit_Click(object sender, EventArgs e)
         {
-            consulta = "SELECT * FROM Compras";
             cargar();
         }
 
-        public void btnVerCompAgrp_Click(object sender, EventArgs e)
+        private void btnVerCompAgrp_Click(object sender, EventArgs e)
         {
-            consulta = "SELECT * FROM ComprasAgrupadas";
             cargar();
         }
     }

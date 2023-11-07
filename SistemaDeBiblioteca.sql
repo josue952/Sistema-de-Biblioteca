@@ -99,8 +99,7 @@ INSERT INTO Compras VALUES ('978-1-234567-89-0', 1, 1, '01-01-2021', @TotalCompr
 INSERT INTO Compras VALUES ('978-1-234567-89-1', 1, 1, '01-01-2021', @TotalCompra);
 INSERT INTO Compras VALUES ('978-1-234567-89-2', 1, 1, '01-01-2021', @TotalCompra);
 -- Consulta para calcular el total de una compra
-DECLARE @TotalCompra DECIMAL(5, 2)
-SET @TotalCompra = (SELECT SUM(PrecioLibro) FROM Libros WHERE ISBN = '978-1-234567-89-2');
+DECLARE @TotalCompra DECIMAL(5, 2) SET @TotalCompra = (SELECT SUM(PrecioLibro) FROM Libros WHERE ISBN = '978-1-234567-89-2');
 --consulta para actualizar el total de una compra
 UPDATE Compras SET Total = @TotalCompra WHERE Libros = '978-1-234567-89-2'
 

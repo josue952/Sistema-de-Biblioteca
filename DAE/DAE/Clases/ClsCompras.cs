@@ -43,6 +43,7 @@ namespace DAE.Clases
         public decimal TotalCompra { get => totalCompra; set => totalCompra = value; }
 
         ComprasDao com = new ComprasDao();
+
         public DataTable getDatos(string tabla = null)
         {
             return com.consultar();
