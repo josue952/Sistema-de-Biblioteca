@@ -21,9 +21,9 @@ namespace DAE.Interfaz
         }
         ClsCompras obj = new ClsCompras();
 
-        private void cargar()//carga los datos de la tabla usuarios
+        private void cargar(string consulta = null)//carga los datos de la tabla usuarios
         {
-            dtTablaCompras.DataSource = obj.getDatos();
+            dtTablaCompras.DataSource = obj.getDatos(consulta);
         }
         private void listarUsuarios()
         {
@@ -148,27 +148,36 @@ namespace DAE.Interfaz
 
         private void dtTablaCompras_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.txtCodigoCompras.Text = dtTablaCompras.SelectedRows[0].Cells[0].Value.ToString();
-            this.cmbLibros.Text = dtTablaCompras.SelectedRows[0].Cells[1].Value.ToString();
-            this.cmbEditorial.Text = dtTablaCompras.SelectedRows[0].Cells[2].Value.ToString();
-            this.cmbUsuario.Text = dtTablaCompras.SelectedRows[0].Cells[3].Value.ToString();
-            this.dateCompra.Text = dtTablaCompras.SelectedRows[0].Cells[4].Value.ToString();
-            this.txtPrecioLibro.Text = dtTablaCompras.SelectedRows[0].Cells[5].Value.ToString();
+            if (ComprasAgrpClick == true)
+            {
+                this.txtCodigoCompras.Text = dtTablaCompras.SelectedRows[0].Cells[0].Value.ToString();
+                this.cmbUsuario.Text = dtTablaCompras.SelectedRows[0].Cells[1].Value.ToString();
+                this.dateCompra.Text = dtTablaCompras.SelectedRows[0].Cells[2].Value.ToString();
+                this.txtPrecioLibro.Text = dtTablaCompras.SelectedRows[0].Cells[3].Value.ToString();
+                cmbLibros.Text = "";
+                cmbLibros.Enabled = false;
+                cmbEditorial.Text = ""; 
+                cmbEditorial.Enabled = false;
+            }
+            else
+            {
+                this.txtCodigoCompras.Text = dtTablaCompras.SelectedRows[0].Cells[0].Value.ToString();
+                this.cmbLibros.Text = dtTablaCompras.SelectedRows[0].Cells[1].Value.ToString();
+                this.cmbEditorial.Text = dtTablaCompras.SelectedRows[0].Cells[2].Value.ToString();
+                this.cmbUsuario.Text = dtTablaCompras.SelectedRows[0].Cells[3].Value.ToString();
+                this.dateCompra.Text = dtTablaCompras.SelectedRows[0].Cells[4].Value.ToString();
+                this.txtPrecioLibro.Text = dtTablaCompras.SelectedRows[0].Cells[5].Value.ToString();
+            }
         }
-
-        public string consulta = "SELECT * FROM Compras";
-
-
         public void btnVerCompUnit_Click(object sender, EventArgs e)
         {
-            consulta = "SELECT * FROM Compras";
             cargar();
         }
-
+        private bool ComprasAgrpClick = false;
         public void btnVerCompAgrp_Click(object sender, EventArgs e)
         {
-            consulta = "SELECT * FROM ComprasAgrupadas";
-            cargar();
+            cargar("SELECT * FROM ComprasAgrupadas");
+            ComprasAgrpClick = true;
         }
     }
 }

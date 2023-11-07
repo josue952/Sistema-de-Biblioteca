@@ -13,17 +13,17 @@ namespace DAE.DAO
 {
     internal class ComprasDao: ConnectionDataBase
     {
-        
-        public DataTable consultar()
+
+        public DataTable consultar(string sql)
         {
             DataTable datos = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
-            //
-            //muestra todos los usuarios
+            //muestra todas las compras
             SqlConnection con = GetConnection();//extaer conexion
-            frmCompras frm = new frmCompras();
-            string sql = "";
-            sql = frm.consulta;
+            if (sql == null)
+            {
+                sql = "SELECT * FROM Compras";
+            }   
             try
             {
                 con.Open();//abrir la conexion
@@ -68,10 +68,12 @@ namespace DAE.DAO
 
         public bool insertar(object objDatos)
         {
-            ClsUsuario us = new ClsUsuario();
-            us = (ClsUsuario)objDatos;
+            ClsCompras com = new ClsCompras();
+            com = (ClsCompras)objDatos;
             //Inserta datos en la tabla usuarios
-            string sql = "INSERT INTO Usuarios VALUES('" + us.Usuario + "','" + us.Contra + "','" + us.Rol + "','" + us.Departamento + "')";
+            string sql = "DECLARE @TotalCompra DECIMAL(5, 2) SET @TotalCompra = (SELECT SUM(PrecioLibro) FROM Libros WHERE ISBN = '"+com.Libros+"')" +
+                "UPDATE Compras SET Total = @TotalCompra WHERE Libros = '"+com.Libros+"'" +
+                "INSERT INTO Compras VALUES ('"+com.Libros+"', "+com.Editorial+", "+com.Usuario+", '"+com.FechaCompra+"', @TotalCompra)";
             if (ejecutar(sql))
             {
                 return true;

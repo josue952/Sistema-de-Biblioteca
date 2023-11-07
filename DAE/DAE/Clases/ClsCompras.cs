@@ -1,4 +1,5 @@
 ﻿using DAE.DAO;
+using DAE.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,9 +44,10 @@ namespace DAE.Clases
         public decimal TotalCompra { get => totalCompra; set => totalCompra = value; }
 
         ComprasDao com = new ComprasDao();
+
         public DataTable getDatos(string tabla = null)
         {
-            return com.consultar();
+            return com.consultar(tabla);
         }
 
         public bool insertarDatos(object datos)
@@ -69,4 +71,6 @@ namespace DAE.Clases
         }
 
     }
+
+    
 }
