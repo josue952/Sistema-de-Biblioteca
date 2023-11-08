@@ -32,6 +32,20 @@ namespace DAE.Interfaz
             cmbUsuario.DataSource = obj.getDatos("listaUsuarios");
         }
 
+        private void listarLibros()
+        {
+            cmbLibros.DisplayMember = "NombreLibro";
+            cmbLibros.ValueMember = "ISBN";
+            cmbLibros.DataSource = obj.getDatos("listaLibros");
+        }
+
+        private void listarEditorial()
+        {
+            cmbEditorial.DisplayMember = "NombreEditorial";
+            cmbEditorial.ValueMember = "CodigoEditorial";
+            cmbEditorial.DataSource = obj.getDatos("listaEditorial");
+        }
+
         private void limpiarCampos()
         {
             txtCodigoCompras.Text = "";
@@ -41,11 +55,15 @@ namespace DAE.Interfaz
             dateCompra.Text = "";
             txtPrecioLibro.Text = "";
             listarUsuarios();
+            listarLibros();
+            listarEditorial();
         }
 
         private void frmCompras_Load(object sender, EventArgs e)
         {
             listarUsuarios();
+            listarLibros();
+            listarEditorial();
         }
 
         private void btnAgregarCom_Click(object sender, EventArgs e)

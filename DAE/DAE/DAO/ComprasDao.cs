@@ -23,7 +23,18 @@ namespace DAE.DAO
             if (sql == null)
             {
                 sql = "SELECT * FROM Compras";
+            }else if (sql == "listaUsuarios")
+            {
+                sql = "SELECT CodigoUser, UserName FROM Usuarios"; 
+            }else if (sql == "listaLibros")
+            {
+                sql = "SELECT ISBN, NombreLibro FROM Libros";
             }   
+            else
+            {
+                sql = "SELECT CodigoEditorial, NombreEditorial FROM Editorial";
+            }
+            
             try
             {
                 con.Open();//abrir la conexion
@@ -71,9 +82,7 @@ namespace DAE.DAO
             ClsCompras com = new ClsCompras();
             com = (ClsCompras)objDatos;
             //Inserta datos en la tabla usuarios
-            string sql = "DECLARE @TotalCompra DECIMAL(5, 2) SET @TotalCompra = (SELECT SUM(PrecioLibro) FROM Libros WHERE ISBN = '"+com.Libros+"')" +
-                "UPDATE Compras SET Total = @TotalCompra WHERE Libros = '"+com.Libros+"'" +
-                "INSERT INTO Compras VALUES ('"+com.Libros+"', "+com.Editorial+", "+com.Usuario+", '"+com.FechaCompra+"', @TotalCompra)";
+            string sql = "EXCEC InsertarCompra "+com.Libros+", "+com.Editorial+", "+com.Usuario+", "+com.FechaCompra+"";
             if (ejecutar(sql))
             {
                 return true;
