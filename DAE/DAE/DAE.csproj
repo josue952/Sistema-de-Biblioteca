@@ -49,6 +49,7 @@
     <Compile Include="Clases\ClsCompras.cs" />
     <Compile Include="Clases\ClsLibro.cs" />
     <Compile Include="Clases\ClsUsuario.cs" />
+    <Compile Include="Clases\LibroDB.cs" />
     <Compile Include="Clases\UserLoginCache.cs" />
     <Compile Include="DAO\ComprasDao.cs" />
     <Compile Include="DAO\ConnectionDataBase.cs" />

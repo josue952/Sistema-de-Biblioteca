@@ -42,12 +42,12 @@
             this.btnEditarCom = new System.Windows.Forms.Button();
             this.btnAgregarCom = new System.Windows.Forms.Button();
             this.gpCompras = new System.Windows.Forms.GroupBox();
+            this.txtFechaCom = new System.Windows.Forms.TextBox();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cmbEditorial = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbLibros = new System.Windows.Forms.ComboBox();
-            this.dateCompra = new System.Windows.Forms.DateTimePicker();
             this.txtPrecioLibro = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCodigoCompras = new System.Windows.Forms.TextBox();
@@ -226,12 +226,12 @@
             // gpCompras
             // 
             this.gpCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.gpCompras.Controls.Add(this.txtFechaCom);
             this.gpCompras.Controls.Add(this.cmbUsuario);
             this.gpCompras.Controls.Add(this.label11);
             this.gpCompras.Controls.Add(this.cmbEditorial);
             this.gpCompras.Controls.Add(this.label2);
             this.gpCompras.Controls.Add(this.cmbLibros);
-            this.gpCompras.Controls.Add(this.dateCompra);
             this.gpCompras.Controls.Add(this.txtPrecioLibro);
             this.gpCompras.Controls.Add(this.label8);
             this.gpCompras.Controls.Add(this.txtCodigoCompras);
@@ -247,12 +247,21 @@
             this.gpCompras.TabStop = false;
             this.gpCompras.Text = "Compras";
             // 
+            // txtFechaCom
+            // 
+            this.txtFechaCom.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaCom.Location = new System.Drawing.Point(277, 71);
+            this.txtFechaCom.Name = "txtFechaCom";
+            this.txtFechaCom.Size = new System.Drawing.Size(219, 27);
+            this.txtFechaCom.TabIndex = 20;
+            // 
             // cmbUsuario
             // 
+            this.cmbUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(785, 24);
+            this.cmbUsuario.Location = new System.Drawing.Point(856, 27);
             this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(121, 28);
+            this.cmbUsuario.Size = new System.Drawing.Size(121, 27);
             this.cmbUsuario.TabIndex = 19;
             // 
             // label11
@@ -260,7 +269,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Impact", 12F);
             this.label11.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label11.Location = new System.Drawing.Point(720, 28);
+            this.label11.Location = new System.Drawing.Point(791, 31);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 20);
             this.label11.TabIndex = 18;
@@ -268,18 +277,20 @@
             // 
             // cmbEditorial
             // 
+            this.cmbEditorial.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEditorial.FormattingEnabled = true;
-            this.cmbEditorial.Location = new System.Drawing.Point(575, 26);
+            this.cmbEditorial.Location = new System.Drawing.Point(584, 26);
             this.cmbEditorial.Name = "cmbEditorial";
-            this.cmbEditorial.Size = new System.Drawing.Size(121, 28);
+            this.cmbEditorial.Size = new System.Drawing.Size(169, 27);
             this.cmbEditorial.TabIndex = 17;
+            this.cmbEditorial.SelectedIndexChanged += new System.EventHandler(this.cmbEditorial_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Impact", 12F);
             this.label2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label2.Location = new System.Drawing.Point(502, 28);
+            this.label2.Location = new System.Drawing.Point(511, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 16;
@@ -287,23 +298,18 @@
             // 
             // cmbLibros
             // 
+            this.cmbLibros.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLibros.FormattingEnabled = true;
-            this.cmbLibros.Location = new System.Drawing.Point(359, 26);
+            this.cmbLibros.Location = new System.Drawing.Point(262, 28);
             this.cmbLibros.Name = "cmbLibros";
-            this.cmbLibros.Size = new System.Drawing.Size(121, 28);
+            this.cmbLibros.Size = new System.Drawing.Size(234, 27);
             this.cmbLibros.TabIndex = 15;
-            // 
-            // dateCompra
-            // 
-            this.dateCompra.ImeMode = System.Windows.Forms.ImeMode.Katakana;
-            this.dateCompra.Location = new System.Drawing.Point(306, 72);
-            this.dateCompra.Name = "dateCompra";
-            this.dateCompra.Size = new System.Drawing.Size(263, 27);
-            this.dateCompra.TabIndex = 14;
+            this.cmbLibros.SelectedIndexChanged += new System.EventHandler(this.cmbLibros_SelectedIndexChanged);
             // 
             // txtPrecioLibro
             // 
             this.txtPrecioLibro.Enabled = false;
+            this.txtPrecioLibro.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioLibro.Location = new System.Drawing.Point(698, 71);
             this.txtPrecioLibro.Name = "txtPrecioLibro";
             this.txtPrecioLibro.Size = new System.Drawing.Size(110, 27);
@@ -323,7 +329,8 @@
             // txtCodigoCompras
             // 
             this.txtCodigoCompras.Enabled = false;
-            this.txtCodigoCompras.Location = new System.Drawing.Point(162, 27);
+            this.txtCodigoCompras.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoCompras.Location = new System.Drawing.Point(89, 27);
             this.txtCodigoCompras.Name = "txtCodigoCompras";
             this.txtCodigoCompras.Size = new System.Drawing.Size(100, 27);
             this.txtCodigoCompras.TabIndex = 5;
@@ -344,7 +351,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Impact", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label3.Location = new System.Drawing.Point(302, 27);
+            this.label3.Location = new System.Drawing.Point(205, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 2;
@@ -355,7 +362,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 12F);
             this.label1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label1.Location = new System.Drawing.Point(91, 31);
+            this.label1.Location = new System.Drawing.Point(18, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 0;
@@ -457,7 +464,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateCompra;
         public System.Windows.Forms.Button btnVerCompUnit;
         public System.Windows.Forms.Button btnVerCompAgrp;
         private System.Windows.Forms.Label label9;
@@ -468,5 +474,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbLibros;
         private System.Windows.Forms.DataGridView dtTablaCompras;
+        private System.Windows.Forms.TextBox txtFechaCom;
     }
 }

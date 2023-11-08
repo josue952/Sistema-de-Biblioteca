@@ -15,7 +15,7 @@ namespace DAE.Clases
         {
         }
 
-        public ClsCompras(int codigoCompra, string libros, string editorial, string usuario, DateTime fechaCompra, decimal precioLibro, decimal totalCompra)
+        public ClsCompras(int codigoCompra, string libros, string editorial, string usuario, string fechaCompra, decimal precioLibro, decimal totalCompra)
         {
             this.codigoCompra = codigoCompra;
             this.libros = libros;
@@ -30,7 +30,7 @@ namespace DAE.Clases
         private string libros;
         private string editorial;
         private string usuario;
-        private DateTime fechaCompra;
+        private string fechaCompra;
         private decimal precioLibro;
         private decimal totalCompra;
 
@@ -39,11 +39,12 @@ namespace DAE.Clases
         public string Libros { get => libros; set => libros = value; }
         public string Editorial { get => editorial; set => editorial = value; }
         public string Usuario { get => usuario; set => usuario = value; }
-        public DateTime FechaCompra { get => fechaCompra; set => fechaCompra = value; }
+        public string FechaCompra { get => fechaCompra; set => fechaCompra = value; }
         public decimal PrecioLibro { get => precioLibro; set => precioLibro = value; }
         public decimal TotalCompra { get => totalCompra; set => totalCompra = value; }
 
         ComprasDao com = new ComprasDao();
+
 
         public DataTable getDatos(string tabla = null)
         {

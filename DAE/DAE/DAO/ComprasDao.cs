@@ -20,21 +20,27 @@ namespace DAE.DAO
             SqlDataAdapter adapter = new SqlDataAdapter();
             //muestra todas las compras
             SqlConnection con = GetConnection();//extaer conexion
-            if (sql == null)
+            if (sql == "ComprasUnitarias")
             {
-                sql = "SELECT * FROM Compras";
-            }else if (sql == "listaUsuarios")
+                sql = "EXEC ConsultarCompras";
+            }
+            else if (sql == "listaUsuarios")
             {
-                sql = "SELECT CodigoUser, UserName FROM Usuarios"; 
-            }else if (sql == "listaLibros")
+                sql = "SELECT CodigoUser, UserName FROM Usuarios";
+            }
+            else if (sql == "listaLibros")
             {
                 sql = "SELECT ISBN, NombreLibro FROM Libros";
-            }   
+            }
+            else if (sql == "ComprasAgrupadas")
+            {
+                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas C\r\nINNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;";
+            }
             else
             {
                 sql = "SELECT CodigoEditorial, NombreEditorial FROM Editorial";
             }
-            
+
             try
             {
                 con.Open();//abrir la conexion

@@ -52,7 +52,7 @@ namespace DAE.Interfaz
             cmbLibros.Text = "";
             cmbEditorial.Text = "";
             cmbUsuario.Text = "";
-            dateCompra.Text = "";
+            txtFechaCom.Text = "";
             txtPrecioLibro.Text = "";
             listarUsuarios();
             listarLibros();
@@ -64,8 +64,11 @@ namespace DAE.Interfaz
             listarUsuarios();
             listarLibros();
             listarEditorial();
-        }
 
+            // Agrega controladores de eventos para los cuadros combinados cmbLibros y cmbEditorial
+            cmbLibros.SelectedIndexChanged += cmbLibros_SelectedIndexChanged;
+            cmbEditorial.SelectedIndexChanged += cmbEditorial_SelectedIndexChanged;
+        }
         private void btnAgregarCom_Click(object sender, EventArgs e)
         {
             try
@@ -73,7 +76,7 @@ namespace DAE.Interfaz
                 obj.Libros = cmbLibros.Text;
                 obj.Editorial = cmbEditorial.Text;
                 obj.Usuario = cmbUsuario.Text;
-                obj.FechaCompra = dateCompra.Value;
+                obj.FechaCompra = txtFechaCom.Text;
                 obj.PrecioLibro = Convert.ToDecimal(txtPrecioLibro.Text);
                 obj.insertarDatos(obj);
                 limpiarCampos();
@@ -95,7 +98,7 @@ namespace DAE.Interfaz
                     obj.Libros = cmbLibros.Text;
                     obj.Editorial = cmbEditorial.Text;
                     obj.Usuario = cmbUsuario.Text;
-                    obj.FechaCompra = dateCompra.Value;
+                    obj.FechaCompra = txtFechaCom.Text;
                     obj.PrecioLibro = Convert.ToDecimal(txtPrecioLibro.Text);
                     obj.modificarDatos(obj);
                     limpiarCampos();
@@ -170,7 +173,7 @@ namespace DAE.Interfaz
             {
                 this.txtCodigoCompras.Text = dtTablaCompras.SelectedRows[0].Cells[0].Value.ToString();
                 this.cmbUsuario.Text = dtTablaCompras.SelectedRows[0].Cells[1].Value.ToString();
-                this.dateCompra.Text = dtTablaCompras.SelectedRows[0].Cells[2].Value.ToString();
+                this.txtFechaCom.Text = dtTablaCompras.SelectedRows[0].Cells[2].Value.ToString();
                 this.txtPrecioLibro.Text = dtTablaCompras.SelectedRows[0].Cells[3].Value.ToString();
                 cmbLibros.Text = "";
                 cmbLibros.Enabled = false;
@@ -183,19 +186,30 @@ namespace DAE.Interfaz
                 this.cmbLibros.Text = dtTablaCompras.SelectedRows[0].Cells[1].Value.ToString();
                 this.cmbEditorial.Text = dtTablaCompras.SelectedRows[0].Cells[2].Value.ToString();
                 this.cmbUsuario.Text = dtTablaCompras.SelectedRows[0].Cells[3].Value.ToString();
-                this.dateCompra.Text = dtTablaCompras.SelectedRows[0].Cells[4].Value.ToString();
+                this.txtFechaCom.Text = dtTablaCompras.SelectedRows[0].Cells[4].Value.ToString();
                 this.txtPrecioLibro.Text = dtTablaCompras.SelectedRows[0].Cells[5].Value.ToString();
+                cmbLibros.Enabled = true;
+                cmbEditorial.Enabled = true;
             }
         }
         public void btnVerCompUnit_Click(object sender, EventArgs e)
         {
-            cargar();
+            ComprasAgrpClick = false;
+            cargar("ComprasUnitarias");
         }
         private bool ComprasAgrpClick = false;
         public void btnVerCompAgrp_Click(object sender, EventArgs e)
         {
-            cargar("SELECT * FROM ComprasAgrupadas");
             ComprasAgrpClick = true;
+            cargar("ComprasAgrupadas");
+        }
+
+        private void cmbLibros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void cmbEditorial_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

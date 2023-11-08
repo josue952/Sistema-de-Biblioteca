@@ -27,5 +27,5 @@ namespace DAE.DAO
         {
             return connectionString;
         }
-     }
+    }
 }
