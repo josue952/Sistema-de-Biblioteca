@@ -106,23 +106,87 @@ INSERT INTO Compras VALUES ('978-1-234567-89-1', 1, 1, '01-01-2021', @TotalCompr
 INSERT INTO Compras VALUES ('978-1-234567-89-2', 1, 1, '01-01-2021', @TotalCompra);
 
 --
-CREATE PROCEDURE InsertarCompra--este procedimiento almacenado sirve para insertar una compra
-	@Libros VARCHAR(20),
-	@Editorial INT,
-	@Usuario INT,
-	@FechaCompra DATE
+CREATE PROCEDURE InsertarCompra
+    @NombreLibro VARCHAR(50),
+    @NombreEditorial VARCHAR(50),
+    @NombreUsuario VARCHAR(50),
+    @FechaCompra DATE
 AS
 BEGIN
-    DECLARE @Total DECIMAL(5,2);
+    DECLARE @ISBN VARCHAR(20);
+    DECLARE @CodigoEditorial INT;
+    DECLARE @CodigoUsuario INT;
+    DECLARE @PrecioLibro DECIMAL(5,2);
+	
+    -- Obtener el ISBN y precio del libro basado en el nombre del libro
+    SELECT @ISBN = ISBN, @PrecioLibro = PrecioLibro FROM Libros WHERE NombreLibro = @NombreLibro;
 
-    -- Calcular el total en función del precio del libro comprado
-    SET @Total = (SELECT PrecioLibro FROM Libros WHERE ISBN = @Libros);
+    -- Obtener el CodigoEditorial basado en el nombre de la editorial
+    SELECT @CodigoEditorial = CodigoEditorial FROM Editorial WHERE NombreEditorial = @NombreEditorial;
+
+    -- Obtener el CodigoUser basado en el nombre del usuario
+    SELECT @CodigoUsuario = CodigoUser FROM Usuarios WHERE UserName = @NombreUsuario;
 
     -- Insertar la compra en la tabla Compras
     INSERT INTO Compras (Libros, Editorial, Usuario, FechaCompra, Total)
-    VALUES (@Libros, @Editorial, @Usuario, @FechaCompra, @Total);
+    VALUES (@ISBN, @CodigoEditorial, @CodigoUsuario, @FechaCompra, @PrecioLibro);
 END
 -- fin del procedimiento almacenado
+EXEC InsertarCompra 'Cien años de soledad', 'Editorial Santillana', 'josue72', '01-01-2021' --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+
+--procedimiento almacenado para actualizar los datos de la tabla compra segun el id del usuario
+CREATE PROCEDURE ActualizarCompra
+	@CodigoCompra INT,
+	@NombreLibro VARCHAR(50),
+	@NombreEditorial VARCHAR(50),
+	@NombreUsuario VARCHAR(50),
+	@FechaCompra DATE
+AS
+BEGIN
+	DECLARE @ISBN VARCHAR(20);
+	DECLARE @CodigoEditorial INT;
+	DECLARE @CodigoUsuario INT;
+	DECLARE @PrecioLibro DECIMAL(5,2);
+	
+	-- Obtener el ISBN y precio del libro basado en el nombre del libro
+	SELECT @ISBN = ISBN, @PrecioLibro = PrecioLibro FROM Libros WHERE NombreLibro = @NombreLibro;
+
+	-- Obtener el CodigoEditorial basado en el nombre de la editorial
+	SELECT @CodigoEditorial = CodigoEditorial FROM Editorial WHERE NombreEditorial = @NombreEditorial;
+
+	-- Obtener el CodigoUser basado en el nombre del usuario
+	SELECT @CodigoUsuario = CodigoUser FROM Usuarios WHERE UserName = @NombreUsuario;
+
+	-- Actualizar la compra en la tabla Compras
+	UPDATE Compras
+	SET Libros = @ISBN, Editorial = @CodigoEditorial, Usuario = @CodigoUsuario, FechaCompra = @FechaCompra, Total = @PrecioLibro
+	WHERE CodigoCompra = @CodigoCompra;
+END
+--fin del procedimiento almacenado
+EXEC ActualizarCompra 1, 'Cien años de soledad', 'Editorial Santillana', 'josue72', '01-01-2021' --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+
+--procedimiento almacenado para eliminar una compra segun el id de esta
+CREATE PROCEDURE EliminarCompra
+    @CodigoCompra INT
+AS
+BEGIN
+    -- Obtener información de la compra que se va a eliminar
+    DECLARE @Usuario INT, @FechaCompra DATE, @Total DECIMAL(5, 2);
+
+    SELECT @Usuario = Usuario, @FechaCompra = FechaCompra, @Total = Total
+    FROM Compras
+    WHERE CodigoCompra = @CodigoCompra;
+
+    -- Eliminar la compra unitaria
+    DELETE FROM Compras
+    WHERE CodigoCompra = @CodigoCompra;
+
+    -- Eliminar el registro correspondiente en la tabla ComprasAgrupadas
+    DELETE FROM ComprasAgrupadas
+    WHERE Usuario = @Usuario AND FechaCompra = @FechaCompra;
+END
+--fin del procedimiento almacenado
+EXEC EliminarCompra 1 --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
 
 CREATE PROCEDURE ConsultarCompras --este procedimiento almacenado sirve para consultar todas las compras
 AS
@@ -133,8 +197,6 @@ BEGIN
 	INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
 END
 EXEC ConsultarCompras --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
---consulta para actualizar el total de una compra
-UPDATE Compras SET Total = @TotalCompra WHERE Libros = '978-1-234567-89-2'
 
 CREATE TABLE ComprasAgrupadas ( --se crea la tabla compras agrupadas donde se alojaran todas las compras agrupadas por usuario y fecha de compra
     IdCompraAgrupada INT IDENTITY NOT NULL PRIMARY KEY,
@@ -142,6 +204,40 @@ CREATE TABLE ComprasAgrupadas ( --se crea la tabla compras agrupadas donde se al
     FechaCompra DATE,
     TotalCompra DECIMAL(5, 2)
 );
+--procedimiento almacenado para actualizar las compras agrupadas al momento de insertar una compra
+CREATE PROCEDURE ActualizarComprasAgrupadasAuto
+AS
+BEGIN
+	-- Actualizar las compras agrupadas automáticamente
+	-- Agrupar por Usuario y FechaCompra y calcular el TotalCompra
+	UPDATE ComprasAgrupadas
+	SET TotalCompra = (
+		SELECT SUM(Total)
+		FROM Compras
+		WHERE Compras.Usuario = ComprasAgrupadas.Usuario
+		AND Compras.FechaCompra = ComprasAgrupadas.FechaCompra
+	)
+	WHERE EXISTS (
+		SELECT 1
+		FROM Compras
+		WHERE Compras.Usuario = ComprasAgrupadas.Usuario
+		AND Compras.FechaCompra = ComprasAgrupadas.FechaCompra
+	);
+	
+	-- Insertar nuevas compras agrupadas automáticamente
+	INSERT INTO ComprasAgrupadas (Usuario, FechaCompra, TotalCompra)
+	SELECT Usuario, FechaCompra, SUM(Total)
+	FROM Compras
+	GROUP BY Usuario, FechaCompra
+	HAVING SUM(Total) > 0
+	AND NOT EXISTS (
+		SELECT 1
+		FROM ComprasAgrupadas
+		WHERE Compras.Usuario = ComprasAgrupadas.Usuario
+		AND Compras.FechaCompra = ComprasAgrupadas.FechaCompra
+	);
+END
+-- fin del procedimiento almacenado
 --consulta personalizada para mostrar el nombre del usuario en vez del codigo de este
 SELECT IdCompraAgrupada, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas C
 INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;

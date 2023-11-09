@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCompras));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtBuscarCompras = new System.Windows.Forms.TextBox();
             this.cmbPorCompras = new System.Windows.Forms.ComboBox();
@@ -84,66 +85,73 @@
             // 
             // txtBuscarCompras
             // 
-            this.txtBuscarCompras.Location = new System.Drawing.Point(102, 32);
+            this.txtBuscarCompras.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarCompras.Location = new System.Drawing.Point(156, 49);
             this.txtBuscarCompras.Name = "txtBuscarCompras";
-            this.txtBuscarCompras.Size = new System.Drawing.Size(100, 27);
+            this.txtBuscarCompras.Size = new System.Drawing.Size(177, 27);
             this.txtBuscarCompras.TabIndex = 6;
             // 
             // cmbPorCompras
             // 
+            this.cmbPorCompras.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPorCompras.FormattingEnabled = true;
-            this.cmbPorCompras.Items.AddRange(new object[] {
-            "Libros",
-            "Editorial",
-            "Usuario",
-            "FechaCompra"});
-            this.cmbPorCompras.Location = new System.Drawing.Point(350, 31);
+            this.cmbPorCompras.Location = new System.Drawing.Point(462, 48);
             this.cmbPorCompras.Name = "cmbPorCompras";
-            this.cmbPorCompras.Size = new System.Drawing.Size(121, 28);
+            this.cmbPorCompras.Size = new System.Drawing.Size(202, 27);
             this.cmbPorCompras.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(296, 38);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(388, 48);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 17);
+            this.label7.Size = new System.Drawing.Size(54, 29);
             this.label7.TabIndex = 4;
             this.label7.Text = "Por";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Impact", 10F);
-            this.label6.Location = new System.Drawing.Point(39, 38);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(39, 48);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 18);
+            this.label6.Size = new System.Drawing.Size(93, 29);
             this.label6.TabIndex = 3;
             this.label6.Text = "Buscar";
             // 
             // btnUpdateTableCom
             // 
-            this.btnUpdateTableCom.Font = new System.Drawing.Font("Impact", 10F);
-            this.btnUpdateTableCom.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnUpdateTableCom.Location = new System.Drawing.Point(830, 38);
+            this.btnUpdateTableCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnUpdateTableCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateTableCom.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTableCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateTableCom.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTableCom.Image")));
+            this.btnUpdateTableCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateTableCom.Location = new System.Drawing.Point(1111, 34);
             this.btnUpdateTableCom.Name = "btnUpdateTableCom";
-            this.btnUpdateTableCom.Size = new System.Drawing.Size(96, 32);
+            this.btnUpdateTableCom.Size = new System.Drawing.Size(132, 52);
             this.btnUpdateTableCom.TabIndex = 1;
             this.btnUpdateTableCom.Text = "Actualizar";
-            this.btnUpdateTableCom.UseVisualStyleBackColor = true;
+            this.btnUpdateTableCom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateTableCom.UseVisualStyleBackColor = false;
             this.btnUpdateTableCom.Click += new System.EventHandler(this.btnUpdateTableCom_Click);
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Font = new System.Drawing.Font("Impact", 10F);
-            this.btnFiltrar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnFiltrar.Location = new System.Drawing.Point(611, 32);
+            this.btnFiltrar.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnFiltrar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
+            this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFiltrar.Location = new System.Drawing.Point(797, 34);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(96, 32);
+            this.btnFiltrar.Size = new System.Drawing.Size(132, 52);
             this.btnFiltrar.TabIndex = 0;
             this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // groupBox3
@@ -189,38 +197,53 @@
             // 
             // btnEliminarCom
             // 
-            this.btnEliminarCom.Font = new System.Drawing.Font("Impact", 10F);
-            this.btnEliminarCom.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnEliminarCom.Location = new System.Drawing.Point(386, 31);
+            this.btnEliminarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEliminarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCom.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnEliminarCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCom.Image")));
+            this.btnEliminarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarCom.Location = new System.Drawing.Point(476, 42);
             this.btnEliminarCom.Name = "btnEliminarCom";
-            this.btnEliminarCom.Size = new System.Drawing.Size(96, 32);
+            this.btnEliminarCom.Size = new System.Drawing.Size(132, 52);
             this.btnEliminarCom.TabIndex = 2;
             this.btnEliminarCom.Text = "Eilminar";
-            this.btnEliminarCom.UseVisualStyleBackColor = true;
+            this.btnEliminarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarCom.UseVisualStyleBackColor = false;
             this.btnEliminarCom.Click += new System.EventHandler(this.btnEliminarCom_Click);
             // 
             // btnEditarCom
             // 
-            this.btnEditarCom.Font = new System.Drawing.Font("Impact", 10F);
-            this.btnEditarCom.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnEditarCom.Location = new System.Drawing.Point(212, 31);
+            this.btnEditarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEditarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCom.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnEditarCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEditarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCom.Image")));
+            this.btnEditarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarCom.Location = new System.Drawing.Point(268, 42);
             this.btnEditarCom.Name = "btnEditarCom";
-            this.btnEditarCom.Size = new System.Drawing.Size(96, 32);
+            this.btnEditarCom.Size = new System.Drawing.Size(132, 52);
             this.btnEditarCom.TabIndex = 1;
             this.btnEditarCom.Text = "Editar";
-            this.btnEditarCom.UseVisualStyleBackColor = true;
+            this.btnEditarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarCom.UseVisualStyleBackColor = false;
             this.btnEditarCom.Click += new System.EventHandler(this.btnEditarCom_Click);
             // 
             // btnAgregarCom
             // 
-            this.btnAgregarCom.Font = new System.Drawing.Font("Impact", 10F);
-            this.btnAgregarCom.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnAgregarCom.Location = new System.Drawing.Point(52, 31);
+            this.btnAgregarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnAgregarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCom.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnAgregarCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCom.Image")));
+            this.btnAgregarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCom.Location = new System.Drawing.Point(44, 42);
             this.btnAgregarCom.Name = "btnAgregarCom";
-            this.btnAgregarCom.Size = new System.Drawing.Size(96, 32);
+            this.btnAgregarCom.Size = new System.Drawing.Size(132, 52);
             this.btnAgregarCom.TabIndex = 0;
             this.btnAgregarCom.Text = "Agregar";
-            this.btnAgregarCom.UseVisualStyleBackColor = true;
+            this.btnAgregarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarCom.UseVisualStyleBackColor = false;
             this.btnAgregarCom.Click += new System.EventHandler(this.btnAgregarCom_Click);
             // 
             // gpCompras
@@ -370,24 +393,30 @@
             // 
             // btnVerCompUnit
             // 
-            this.btnVerCompUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerCompUnit.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnVerCompUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerCompUnit.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerCompUnit.ForeColor = System.Drawing.SystemColors.Window;
             this.btnVerCompUnit.Location = new System.Drawing.Point(40, 288);
             this.btnVerCompUnit.Name = "btnVerCompUnit";
             this.btnVerCompUnit.Size = new System.Drawing.Size(154, 76);
             this.btnVerCompUnit.TabIndex = 16;
             this.btnVerCompUnit.Text = "Compras Unitarias";
-            this.btnVerCompUnit.UseVisualStyleBackColor = true;
+            this.btnVerCompUnit.UseVisualStyleBackColor = false;
             this.btnVerCompUnit.Click += new System.EventHandler(this.btnVerCompUnit_Click);
             // 
             // btnVerCompAgrp
             // 
-            this.btnVerCompAgrp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerCompAgrp.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnVerCompAgrp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerCompAgrp.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerCompAgrp.ForeColor = System.Drawing.SystemColors.Window;
             this.btnVerCompAgrp.Location = new System.Drawing.Point(40, 491);
             this.btnVerCompAgrp.Name = "btnVerCompAgrp";
             this.btnVerCompAgrp.Size = new System.Drawing.Size(154, 76);
             this.btnVerCompAgrp.TabIndex = 17;
             this.btnVerCompAgrp.Text = "Compras Agrupadas";
-            this.btnVerCompAgrp.UseVisualStyleBackColor = true;
+            this.btnVerCompAgrp.UseVisualStyleBackColor = false;
             this.btnVerCompAgrp.Click += new System.EventHandler(this.btnVerCompAgrp_Click);
             // 
             // label9

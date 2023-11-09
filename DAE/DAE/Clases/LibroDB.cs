@@ -10,7 +10,7 @@ namespace DAE.Clases
     internal class LibroDB
     {
         private string connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
-        private decimal precioLibro;
+        public decimal precioLibro;
 
         public LibroDB(decimal precioLibro)
         {

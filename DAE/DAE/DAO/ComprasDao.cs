@@ -34,18 +34,25 @@ namespace DAE.DAO
             }
             else if (sql == "ComprasAgrupadas")
             {
-                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas C\r\nINNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;";
+                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas C INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;";
+            }
+            else if (sql == "listaEditorial") 
+            {
+                sql = "SELECT CodigoEditorial, NombreEditorial FROM Editorial";
             }
             else
             {
-                sql = "SELECT CodigoEditorial, NombreEditorial FROM Editorial";
+                sql = "EXEC ActualizarComprasAgrupadasAuto";//cuando no se le da ningun parametro a Consultar tomara este valor por defecto
             }
 
             try
             {
-                con.Open();//abrir la conexion
-                string connectionString = getConnectionString();//extaer caneda de conexion
-                adapter = new SqlDataAdapter(sql, connectionString);//ejecutar consulta
+                con.Open(); // Abrir la conexión
+                SqlCommand cmd = new SqlCommand(sql, con); // Configurar el comando SQL
+
+                string connectionString = getConnectionString(); // Extraer cadena de conexión
+                adapter = new SqlDataAdapter(cmd); // Ejecutar consulta usando el comando
+
                 adapter.Fill(datos);
             }
             catch (SqlException error)
@@ -88,7 +95,8 @@ namespace DAE.DAO
             ClsCompras com = new ClsCompras();
             com = (ClsCompras)objDatos;
             //Inserta datos en la tabla usuarios
-            string sql = "EXCEC InsertarCompra "+com.Libros+", "+com.Editorial+", "+com.Usuario+", "+com.FechaCompra+"";
+            string sql = "EXEC InsertarCompra '"+com.Libros+"', '"+com.Editorial+"', '"+com.Usuario+"', '"+com.FechaCompra+"'" +
+                "EXEC ActualizarComprasAgrupadasAuto";
             if (ejecutar(sql))
             {
                 return true;
@@ -98,10 +106,10 @@ namespace DAE.DAO
 
         public bool modificar(object objDatos)
         {
-            ClsUsuario us = new ClsUsuario();
-            us = (ClsUsuario)objDatos;
-            //modifica el usuario segun su id(codigo)
-            string sql = "UPDATE Usuarios SET Username = '" + us.Usuario + "', UserPassword = '" + us.Contra + "', UserRol = '" + us.Rol + "', UserDepartamento = '" + us.Departamento + "' WHERE CodigoUser = " + us.UserId;
+            ClsCompras com = new ClsCompras();
+            com = (ClsCompras)objDatos;
+            //modifica la compra segun su id(codigo)
+            string sql = "EXEC ActualizarCompra "+com.CodigoCompra+", '"+com.Libros+"', '"+com.Editorial+"', '"+com.Usuario+"', '"+com.FechaCompra+"'";
             if (ejecutar(sql))
             {
                 return true;
@@ -109,9 +117,9 @@ namespace DAE.DAO
             else { return false; }
         }
 
-        public bool eliminar(string codUsuario)
+        public bool eliminar(string codCompra)
         {
-            string sql = "DELETE FROM Usuarios WHERE CodigoUser =" + codUsuario;
+            string sql = "EXEC EliminarCompra "+codCompra+"";
             if (ejecutar(sql))
             {
                 return true;
@@ -125,15 +133,68 @@ namespace DAE.DAO
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlConnection con = GetConnection();//extaer conexion
             string sql = "";
+            frmCompras frm = new frmCompras();
             //codigo para buscar por id
-            if (campo == "UserId")
+            if (campo == "Libros")
             {
-                sql = "SELECT * FROM Usuarios WHERE CodigoUser =" + valorCampo;
-
+                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
+                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE L.NombreLibro LIKE '%" + valorCampo + "%'";
             }
-            else
+            else if (campo == "Editorial")
             {
-                sql = "SELECT * FROM Usuarios WHERE " + campo + " LIKE '%" + valorCampo + "%'";
+                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
+                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE E.NombreEditorial LIKE '%" + valorCampo + "%'";
+            }
+            else if (campo == "Usuario")
+            {
+                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
+                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE U.UserName LIKE '%" + valorCampo + "%'";
+            }
+            else if (campo == "FechaCompra")
+            {
+                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
+                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE CONVERT(VARCHAR(10), FechaCompra, 103) LIKE '%" + valorCampo + "%'";
+            }
+            else if (campo == "CodigoCompra")
+            {
+               sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
+                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE CodigoCompra = "+ valorCampo + "";
+            }
+            else if (campo == "CodigoCompraAgrupada")
+            {
+                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra " +
+                      "FROM ComprasAgrupadas C " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE IdCompraAgrupada = " + valorCampo;
+            }
+            else if (campo == "UsuarioAgrp")
+            {
+                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra " +
+                      "FROM ComprasAgrupadas C " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE U.UserName LIKE '%" + valorCampo + "%'";
+            }
+            else if (campo == "FechaCompraAgrp")
+            {
+                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra " +
+                      "FROM ComprasAgrupadas C " +
+                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                      "WHERE CONVERT(VARCHAR(10), FechaCompra, 103) LIKE '%" + valorCampo + "%'";
             }
 
             try

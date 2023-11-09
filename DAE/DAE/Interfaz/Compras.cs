@@ -54,6 +54,8 @@ namespace DAE.Interfaz
             cmbUsuario.Text = "";
             txtFechaCom.Text = "";
             txtPrecioLibro.Text = "";
+            cmbPorCompras.Text = "";
+            txtBuscarCompras.Text = "";
             listarUsuarios();
             listarLibros();
             listarEditorial();
@@ -64,6 +66,7 @@ namespace DAE.Interfaz
             listarUsuarios();
             listarLibros();
             listarEditorial();
+            cargar("EXEC ActualizarComprasAgrupadasAuto"); 
 
             // Agrega controladores de eventos para los cuadros combinados cmbLibros y cmbEditorial
             cmbLibros.SelectedIndexChanged += cmbLibros_SelectedIndexChanged;
@@ -80,7 +83,7 @@ namespace DAE.Interfaz
                 obj.PrecioLibro = Convert.ToDecimal(txtPrecioLibro.Text);
                 obj.insertarDatos(obj);
                 limpiarCampos();
-                cargar();
+                cargar("EXCEC ConsultarCompras");
             }
             catch (Exception err)
             {
@@ -102,7 +105,7 @@ namespace DAE.Interfaz
                     obj.PrecioLibro = Convert.ToDecimal(txtPrecioLibro.Text);
                     obj.modificarDatos(obj);
                     limpiarCampos();
-                    cargar();
+                    cargar("EXCEC ConsultarCompras");
                 }
                 catch (Exception err)
                 {
@@ -126,7 +129,7 @@ namespace DAE.Interfaz
                 if (result == DialogResult.Yes)
                 {
                     obj.eliminarDatos(txtCodigoCompras.Text);
-                    cargar();
+                    cargar("EXCEC ConsultarCompras");
                     limpiarCampos();
                 }
             }
@@ -153,8 +156,32 @@ namespace DAE.Interfaz
                 {
                     campo = "Usuario";
                 }
-                else { campo = "FechaCompra"; }//Si no es ninguna opcion anterior buscara por fechaCompra
+                else if (cmbPorCompras.Text == "CodigoCompra")
+                {
+                    campo = "CodigoCompra";
+                }
+                else if (cmbPorCompras.Text == "FechaCompra")
+                {
+                    campo = "FechaCompra";
+                }
+                else if (cmbPorCompras.Text == "CodigoCompraAgrupada")
+                {
+                    campo = "CodigoCompraAgrupada";
+                }
+                else if (cmbPorCompras.Text == "UsuarioAgrp")
+                {
+                    campo = "UsuarioAgrp";
+                }
+                else if (cmbPorCompras.Text == "FechaCompraAgrp")
+                {
+                    campo = "FechaCompraAgrp";
+                }
+                else
+                {
+                    campo = "";
+                }   
                 dtTablaCompras.DataSource = obj.buscarRegistro(campo, txtBuscarCompras.Text);
+                limpiarCampos();
             }
             else
             {
@@ -164,7 +191,14 @@ namespace DAE.Interfaz
 
         private void btnUpdateTableCom_Click(object sender, EventArgs e)
         {
-            cargar();
+            if (ComprasAgrpClick == true)
+            {
+                cargar("ComprasAgrupadas");
+            }
+            else
+            {
+                cargar("ComprasUnitarias");
+            }
         }
 
         private void dtTablaCompras_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -194,22 +228,78 @@ namespace DAE.Interfaz
         }
         public void btnVerCompUnit_Click(object sender, EventArgs e)
         {
+            btnAgregarCom.Enabled = true;
+            btnEditarCom.Enabled = true;
+            btnEliminarCom.Enabled = true;
             ComprasAgrpClick = false;
+            //
+            cmbPorCompras.Items.Clear();
+            cmbPorCompras.Items.Add("CodigoCompra");
+            cmbPorCompras.Items.Add("Libros");
+            cmbPorCompras.Items.Add("Editorial");
+            cmbPorCompras.Items.Add("Usuario");
+            cmbPorCompras.Items.Add("FechaCompra");
             cargar("ComprasUnitarias");
         }
-        private bool ComprasAgrpClick = false;
+        public bool ComprasAgrpClick = false;
         public void btnVerCompAgrp_Click(object sender, EventArgs e)
         {
             ComprasAgrpClick = true;
+            btnAgregarCom.Enabled = false;
+            btnEditarCom.Enabled = false;
+            btnEliminarCom.Enabled = false;
+            //
+            cmbPorCompras.Items.Clear();
+            cmbPorCompras.Items.Add("CodigoCompraAgrupada");
+            cmbPorCompras.Items.Add("UsuarioAgrp");
+            cmbPorCompras.Items.Add("FechaCompraAgrp");
             cargar("ComprasAgrupadas");
         }
-
+        LibroDB libro = new LibroDB(0);
         private void cmbLibros_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Obtiene el libro y la editorial seleccionados
+            string libroSeleccionado = cmbLibros.Text;
+            string editorialSeleccionada = cmbEditorial.Text;
+
+            // Crear una instancia de la clase LibroDB y obtener el precio del libro
+            LibroDB libroDB = new LibroDB(0); // 0 es un valor ficticio para el precio inicial
+            List<LibroDB> libros = libroDB.Get(libroSeleccionado, editorialSeleccionada);
+
+            if (libros.Count > 0)
+            {
+                // Actualiza el precio en el cuadro de texto txtPrecioLibro
+                decimal precioLibro = libros[0].precioLibro; // Suponiendo que solo hay un libro coincidente
+                txtPrecioLibro.Text = precioLibro.ToString();
+            }
+            else
+            {
+                // Limpia el precio en el cuadro de texto txtPrecioLibro si el libro y la editorial no coinciden
+                txtPrecioLibro.Text = "";
+            }
         }
 
         private void cmbEditorial_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Obtiene el libro y la editorial seleccionados
+            string libroSeleccionado = cmbLibros.Text;
+            string editorialSeleccionada = cmbEditorial.Text;
+
+            // Crear una instancia de la clase LibroDB y obtener el precio del libro
+            LibroDB libroDB = new LibroDB(0); // 0 es un valor ficticio para el precio inicial
+            List<LibroDB> libros = libroDB.Get(libroSeleccionado, editorialSeleccionada);
+
+            if (libros.Count > 0)
+            {
+                // Actualiza el precio en el cuadro de texto txtPrecioLibro
+                decimal precioLibro = libros[0].precioLibro; // Suponiendo que solo hay un libro coincidente
+                txtPrecioLibro.Text = precioLibro.ToString();
+            }
+            else
+            {
+                // Limpia el precio en el cuadro de texto txtPrecioLibro si el libro y la editorial no coinciden
+                txtPrecioLibro.Text = "";
+            }
         }
     }
 }
