@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\DAE",
-    "\\DAE\\DAE",
-    "\\DAE\\DAE\\DAO"
+    "\\DAE\\DAE"
   ],
-  "SelectedNode": "\\DAE\\DAE\\DAO\\ComprasDao.cs",
+  "SelectedNode": "\\DAE.sln",
   "PreviewInSolutionExplorer": false
 }

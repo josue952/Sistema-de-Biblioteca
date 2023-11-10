@@ -9,34 +9,35 @@ namespace DAE.Clases
 {
     internal class LibroDB
     {
+        //esta clase es para obtener los nombres de los libros de la base de datos segun la categoria
         private string connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
-        public decimal precioLibro;
+        public string nombreLibro { get; set; }
 
-        public LibroDB(decimal precioLibro)
+        public LibroDB(string nombreLibro)
         {
-            this.precioLibro = precioLibro;
+            this.nombreLibro = nombreLibro;
         }
 
-        public List<LibroDB> Get(string nombreLibro, string nombreEditorial)
+        public List<LibroDB> Get(string nombreCategoria)
         {
             List<LibroDB> libros = new List<LibroDB>();
-            string query = "SELECT L.PrecioLibro FROM Compras C " +
-                "INNER JOIN Libros L ON C.Libros = L.ISBN " +
-                "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
-                "WHERE L.NombreLibro = '"+nombreLibro+"' AND E.NombreEditorial = '"+nombreEditorial+"'";
+            string query = $"SELECT L.NombreLibro FROM Libros L INNER JOIN Categoria C ON L.Categoria = C.CodigoCategoria WHERE C.NombreCategoria = '{nombreCategoria}'";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    decimal precioLibro = reader.GetDecimal(0);
-                    LibroDB libro = new LibroDB(precioLibro);
-                    libros.Add(libro);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LibroDB libro = new LibroDB("");
+                            libro.nombreLibro = reader["NombreLibro"].ToString();
+                            libros.Add(libro);
+                        }
+                    }
                 }
-                reader.Close();
-                connection.Close();
             }
 
             return libros;

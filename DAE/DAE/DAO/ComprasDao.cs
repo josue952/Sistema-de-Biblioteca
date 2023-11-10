@@ -14,37 +14,31 @@ namespace DAE.DAO
     internal class ComprasDao: ConnectionDataBase
     {
 
-        public DataTable consultar(string sql)
+        public DataTable consultar(string tabla)
         {
             DataTable datos = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             //muestra todas las compras
+            string sql = "";
             SqlConnection con = GetConnection();//extaer conexion
-            if (sql == "ComprasUnitarias")
+            if (tabla == "listaCategorias")
             {
-                sql = "EXEC ConsultarCompras";
+                sql = "SELECT CodigoCategoria, NombreCategoria FROM Categoria";
+
             }
-            else if (sql == "listaUsuarios")
+            else if (tabla == "listaUsuarios")
             {
                 sql = "SELECT CodigoUser, UserName FROM Usuarios";
             }
-            else if (sql == "listaLibros")
+            else if (tabla == "listaLibros")
             {
                 sql = "SELECT ISBN, NombreLibro FROM Libros";
             }
-            else if (sql == "ComprasAgrupadas")
-            {
-                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas C INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;";
-            }
-            else if (sql == "listaEditorial") 
-            {
-                sql = "SELECT CodigoEditorial, NombreEditorial FROM Editorial";
-            }
             else
             {
-                sql = "EXEC ActualizarComprasAgrupadasAuto";//cuando no se le da ningun parametro a Consultar tomara este valor por defecto
+                sql = "SELECT CodigoCompra, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser";
             }
-
             try
             {
                 con.Open(); // Abrir la conexión
@@ -95,8 +89,7 @@ namespace DAE.DAO
             ClsCompras com = new ClsCompras();
             com = (ClsCompras)objDatos;
             //Inserta datos en la tabla usuarios
-            string sql = "EXEC InsertarCompra '"+com.Libros+"', '"+com.Editorial+"', '"+com.Usuario+"', '"+com.FechaCompra+"'" +
-                "EXEC ActualizarComprasAgrupadasAuto";
+            string sql = "";
             if (ejecutar(sql))
             {
                 return true;
@@ -109,7 +102,7 @@ namespace DAE.DAO
             ClsCompras com = new ClsCompras();
             com = (ClsCompras)objDatos;
             //modifica la compra segun su id(codigo)
-            string sql = "EXEC ActualizarCompra "+com.CodigoCompra+", '"+com.Libros+"', '"+com.Editorial+"', '"+com.Usuario+"', '"+com.FechaCompra+"'";
+            string sql = "";
             if (ejecutar(sql))
             {
                 return true;
@@ -119,7 +112,7 @@ namespace DAE.DAO
 
         public bool eliminar(string codCompra)
         {
-            string sql = "EXEC EliminarCompra "+codCompra+"";
+            string sql = "";
             if (ejecutar(sql))
             {
                 return true;

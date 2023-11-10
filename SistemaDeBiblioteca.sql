@@ -36,6 +36,8 @@ CREATE TABLE Categoria --se crea la tabla categoria donde se alojaran todas las 
 	DescripcionCategoria VARCHAR(255) NOT NULL,
 )
 INSERT INTO Categoria VALUES ('Realismo Magico', 'Es un genero literario que se caracteriza por la inclusion de elementos magicos o fantasticos en una narracion realista')--se crea la primera categoria para verificar la funcionalidad de esta
+--consulta personalizada para mostrar el nombre de la categoria en vez del codigo de la categoria
+SELECT CodigoCategoria, NombreCategoria FROM Categoria
 
 CREATE TABLE Autores --se crea la tabla autores donde se alojaran todos los autores
 (
@@ -83,27 +85,19 @@ INNER JOIN Categoria C ON L.Categoria = C.CodigoCategoria;
 CREATE TABLE Compras 
 (
 	CodigoCompra INT IDENTITY NOT NULL PRIMARY KEY,
-	Libros VARCHAR(20) NOT NULL,--nombre de la llave foranea
-	CONSTRAINT fk_idLibro_C FOREIGN KEY (Libros) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
-	Editorial INT,--nombre de la llave foranea
-	CONSTRAINT fk_idEditoria_C FOREIGN KEY (Editorial) REFERENCES Editorial(CodigoEditorial) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla editorial y se le agrega la propiedad de actualizar y eliminar en cascada
 	Usuario INT, --nombre de la llave foranea
 	CONSTRAINT fk_idUsuario_C FOREIGN KEY (Usuario) REFERENCES Usuarios(CodigoUser) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla usuarios y se le agrega la propiedad de actualizar y eliminar en cascada
 	FechaCompra DATE NOT NULL,
-	Total DECIMAL(5,2) NOT NULL
+	Total DECIMAL(5,2)
 )
-SELECT CodigoCompra, Libros, Editorial, Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras; --transformar el formato 'AAAA-MM-DD' a 'DD-MM-AAAA'
---consulta personalizada para mostrar el nombre del libro, editorial y usuario en vez del codigo de estos
-SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C
-INNER JOIN Libros L ON C.Libros = L.ISBN
-INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial
+SELECT CodigoCompra, Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras; --transformar el formato 'AAAA-MM-DD' a 'DD-MM-AAAA'
+--consulta personalizada para mostrar el nombre del usuario Y fecha formateada en vez del codigo de estos
+SELECT CodigoCompra, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C
 INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
 
-
+SELECT CodigoCategoria, NombreCategoria FROM Categoria
 --consulta para insetar una compra
-INSERT INTO Compras VALUES ('978-1-234567-89-0', 1, 1, '01-01-2021', @TotalCompra);--se crea la primera compra para verificar la funcionalidad de esta
-INSERT INTO Compras VALUES ('978-1-234567-89-1', 1, 1, '01-01-2021', @TotalCompra);
-INSERT INTO Compras VALUES ('978-1-234567-89-2', 1, 1, '01-01-2021', @TotalCompra);
+INSERT INTO Compras VALUES (1, '01-01-2021', 0)--se crea la primera compra para verificar la funcionalidad de esta
 
 --
 CREATE PROCEDURE InsertarCompra
@@ -198,11 +192,15 @@ BEGIN
 END
 EXEC ConsultarCompras --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
 
-CREATE TABLE ComprasAgrupadas ( --se crea la tabla compras agrupadas donde se alojaran todas las compras agrupadas por usuario y fecha de compra
-    IdCompraAgrupada INT IDENTITY NOT NULL PRIMARY KEY,
-    Usuario INT,
-    FechaCompra DATE,
-    TotalCompra DECIMAL(5, 2)
+CREATE TABLE DetalleCompras ( --se crea la tabla compras agrupadas donde se alojaran todas las compras agrupadas por usuario y fecha de compra
+	CodigoDetalleCompra INT IDENTITY NOT NULL PRIMARY KEY,
+	CodigoCompra INT NOT NULL,--nombre de la llave foranea
+	CONSTRAINT fk_idCompra FOREIGN KEY (CodigoCompra) REFERENCES Compras(CodigoCompra) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla compras y se le agrega la propiedad de actualizar y eliminar en cascada
+	Libro VARCHAR(20) NOT NULL,--nombre de la llave foranea	
+	CONSTRAINT fk_idLibro FOREIGN KEY (Libro) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
+	PrecioLibro DECIMAL(5,2) NOT NULL,
+	Cantidad INT NOT NULL,
+	SubTotal DECIMAL(5,2) NOT NULL
 );
 --procedimiento almacenado para actualizar las compras agrupadas al momento de insertar una compra
 CREATE PROCEDURE ActualizarComprasAgrupadasAuto
