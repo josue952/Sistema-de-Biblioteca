@@ -73,9 +73,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.sistema_de_BibliotecaDataSet = new DAE.Sistema_de_BibliotecaDataSet();
             this.librosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.librosTableAdapter = new DAE.Sistema_de_BibliotecaDataSetTableAdapters.LibrosTableAdapter();
             this.librosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -86,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarDetalleCom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTableDetalleCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistema_de_BibliotecaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -588,22 +585,17 @@
             // 
             // sistema_de_BibliotecaDataSet
             // 
-            this.sistema_de_BibliotecaDataSet.DataSetName = "Sistema_de_BibliotecaDataSet";
-            this.sistema_de_BibliotecaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // librosBindingSource
             // 
             this.librosBindingSource.DataMember = "Libros";
-            this.librosBindingSource.DataSource = this.sistema_de_BibliotecaDataSet;
             // 
             // librosTableAdapter
             // 
-            this.librosTableAdapter.ClearBeforeFill = true;
             // 
             // librosBindingSource1
             // 
             this.librosBindingSource1.DataMember = "Libros";
-            this.librosBindingSource1.DataSource = this.sistema_de_BibliotecaDataSet;
             // 
             // frmCompras
             // 
@@ -631,7 +623,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarDetalleCom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTableDetalleCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistema_de_BibliotecaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -683,9 +674,7 @@
         private System.Windows.Forms.DateTimePicker dateFechaCompra;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label3;
-        private Sistema_de_BibliotecaDataSet sistema_de_BibliotecaDataSet;
         private System.Windows.Forms.BindingSource librosBindingSource;
-        private Sistema_de_BibliotecaDataSetTableAdapters.LibrosTableAdapter librosTableAdapter;
         private System.Windows.Forms.BindingSource librosBindingSource1;
     }
 }

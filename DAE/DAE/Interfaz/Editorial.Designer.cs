@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtBuscarEditorial = new System.Windows.Forms.TextBox();
-            this.cbPorEditorial = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cbOpcion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -42,18 +42,16 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.gpEditorial = new System.Windows.Forms.GroupBox();
-            this.txtCorreoEditorial = new System.Windows.Forms.TextBox();
-            this.txtNombreEditorial = new System.Windows.Forms.TextBox();
-            this.txtNumeroEditorial = new System.Windows.Forms.TextBox();
-            this.txtCodigoEditorial = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCompraEditorial = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDireccionEditorial = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtEditorial)).BeginInit();
@@ -63,38 +61,43 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtBuscarEditorial);
-            this.groupBox4.Controls.Add(this.cbPorEditorial);
+            this.groupBox4.Controls.Add(this.txtBuscar);
+            this.groupBox4.Controls.Add(this.cbOpcion);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.btnActualizar);
             this.groupBox4.Controls.Add(this.btnFiltrar);
             this.groupBox4.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox4.Location = new System.Drawing.Point(38, 452);
+            this.groupBox4.Location = new System.Drawing.Point(109, 451);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(526, 114);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Buscador";
             // 
-            // txtBuscarEditorial
+            // txtBuscar
             // 
-            this.txtBuscarEditorial.Location = new System.Drawing.Point(102, 32);
-            this.txtBuscarEditorial.Name = "txtBuscarEditorial";
-            this.txtBuscarEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtBuscarEditorial.TabIndex = 6;
+            this.txtBuscar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtBuscar.Location = new System.Drawing.Point(102, 32);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(100, 27);
+            this.txtBuscar.TabIndex = 6;
             // 
-            // cbPorEditorial
+            // cbOpcion
             // 
-            this.cbPorEditorial.FormattingEnabled = true;
-            this.cbPorEditorial.Items.AddRange(new object[] {
-            "Nombre Editorial",
-            "Código Editorial"});
-            this.cbPorEditorial.Location = new System.Drawing.Point(350, 31);
-            this.cbPorEditorial.Name = "cbPorEditorial";
-            this.cbPorEditorial.Size = new System.Drawing.Size(121, 28);
-            this.cbPorEditorial.TabIndex = 5;
+            this.cbOpcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOpcion.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.cbOpcion.FormattingEnabled = true;
+            this.cbOpcion.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre",
+            "Correo"});
+            this.cbOpcion.Location = new System.Drawing.Point(350, 31);
+            this.cbOpcion.Name = "cbOpcion";
+            this.cbOpcion.Size = new System.Drawing.Size(121, 27);
+            this.cbOpcion.TabIndex = 5;
             // 
             // label7
             // 
@@ -126,6 +129,7 @@
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnFiltrar
             // 
@@ -137,14 +141,15 @@
             this.btnFiltrar.TabIndex = 0;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
             this.groupBox3.Controls.Add(this.dtEditorial);
-            this.groupBox3.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox3.Location = new System.Drawing.Point(38, 236);
+            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox3.Location = new System.Drawing.Point(109, 234);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(526, 200);
             this.groupBox3.TabIndex = 10;
@@ -153,12 +158,18 @@
             // 
             // dtEditorial
             // 
+            this.dtEditorial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtEditorial.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtEditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtEditorial.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtEditorial.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
             this.dtEditorial.Location = new System.Drawing.Point(6, 19);
+            this.dtEditorial.MultiSelect = false;
             this.dtEditorial.Name = "dtEditorial";
-            this.dtEditorial.Size = new System.Drawing.Size(514, 175);
+            this.dtEditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtEditorial.Size = new System.Drawing.Size(499, 175);
             this.dtEditorial.TabIndex = 0;
+            this.dtEditorial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtEditorial_CellClick);
             // 
             // groupBox2
             // 
@@ -167,7 +178,7 @@
             this.groupBox2.Controls.Add(this.btnAgregar);
             this.groupBox2.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(38, 140);
+            this.groupBox2.Location = new System.Drawing.Point(109, 139);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(526, 89);
             this.groupBox2.TabIndex = 9;
@@ -184,6 +195,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eilminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -195,6 +207,7 @@
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 
@@ -206,58 +219,86 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // gpEditorial
             // 
             this.gpEditorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.gpEditorial.Controls.Add(this.txtDireccionEditorial);
+            this.gpEditorial.Controls.Add(this.txtDireccion);
             this.gpEditorial.Controls.Add(this.label8);
-            this.gpEditorial.Controls.Add(this.txtCompraEditorial);
-            this.gpEditorial.Controls.Add(this.txtCorreoEditorial);
-            this.gpEditorial.Controls.Add(this.txtNombreEditorial);
-            this.gpEditorial.Controls.Add(this.txtNumeroEditorial);
-            this.gpEditorial.Controls.Add(this.txtCodigoEditorial);
+            this.gpEditorial.Controls.Add(this.txtCorreo);
+            this.gpEditorial.Controls.Add(this.txtNombre);
+            this.gpEditorial.Controls.Add(this.txtTelefono);
+            this.gpEditorial.Controls.Add(this.txtCodigo);
             this.gpEditorial.Controls.Add(this.label5);
-            this.gpEditorial.Controls.Add(this.label4);
             this.gpEditorial.Controls.Add(this.label3);
             this.gpEditorial.Controls.Add(this.label2);
             this.gpEditorial.Controls.Add(this.label1);
             this.gpEditorial.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpEditorial.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.gpEditorial.Location = new System.Drawing.Point(29, 16);
+            this.gpEditorial.Location = new System.Drawing.Point(100, 15);
             this.gpEditorial.Name = "gpEditorial";
             this.gpEditorial.Size = new System.Drawing.Size(535, 118);
             this.gpEditorial.TabIndex = 8;
             this.gpEditorial.TabStop = false;
             this.gpEditorial.Text = "Editorial";
             // 
-            // txtCorreoEditorial
+            // txtDireccion
             // 
-            this.txtCorreoEditorial.Location = new System.Drawing.Point(264, 75);
-            this.txtCorreoEditorial.Name = "txtCorreoEditorial";
-            this.txtCorreoEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtCorreoEditorial.TabIndex = 10;
+            this.txtDireccion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtDireccion.Location = new System.Drawing.Point(432, 31);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(100, 27);
+            this.txtDireccion.TabIndex = 13;
             // 
-            // txtNombreEditorial
+            // label8
             // 
-            this.txtNombreEditorial.Location = new System.Drawing.Point(264, 29);
-            this.txtNombreEditorial.Name = "txtNombreEditorial";
-            this.txtNombreEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtNombreEditorial.TabIndex = 7;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label8.Location = new System.Drawing.Point(370, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 17);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Dirección";
             // 
-            // txtNumeroEditorial
+            // txtCorreo
             // 
-            this.txtNumeroEditorial.Location = new System.Drawing.Point(86, 78);
-            this.txtNumeroEditorial.Name = "txtNumeroEditorial";
-            this.txtNumeroEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtNumeroEditorial.TabIndex = 6;
+            this.txtCorreo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtCorreo.Location = new System.Drawing.Point(264, 75);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(100, 27);
+            this.txtCorreo.TabIndex = 10;
             // 
-            // txtCodigoEditorial
+            // txtNombre
             // 
-            this.txtCodigoEditorial.Location = new System.Drawing.Point(86, 27);
-            this.txtCodigoEditorial.Name = "txtCodigoEditorial";
-            this.txtCodigoEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtCodigoEditorial.TabIndex = 5;
+            this.txtNombre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtNombre.Location = new System.Drawing.Point(264, 29);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 27);
+            this.txtNombre.TabIndex = 7;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtTelefono.Location = new System.Drawing.Point(86, 78);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 27);
+            this.txtTelefono.TabIndex = 6;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtCodigo.Location = new System.Drawing.Point(86, 27);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
+            this.txtCodigo.Size = new System.Drawing.Size(100, 27);
+            this.txtCodigo.TabIndex = 5;
             // 
             // label5
             // 
@@ -269,17 +310,6 @@
             this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Nombre";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Location = new System.Drawing.Point(372, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Compra";
             // 
             // label3
             // 
@@ -314,43 +344,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // txtCompraEditorial
-            // 
-            this.txtCompraEditorial.Location = new System.Drawing.Point(429, 30);
-            this.txtCompraEditorial.Name = "txtCompraEditorial";
-            this.txtCompraEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtCompraEditorial.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label8.Location = new System.Drawing.Point(365, 81);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 17);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Dirección";
-            // 
-            // txtDireccionEditorial
-            // 
-            this.txtDireccionEditorial.Location = new System.Drawing.Point(429, 72);
-            this.txtDireccionEditorial.Name = "txtDireccionEditorial";
-            this.txtDireccionEditorial.Size = new System.Drawing.Size(100, 27);
-            this.txtDireccionEditorial.TabIndex = 13;
-            // 
             // frmEditorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(592, 582);
+            this.ClientSize = new System.Drawing.Size(792, 582);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gpEditorial);
             this.Name = "frmEditorial";
             this.Text = "Editorial";
+            this.Load += new System.EventHandler(this.frmEditorial_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -365,8 +371,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtBuscarEditorial;
-        private System.Windows.Forms.ComboBox cbPorEditorial;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cbOpcion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnActualizar;
@@ -378,17 +384,15 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox gpEditorial;
-        private System.Windows.Forms.TextBox txtCorreoEditorial;
-        private System.Windows.Forms.TextBox txtNombreEditorial;
-        private System.Windows.Forms.TextBox txtNumeroEditorial;
-        private System.Windows.Forms.TextBox txtCodigoEditorial;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDireccionEditorial;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCompraEditorial;
     }
 }

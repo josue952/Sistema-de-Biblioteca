@@ -107,5 +107,16 @@ namespace DAE
         {
             AbrirFormulario(new frmCompras());
         }
+
+        private void btnEditorial_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmEditorial());
+        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmCategoria());
+        }
+
     }
 }

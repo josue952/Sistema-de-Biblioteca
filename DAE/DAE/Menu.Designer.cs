@@ -35,7 +35,7 @@
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
             this.brnCompras = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCategoria = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnAutor = new System.Windows.Forms.Button();
             this.btnEditorial = new System.Windows.Forms.Button();
@@ -70,12 +70,12 @@
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 1055);
+            this.panel1.Size = new System.Drawing.Size(186, 782);
             this.panel1.TabIndex = 0;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.FlatAppearance.BorderSize = 0;
@@ -118,7 +118,7 @@
             // 
             // btnPrestamo
             // 
-            this.btnPrestamo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.btnPrestamo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
             this.btnPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrestamo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPrestamo.FlatAppearance.BorderSize = 0;
@@ -142,7 +142,7 @@
             // 
             this.panelSubMenuAdmin.BackColor = System.Drawing.SystemColors.GrayText;
             this.panelSubMenuAdmin.Controls.Add(this.brnCompras);
-            this.panelSubMenuAdmin.Controls.Add(this.button1);
+            this.panelSubMenuAdmin.Controls.Add(this.btnCategoria);
             this.panelSubMenuAdmin.Controls.Add(this.btnVentas);
             this.panelSubMenuAdmin.Controls.Add(this.btnAutor);
             this.panelSubMenuAdmin.Controls.Add(this.btnEditorial);
@@ -156,7 +156,7 @@
             // 
             // brnCompras
             // 
-            this.brnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.brnCompras.BackColor = System.Drawing.Color.Teal;
             this.brnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.brnCompras.FlatAppearance.BorderSize = 0;
             this.brnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -175,26 +175,27 @@
             this.brnCompras.UseVisualStyleBackColor = false;
             this.brnCompras.Click += new System.EventHandler(this.brnCompras_Click);
             // 
-            // button1
+            // btnCategoria
             // 
-            this.button1.BackColor = System.Drawing.Color.Teal;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(33, 82);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button1.Size = new System.Drawing.Size(153, 41);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Categoria";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCategoria.BackColor = System.Drawing.Color.Teal;
+            this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategoria.FlatAppearance.BorderSize = 0;
+            this.btnCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategoria.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategoria.Location = new System.Drawing.Point(33, 82);
+            this.btnCategoria.Name = "btnCategoria";
+            this.btnCategoria.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnCategoria.Size = new System.Drawing.Size(153, 41);
+            this.btnCategoria.TabIndex = 19;
+            this.btnCategoria.Text = "Categoria";
+            this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnCategoria.UseVisualStyleBackColor = false;
+            this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
             // 
             // btnVentas
             // 
@@ -219,7 +220,7 @@
             // 
             // btnAutor
             // 
-            this.btnAutor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.btnAutor.BackColor = System.Drawing.Color.Teal;
             this.btnAutor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAutor.FlatAppearance.BorderSize = 0;
             this.btnAutor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -240,7 +241,7 @@
             // 
             // btnEditorial
             // 
-            this.btnEditorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.btnEditorial.BackColor = System.Drawing.Color.Teal;
             this.btnEditorial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditorial.FlatAppearance.BorderSize = 0;
             this.btnEditorial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
@@ -257,6 +258,7 @@
             this.btnEditorial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditorial.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnEditorial.UseVisualStyleBackColor = false;
+            this.btnEditorial.Click += new System.EventHandler(this.btnEditorial_Click);
             // 
             // btnLibros
             // 
@@ -335,7 +337,7 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 992);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 719);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(10);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -382,9 +384,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(189, 995);
+            this.panel3.Location = new System.Drawing.Point(189, 722);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1732, 63);
+            this.panel3.Size = new System.Drawing.Size(1194, 63);
             this.panel3.TabIndex = 1;
             // 
             // panelFormularioHijo
@@ -394,17 +396,16 @@
             this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormularioHijo.Location = new System.Drawing.Point(189, 3);
             this.panelFormularioHijo.Name = "panelFormularioHijo";
-            this.panelFormularioHijo.Size = new System.Drawing.Size(1732, 992);
+            this.panelFormularioHijo.Size = new System.Drawing.Size(1194, 719);
             this.panelFormularioHijo.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(185, 160);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1732, 992);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(646, 304);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -412,7 +413,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.panelFormularioHijo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -439,7 +442,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panelFormularioHijo;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Label lblUser;
@@ -452,9 +454,10 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnPrestamo;
         private System.Windows.Forms.Button btnCompras;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Button brnCompras;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
