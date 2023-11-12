@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Clases\ClsAutor.cs" />
     <Compile Include="Clases\ClsCategoria.cs" />
+    <Compile Include="Clases\ClsDetalleCompra.cs" />
     <Compile Include="Clases\ClsEditorial.cs" />
     <Compile Include="Clases\ClsLibro.cs" />
     <Compile Include="Clases\ClsUsuario.cs" />

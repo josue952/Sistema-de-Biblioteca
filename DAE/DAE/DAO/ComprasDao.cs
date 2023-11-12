@@ -88,13 +88,32 @@ namespace DAE.DAO
         {
             ClsCompras com = new ClsCompras();
             com = (ClsCompras)objDatos;
-            //Inserta datos en la tabla usuarios
-            string sql = "";
-            if (ejecutar(sql))
+
+            // Inserta datos en la tabla usuarios
+            string sql = "EXEC InsertarCompra @Usuario, @FechaCompra, 0";
+
+            using (SqlConnection con = GetConnection())
             {
-                return true;
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    // Asegúrate de ajustar el tipo de datos y tamaño según tu base de datos
+                    cmd.Parameters.Add("@Usuario", SqlDbType.VarChar).Value = com.Usuario;
+                    cmd.Parameters.Add("@FechaCompra", SqlDbType.DateTime).Value = com.FechaCompra;
+                    // Agrega más parámetros según sea necesario
+
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException err)
+                    {
+                        MessageBox.Show($"Ocurrió un error: {err.Message}", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
             }
-            else { return false; }
         }
 
         public bool modificar(object objDatos)
@@ -130,64 +149,35 @@ namespace DAE.DAO
             //codigo para buscar por id
             if (campo == "Libros")
             {
-                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
-                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
-                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE L.NombreLibro LIKE '%" + valorCampo + "%'";
+                sql = "";
             }
             else if (campo == "Editorial")
             {
-                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
-                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
-                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE E.NombreEditorial LIKE '%" + valorCampo + "%'";
+                sql = "";
             }
             else if (campo == "Usuario")
             {
-                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
-                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
-                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE U.UserName LIKE '%" + valorCampo + "%'";
+                sql = "";
             }
             else if (campo == "FechaCompra")
             {
-                sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
-                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
-                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE CONVERT(VARCHAR(10), FechaCompra, 103) LIKE '%" + valorCampo + "%'";
+                sql = "";
             }
             else if (campo == "CodigoCompra")
             {
-               sql = "SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
-                      "INNER JOIN Libros L ON C.Libros = L.ISBN " +
-                      "INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE CodigoCompra = "+ valorCampo + "";
+               sql = "";
             }
             else if (campo == "CodigoCompraAgrupada")
             {
-                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra " +
-                      "FROM ComprasAgrupadas C " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE IdCompraAgrupada = " + valorCampo;
+                sql = "" + valorCampo;
             }
             else if (campo == "UsuarioAgrp")
             {
-                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra " +
-                      "FROM ComprasAgrupadas C " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE U.UserName LIKE '%" + valorCampo + "%'";
+                sql = "";
             }
             else if (campo == "FechaCompraAgrp")
             {
-                sql = "SELECT IdCompraAgrupada, U.UserName AS Usuario, CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra " +
-                      "FROM ComprasAgrupadas C " +
-                      "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
-                      "WHERE CONVERT(VARCHAR(10), FechaCompra, 103) LIKE '%" + valorCampo + "%'";
+                sql = "";
             }
 
             try

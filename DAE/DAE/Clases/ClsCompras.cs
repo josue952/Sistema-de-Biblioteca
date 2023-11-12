@@ -59,8 +59,5 @@ namespace DAE.Clases
         {
             return com.buscar(campo, valorCampo);
         }
-
     }
-
-    
 }
