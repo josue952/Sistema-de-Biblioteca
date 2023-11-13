@@ -36,7 +36,7 @@ namespace DAE.DAO
             }
             else
             {
-                sql = "SELECT CodigoCompra, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C " +
+                sql = "SELECT CodigoCompra, U.UserName AS Usuario,FechaCompra, Total FROM Compras C " +
                 "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser";
             }
             try
@@ -120,8 +120,7 @@ namespace DAE.DAO
         {
             ClsCompras com = new ClsCompras();
             com = (ClsCompras)objDatos;
-            //modifica la compra segun su id(codigo)
-            string sql = "";
+            string sql = "UPDATE Compras SET FechaCompra = '"+com.FechaCompra+"' WHERE CodigoCompra = "+com.CodigoCompra+"";
             if (ejecutar(sql))
             {
                 return true;
@@ -131,7 +130,7 @@ namespace DAE.DAO
 
         public bool eliminar(string codCompra)
         {
-            string sql = "";
+            string sql = "DELETE FROM Compras WHERE CodigoCompra='" + codCompra + "'";
             if (ejecutar(sql))
             {
                 return true;
@@ -143,48 +142,43 @@ namespace DAE.DAO
         {
             DataTable data = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlConnection con = GetConnection();//extaer conexion
+            SqlConnection con = GetConnection();
+
             string sql = "";
-            frmCompras frm = new frmCompras();
-            //codigo para buscar por id
-            if (campo == "Libros")
+
+            // Código para buscar por id
+            if (campo == "CodigoCompra")
             {
-                sql = "";
-            }
-            else if (campo == "Editorial")
-            {
-                sql = "";
+                sql = "SELECT C.CodigoCompra, U.UserName AS Usuario, CONVERT(VARCHAR(10), C.FechaCompra, 103) AS FechaCompraFormateada, C.Total " +
+                    "FROM Compras C " +
+                    "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                    "WHERE CodigoCompra = @valorCampo";
             }
             else if (campo == "Usuario")
             {
-                sql = "";
+                sql = "SELECT C.CodigoCompra, U.UserName AS Usuario, CONVERT(VARCHAR(10), C.FechaCompra, 103) AS FechaCompraFormateada, C.Total " +
+                    "FROM Compras C " +
+                    "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                    $"WHERE U.UserName LIKE '%{valorCampo}%'";
             }
             else if (campo == "FechaCompra")
             {
-                sql = "";
-            }
-            else if (campo == "CodigoCompra")
-            {
-               sql = "";
-            }
-            else if (campo == "CodigoCompraAgrupada")
-            {
-                sql = "" + valorCampo;
-            }
-            else if (campo == "UsuarioAgrp")
-            {
-                sql = "";
-            }
-            else if (campo == "FechaCompraAgrp")
-            {
-                sql = "";
+                // Asegúrate de que valorCampo sea una fecha en el formato correcto 'DD-MM-AAAA'
+                sql = "SELECT C.CodigoCompra, U.UserName AS Usuario, CONVERT(VARCHAR(10), C.FechaCompra, 103) AS FechaCompraFormateada, C.Total " +
+                    "FROM Compras C " +
+                    "INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser " +
+                    "WHERE C.FechaCompra = CONVERT(DATE, @valorCampo, 103)";
             }
 
             try
             {
-                con.Open();//abrir la conexion
-                string connectionString = getConnectionString();//extaer caneda de conexion
-                adapter = new SqlDataAdapter(sql, connectionString);//ejecutar consulta
+                con.Open();
+
+                // Usar SqlCommand con parámetros
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@valorCampo", valorCampo);
+
+                adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);
             }
             catch (SqlException error)
@@ -193,7 +187,6 @@ namespace DAE.DAO
             }
             finally
             {
-
                 con.Close();
             }
 

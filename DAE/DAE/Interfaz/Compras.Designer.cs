@@ -43,11 +43,11 @@
             this.btnEditarCom = new System.Windows.Forms.Button();
             this.btnAgregarCom = new System.Windows.Forms.Button();
             this.gpCompras = new System.Windows.Forms.GroupBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnAgregarItemsCom = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateFechaCompra = new System.Windows.Forms.DateTimePicker();
-            this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCodigoCompras = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -105,10 +105,15 @@
             // 
             this.cmbPorCompras.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPorCompras.FormattingEnabled = true;
+            this.cmbPorCompras.Items.AddRange(new object[] {
+            "CodigoCompra",
+            "Usuario",
+            "FechaCompra"});
             this.cmbPorCompras.Location = new System.Drawing.Point(421, 42);
             this.cmbPorCompras.Name = "cmbPorCompras";
             this.cmbPorCompras.Size = new System.Drawing.Size(202, 27);
             this.cmbPorCompras.TabIndex = 5;
+            this.cmbPorCompras.SelectedIndexChanged += new System.EventHandler(this.cmbPorCompras_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -259,11 +264,11 @@
             // gpCompras
             // 
             this.gpCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.gpCompras.Controls.Add(this.txtUsuario);
             this.gpCompras.Controls.Add(this.btnAgregarItemsCom);
             this.gpCompras.Controls.Add(this.txtTotal);
             this.gpCompras.Controls.Add(this.label3);
             this.gpCompras.Controls.Add(this.dateFechaCompra);
-            this.gpCompras.Controls.Add(this.cmbUsuario);
             this.gpCompras.Controls.Add(this.label11);
             this.gpCompras.Controls.Add(this.txtCodigoCompras);
             this.gpCompras.Controls.Add(this.label4);
@@ -276,6 +281,14 @@
             this.gpCompras.TabIndex = 12;
             this.gpCompras.TabStop = false;
             this.gpCompras.Text = "Compras";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Enabled = false;
+            this.txtUsuario.Location = new System.Drawing.Point(274, 24);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(129, 27);
+            this.txtUsuario.TabIndex = 23;
             // 
             // btnAgregarItemsCom
             // 
@@ -325,15 +338,7 @@
             this.dateFechaCompra.Size = new System.Drawing.Size(295, 27);
             this.dateFechaCompra.TabIndex = 20;
             this.dateFechaCompra.Value = new System.DateTime(2023, 11, 11, 0, 0, 0, 0);
-            // 
-            // cmbUsuario
-            // 
-            this.cmbUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(273, 26);
-            this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(121, 27);
-            this.cmbUsuario.TabIndex = 19;
+            this.dateFechaCompra.ValueChanged += new System.EventHandler(this.dateFechaCompra_ValueChanged);
             // 
             // label11
             // 
@@ -435,7 +440,6 @@
             this.dtTableDetalleCompra.Size = new System.Drawing.Size(612, 244);
             this.dtTableDetalleCompra.TabIndex = 2;
             this.dtTableDetalleCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTableDetalleCompra_CellClick);
-            this.dtTableDetalleCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTableDetalleCompra_CellContentClick);
             // 
             // btnGuardarCompra
             // 
@@ -598,7 +602,6 @@
         private System.Windows.Forms.TextBox txtCodigoCompras;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dtTablaCompras;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -619,5 +622,6 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAgregarItemsCom;
+        private System.Windows.Forms.TextBox txtUsuario;
     }
 }

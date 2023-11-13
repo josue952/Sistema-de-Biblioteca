@@ -94,6 +94,11 @@ SELECT CodigoCompra, Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaComp
 --consulta personalizada para mostrar el nombre del usuario Y fecha formateada en vez del codigo de estos
 SELECT CodigoCompra, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C
 INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
+
+SELECT C.CodigoCompra, U.UserName AS Usuario, CONVERT(VARCHAR(10), C.FechaCompra, 103) AS FechaCompraFormateada, C.Total 
+FROM Compras C 
+INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser 
+WHERE C.FechaCompra = CONVERT(DATE, '28/09/2023', 103)
 --procedimiento almacenado para insertar compras
 CREATE PROCEDURE InsertarCompra
 	@Usuario VARCHAR(50),
@@ -232,3 +237,7 @@ BEGIN
     SET Total = @NuevoTotal
     WHERE CodigoCompra = @CodigoCompra
 END
+SELECT C.*
+FROM Compras C
+JOIN Usuarios U ON C.Usuario = U.CodigoUser
+WHERE U.UserName LIKE '%Josue%';

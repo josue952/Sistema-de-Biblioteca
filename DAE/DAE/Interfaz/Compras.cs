@@ -22,8 +22,9 @@ namespace DAE.Interfaz
 
             // Configura el formato del DateTimePicker
             dateFechaCompra.Format = DateTimePickerFormat.Custom;
-            dateFechaCompra.CustomFormat = "dd/MM/yyyy hh:mm:ss tt";
-
+            dateFechaCompra.CustomFormat = "dd/MM/yyyy";
+            txtUsuario.Text = UserLoginCache.userName;
+            txtCodigoCompras.Text = "0";
         }
         ClsCompras obj = new ClsCompras();
         private List<ClsDetalleCompra> detallesCompra = new List<ClsDetalleCompra>();
@@ -32,37 +33,29 @@ namespace DAE.Interfaz
         {
             dtTablaCompras.DataSource = obj.getDatos("Compras");
         }
-        private void listarUsuarios()
-        {
-            cmbUsuario.DisplayMember = "UserName";
-            cmbUsuario.ValueMember = "CodigoUser";
-            cmbUsuario.DataSource = obj.getDatos("listaUsuarios");
-        }
 
         private void listarLibros()
         {
             cmbLibros.DisplayMember = "NombreLibro";
-            cmbLibros.ValueMember = "ISBN"; 
+            cmbLibros.ValueMember = "ISBN";
             cmbLibros.DataSource = obj.getDatos("listaLibros");
         }
 
         private void listarCategoria()
         {
             cmbCategoria.DisplayMember = "NombreCategoria";
-            cmbCategoria.ValueMember = "CodigoCategoria"; 
+            cmbCategoria.ValueMember = "CodigoCategoria";
             cmbCategoria.DataSource = obj.getDatos("listaCategorias");
         }
 
         private void limpiarCampos()
         {
-            listarUsuarios();
             listarLibros();
             listarCategoria();
         }
 
         private void frmCompras_Load(object sender, EventArgs e)
         {
-            listarUsuarios();
             listarLibros();
             listarCategoria();
             cargar();
@@ -71,8 +64,7 @@ namespace DAE.Interfaz
         {
             try
             {
-                obj.CodigoCompra = int.Parse(txtCodigoCompras.Text);
-                obj.Usuario = cmbUsuario.Text;
+                obj.Usuario = txtUsuario.Text;
                 obj.FechaCompra = dateFechaCompra.Value;
                 obj.insertarDatos(obj);
                 limpiarCampos();
@@ -90,6 +82,8 @@ namespace DAE.Interfaz
             {
                 try
                 {
+                    obj.CodigoCompra = int.Parse(txtCodigoCompras.Text);
+                    obj.FechaCompra = dateFechaCompra.Value;
                     obj.modificarDatos(obj);
                     limpiarCampos();
                     cargar();
@@ -131,42 +125,18 @@ namespace DAE.Interfaz
             if (txtBuscarCompras.Text != "" && cmbPorCompras.Text != "")
             {
                 string campo;
-                if (cmbPorCompras.Text == "Libros")
+                if (cmbPorCompras.Text == "CodigoCompra")
                 {
-                    campo = "Libros";
-                }
-                else if (cmbPorCompras.Text == "Editorial")
-                {
-                    campo = "Editorial";
+                    campo = "CodigoCompra";
                 }
                 else if (cmbPorCompras.Text == "Usuario")
                 {
                     campo = "Usuario";
                 }
-                else if (cmbPorCompras.Text == "CodigoCompra")
-                {
-                    campo = "CodigoCompra";
-                }
-                else if (cmbPorCompras.Text == "FechaCompra")
+                else
                 {
                     campo = "FechaCompra";
                 }
-                else if (cmbPorCompras.Text == "CodigoCompraAgrupada")
-                {
-                    campo = "CodigoCompraAgrupada";
-                }
-                else if (cmbPorCompras.Text == "UsuarioAgrp")
-                {
-                    campo = "UsuarioAgrp";
-                }
-                else if (cmbPorCompras.Text == "FechaCompraAgrp")
-                {
-                    campo = "FechaCompraAgrp";
-                }
-                else
-                {
-                    campo = "";
-                }   
                 dtTablaCompras.DataSource = obj.buscarRegistro(campo, txtBuscarCompras.Text);
                 limpiarCampos();
             }
@@ -222,7 +192,7 @@ namespace DAE.Interfaz
             {
                 MessageBox.Show($"Error al agregar detalle: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         private void cargarDetallesCompra()
         {
@@ -245,7 +215,7 @@ namespace DAE.Interfaz
             try
             {
                 this.txtCodigoCompras.Text = dtTablaCompras.CurrentRow.Cells[0].Value.ToString();
-                this.cmbUsuario.Text = dtTablaCompras.CurrentRow.Cells[1].Value.ToString();
+                this.txtUsuario.Text = dtTablaCompras.CurrentRow.Cells[1].Value.ToString();
                 this.dateFechaCompra.Text = dtTablaCompras.CurrentRow.Cells[2].Value.ToString();
                 this.txtTotal.Text = dtTablaCompras.CurrentRow.Cells[3].Value.ToString();
             }
@@ -372,70 +342,30 @@ namespace DAE.Interfaz
             txtPrecio.Enabled = true;
             numCantidad.Enabled = true;
         }
-
-        private void dtTableDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dateFechaCompra_ValueChanged(object sender, EventArgs e)
+        {
+            // Verificar si la opción seleccionada en cmbPorCompras es "FechaCompra"
+            if (cmbPorCompras.Text == "FechaCompra")
+            {
+                // Actualizar el contenido de txtBuscarCompras con la fecha formateada
+                txtBuscarCompras.Text = dateFechaCompra.Value.ToString("dd/MM/yyyy");
+            }
+        }
+        private void cmbPorCompras_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            if (cmbPorCompras.Text == "FechaCompra")
+            {
+                // Configurar el formato del DateTimePicker para mostrar solo la fecha
+                dateFechaCompra.Format = DateTimePickerFormat.Custom;
+                dateFechaCompra.CustomFormat = "dd/MM/yyyy";
+            }
+            else
+            {
+                // Restaurar el formato predeterminado si la opción seleccionada no es "FechaCompra"
+                dateFechaCompra.Format = DateTimePickerFormat.Short;
+            }
         }
-
-        /*public void btnVerCompUnit_Click(object sender, EventArgs e) //carga los datos de la tabla compras unitarias
-        {
-            btnAgregarCom.Enabled = true;
-            btnEditarCom.Enabled = true;
-            btnEliminarCom.Enabled = true;
-            ComprasAgrpClick = false;
-            //
-            cmbPorCompras.Items.Clear();
-            cmbPorCompras.Items.Add("CodigoCompra");
-            cmbPorCompras.Items.Add("Libros");
-            cmbPorCompras.Items.Add("Editorial");
-            cmbPorCompras.Items.Add("Usuario");
-            cmbPorCompras.Items.Add("FechaCompra");
-            cargar("ComprasUnitarias");
-        }
-        public bool ComprasAgrpClick = false;
-        public void btnVerCompAgrp_Click(object sender, EventArgs e)
-        {
-            ComprasAgrpClick = true;
-            btnAgregarCom.Enabled = false;
-            btnEditarCom.Enabled = false;
-            btnEliminarCom.Enabled = false;
-            //
-            cmbPorCompras.Items.Clear();
-            cmbPorCompras.Items.Add("CodigoCompraAgrupada");
-            cmbPorCompras.Items.Add("UsuarioAgrp");
-            cmbPorCompras.Items.Add("FechaCompraAgrp");
-            cargar("ComprasAgrupadas");
-        }
-        
-        private void cmbLibros_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cmbEditorial_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Obtiene el libro y la editorial seleccionados
-            string libroSeleccionado = cmbLibros.Text;
-            string editorialSeleccionada = cmbEditorial.Text;
-
-            // Crear una instancia de la clase LibroDB y obtener el precio del libro
-            LibroDB libroDB = new LibroDB(0); // 0 es un valor ficticio para el precio inicial
-            List<LibroDB> libros = libroDB.Get(libroSeleccionado, editorialSeleccionada);
-        }
-
-        if (libros.Count > 0)
-        {
-            // Actualiza el precio en el cuadro de texto txtPrecioLibro
-            decimal precioLibro = libros[0].precioLibro; // Suponiendo que solo hay un libro coincidente
-            txtPrecioLibro.Text = precioLibro.ToString();
-        }
-        else
-        {
-            // Limpia el precio en el cuadro de texto txtPrecioLibro si el libro y la editorial no coinciden
-            txtPrecioLibro.Text = "";
-        }
-       }*/
-
     }
 }
+
