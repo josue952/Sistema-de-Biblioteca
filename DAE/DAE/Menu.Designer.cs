@@ -30,8 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnPrestamo = new System.Windows.Forms.Button();
+            this.panelSubMenuReportes = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.btnRptProveedores = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
             this.brnCompras = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
@@ -48,6 +53,7 @@
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panelSubMenuReportes.SuspendLayout();
             this.panelSubMenuAdmin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelFormularioHijo.SuspendLayout();
@@ -57,8 +63,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btnPrestamo);
+            this.panel1.Controls.Add(this.panelSubMenuReportes);
+            this.panel1.Controls.Add(this.btnReportes);
             this.panel1.Controls.Add(this.panelSubMenuAdmin);
             this.panel1.Controls.Add(this.btnAdministrar);
             this.panel1.Controls.Add(this.btnCerrarSesion);
@@ -69,27 +76,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 782);
             this.panel1.TabIndex = 0;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(0, 462);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button3.Size = new System.Drawing.Size(186, 57);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Reportes";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // btnPrestamo
             // 
@@ -102,16 +88,134 @@
             this.btnPrestamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrestamo.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrestamo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPrestamo.Location = new System.Drawing.Point(0, 405);
+            this.btnPrestamo.Location = new System.Drawing.Point(0, 623);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnPrestamo.Size = new System.Drawing.Size(186, 57);
-            this.btnPrestamo.TabIndex = 12;
+            this.btnPrestamo.TabIndex = 18;
             this.btnPrestamo.Text = "Prestamos";
             this.btnPrestamo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrestamo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnPrestamo.UseVisualStyleBackColor = false;
-            this.btnPrestamo.Click += new System.EventHandler(this.btnPrestamo_Click);
+            // 
+            // panelSubMenuReportes
+            // 
+            this.panelSubMenuReportes.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panelSubMenuReportes.Controls.Add(this.button2);
+            this.panelSubMenuReportes.Controls.Add(this.button4);
+            this.panelSubMenuReportes.Controls.Add(this.button5);
+            this.panelSubMenuReportes.Controls.Add(this.btnRptProveedores);
+            this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 462);
+            this.panelSubMenuReportes.Name = "panelSubMenuReportes";
+            this.panelSubMenuReportes.Size = new System.Drawing.Size(186, 161);
+            this.panelSubMenuReportes.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(33, 82);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.button2.Size = new System.Drawing.Size(153, 41);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Categoria";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Teal;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(33, 123);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.button4.Size = new System.Drawing.Size(153, 41);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Autor";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Teal;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(33, 41);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.button5.Size = new System.Drawing.Size(153, 41);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Editorial";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // btnRptProveedores
+            // 
+            this.btnRptProveedores.BackColor = System.Drawing.Color.Teal;
+            this.btnRptProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRptProveedores.FlatAppearance.BorderSize = 0;
+            this.btnRptProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnRptProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnRptProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRptProveedores.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptProveedores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRptProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRptProveedores.Location = new System.Drawing.Point(33, 0);
+            this.btnRptProveedores.Name = "btnRptProveedores";
+            this.btnRptProveedores.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnRptProveedores.Size = new System.Drawing.Size(153, 41);
+            this.btnRptProveedores.TabIndex = 10;
+            this.btnRptProveedores.Text = "Proveedores";
+            this.btnRptProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRptProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnRptProveedores.UseVisualStyleBackColor = false;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReportes.Location = new System.Drawing.Point(0, 405);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnReportes.Size = new System.Drawing.Size(186, 57);
+            this.btnReportes.TabIndex = 15;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // panelSubMenuAdmin
             // 
@@ -380,6 +484,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.panel1.ResumeLayout(false);
+            this.panelSubMenuReportes.ResumeLayout(false);
             this.panelSubMenuAdmin.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -404,11 +509,16 @@
         private System.Windows.Forms.Button btnEditorial;
         private System.Windows.Forms.Button btnLibros;
         private System.Windows.Forms.Button btnUsuarios;
-        private System.Windows.Forms.Button btnPrestamo;
         private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Button brnCompras;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPrestamo;
+        private System.Windows.Forms.Panel panelSubMenuReportes;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnRptProveedores;
     }
 }
 

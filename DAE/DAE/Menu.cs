@@ -59,11 +59,13 @@ namespace DAE
             {
             }
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+            panelSubMenuReportes.Visible = false;
 
         }
         private void btnAdministrar_Click(object sender, EventArgs e)
         {
             panelSubMenuAdmin.Visible = true;//muestrame el panel submenu de administrar
+            panelSubMenuReportes.Visible = false;
         }
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
@@ -75,10 +77,6 @@ namespace DAE
             AbrirFormulario(new frmAutor());
         }
 
-        private void btnCompras_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
@@ -118,5 +116,10 @@ namespace DAE
             AbrirFormulario(new frmCategoria());
         }
 
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            panelSubMenuReportes.Visible = true;
+            panelSubMenuAdmin.Visible = false;
+        }
     }
 }
