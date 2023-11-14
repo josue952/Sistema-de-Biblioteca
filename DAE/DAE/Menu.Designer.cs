@@ -192,6 +192,7 @@
             this.btnRptProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRptProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnRptProveedores.UseVisualStyleBackColor = false;
+            this.btnRptProveedores.Click += new System.EventHandler(this.btnRptProveedores_Click);
             // 
             // btnReportes
             // 

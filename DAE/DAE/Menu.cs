@@ -1,5 +1,6 @@
 ﻿using DAE.Clases;
 using DAE.Interfaz;
+using DAE.Interfaz.Reportes_Interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,6 +121,11 @@ namespace DAE
         {
             panelSubMenuReportes.Visible = true;
             panelSubMenuAdmin.Visible = false;
+        }
+
+        private void btnRptProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmRptProveedor());
         }
     }
 }
