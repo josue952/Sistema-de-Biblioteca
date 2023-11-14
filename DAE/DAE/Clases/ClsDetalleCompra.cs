@@ -21,6 +21,7 @@ namespace DAE.Clases
         public decimal Precio { get; set; }
         public decimal SubTotal => Cantidad * Precio;
 
+
         public DataTable getDetallesCompra(int codigoCompra)
         {
             string query = "SELECT D.CodigoDetalleCompra, L.NombreLibro AS Libro, D.PrecioLibro, D.Cantidad, D.SubTotal " +

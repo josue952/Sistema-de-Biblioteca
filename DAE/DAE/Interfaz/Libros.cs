@@ -16,6 +16,8 @@ namespace DAE.Interfaz
         public frmLibros()
         {
             InitializeComponent();
+            txtStock.Text = "0";
+            txtPrecio.Text = "0";
         }
         ClsLibro li = new ClsLibro();
         private void cargar()
@@ -53,20 +55,14 @@ namespace DAE.Interfaz
             limpiarCampos();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
         private void limpiarCampos()
         {
             txtCodigo.Text = "";
             txttitulo.Text = "";
-            txtStock.Text = "";
             cbCategoria.Text = "";
             cbAutor.Text = "";
             cbEditorial.Text = "";
-            cbEstado.Text = "";
-            txtPrecio.Text = "";
+            cmbEstado.Text = "";
             txtBuscar.Text = "";
             cbOpcion.Text = "";
         }
@@ -82,7 +78,7 @@ namespace DAE.Interfaz
                 li.CodCategoria = Convert.ToInt32(cbCategoria.SelectedValue);
                 li.Stock = int.Parse(txtStock.Text);
                 li.Precio = double.Parse(txtPrecio.Text);
-                li.Estado = cbEstado.Text;
+                li.Estado = cmbEstado.Text;
 
                 li.insertarDatos(li);
                 limpiarCampos();
@@ -103,7 +99,7 @@ namespace DAE.Interfaz
             this.cbCategoria.Text = dtLibros.SelectedRows[0].Cells[4].Value.ToString();
             this.cbEditorial.Text = dtLibros.SelectedRows[0].Cells[5].Value.ToString();
             this.txtPrecio.Text = dtLibros.SelectedRows[0].Cells[6].Value.ToString();
-            this.cbEstado.Text = dtLibros.SelectedRows[0].Cells[7].Value.ToString();
+            this.cmbEstado.Text = dtLibros.SelectedRows[0].Cells[7].Value.ToString();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -120,7 +116,7 @@ namespace DAE.Interfaz
                     li.CodCategoria = Convert.ToInt32(cbCategoria.SelectedValue);
                     li.Stock = int.Parse(txtStock.Text);
                     li.Precio = double.Parse(txtPrecio.Text);
-                    li.Estado = cbEstado.Text;
+                    li.Estado = cmbEstado.Text;
 
                     li.modificarDatos(li);
                     limpiarCampos();

@@ -66,6 +66,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.btnElminarIten = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTablaCompras)).BeginInit();
@@ -86,7 +88,7 @@
             this.groupBox4.Controls.Add(this.btnFiltrar);
             this.groupBox4.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox4.Location = new System.Drawing.Point(234, 581);
+            this.groupBox4.Location = new System.Drawing.Point(122, 581);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(952, 96);
             this.groupBox4.TabIndex = 15;
@@ -175,9 +177,9 @@
             this.groupBox3.Controls.Add(this.dtTablaCompras);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox3.Location = new System.Drawing.Point(29, 161);
+            this.groupBox3.Location = new System.Drawing.Point(9, 161);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(628, 414);
+            this.groupBox3.Size = new System.Drawing.Size(591, 414);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tabla Compras";
@@ -192,7 +194,7 @@
             this.dtTablaCompras.Location = new System.Drawing.Point(6, 19);
             this.dtTablaCompras.Name = "dtTablaCompras";
             this.dtTablaCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTablaCompras.Size = new System.Drawing.Size(616, 386);
+            this.dtTablaCompras.Size = new System.Drawing.Size(574, 386);
             this.dtTablaCompras.TabIndex = 1;
             this.dtTablaCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTablaCompras_CellContentClick);
             // 
@@ -203,9 +205,9 @@
             this.groupBox2.Controls.Add(this.btnAgregarCom);
             this.groupBox2.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(834, 16);
+            this.groupBox2.Location = new System.Drawing.Point(674, 16);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(458, 118);
+            this.groupBox2.Size = new System.Drawing.Size(261, 118);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -218,9 +220,9 @@
             this.btnEliminarCom.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCom.Image")));
             this.btnEliminarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarCom.Location = new System.Drawing.Point(311, 42);
+            this.btnEliminarCom.Location = new System.Drawing.Point(131, 32);
             this.btnEliminarCom.Name = "btnEliminarCom";
-            this.btnEliminarCom.Size = new System.Drawing.Size(132, 52);
+            this.btnEliminarCom.Size = new System.Drawing.Size(118, 53);
             this.btnEliminarCom.TabIndex = 2;
             this.btnEliminarCom.Text = "Eilminar";
             this.btnEliminarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -235,9 +237,9 @@
             this.btnEditarCom.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEditarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCom.Image")));
             this.btnEditarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarCom.Location = new System.Drawing.Point(162, 42);
+            this.btnEditarCom.Location = new System.Drawing.Point(6, 19);
             this.btnEditarCom.Name = "btnEditarCom";
-            this.btnEditarCom.Size = new System.Drawing.Size(132, 52);
+            this.btnEditarCom.Size = new System.Drawing.Size(119, 40);
             this.btnEditarCom.TabIndex = 1;
             this.btnEditarCom.Text = "Editar";
             this.btnEditarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -248,13 +250,13 @@
             // 
             this.btnAgregarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnAgregarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCom.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnAgregarCom.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarCom.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgregarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCom.Image")));
             this.btnAgregarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCom.Location = new System.Drawing.Point(12, 42);
+            this.btnAgregarCom.Location = new System.Drawing.Point(6, 66);
             this.btnAgregarCom.Name = "btnAgregarCom";
-            this.btnAgregarCom.Size = new System.Drawing.Size(132, 52);
+            this.btnAgregarCom.Size = new System.Drawing.Size(119, 46);
             this.btnAgregarCom.TabIndex = 0;
             this.btnAgregarCom.Text = "Agregar";
             this.btnAgregarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -277,7 +279,7 @@
             this.gpCompras.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gpCompras.Location = new System.Drawing.Point(29, 16);
             this.gpCompras.Name = "gpCompras";
-            this.gpCompras.Size = new System.Drawing.Size(774, 118);
+            this.gpCompras.Size = new System.Drawing.Size(628, 118);
             this.gpCompras.TabIndex = 12;
             this.gpCompras.TabStop = false;
             this.gpCompras.Text = "Compras";
@@ -298,7 +300,7 @@
             this.btnAgregarItemsCom.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarItemsCom.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnAgregarItemsCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarItemsCom.Location = new System.Drawing.Point(577, 72);
+            this.btnAgregarItemsCom.Location = new System.Drawing.Point(381, 70);
             this.btnAgregarItemsCom.Name = "btnAgregarItemsCom";
             this.btnAgregarItemsCom.Size = new System.Drawing.Size(190, 37);
             this.btnAgregarItemsCom.TabIndex = 3;
@@ -311,7 +313,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(302, 72);
+            this.txtTotal.Location = new System.Drawing.Point(476, 23);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(120, 27);
             this.txtTotal.TabIndex = 22;
@@ -321,7 +323,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Impact", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label3.Location = new System.Drawing.Point(231, 76);
+            this.label3.Location = new System.Drawing.Point(419, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 21;
@@ -329,10 +331,11 @@
             // 
             // dateFechaCompra
             // 
+            this.dateFechaCompra.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFechaCompra.CustomFormat = "";
             this.dateFechaCompra.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateFechaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaCompra.Location = new System.Drawing.Point(472, 26);
+            this.dateFechaCompra.Location = new System.Drawing.Point(64, 72);
             this.dateFechaCompra.Name = "dateFechaCompra";
             this.dateFechaCompra.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateFechaCompra.Size = new System.Drawing.Size(295, 27);
@@ -365,7 +368,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Impact", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Location = new System.Drawing.Point(409, 30);
+            this.label4.Location = new System.Drawing.Point(11, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 20);
             this.label4.TabIndex = 3;
@@ -385,6 +388,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnElminarIten);
             this.groupBox1.Controls.Add(this.txtCodigoDetalleCompra);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dtTableDetalleCompra);
@@ -400,7 +405,7 @@
             this.groupBox1.Controls.Add(this.cmbCategoria);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox1.Location = new System.Drawing.Point(668, 161);
+            this.groupBox1.Location = new System.Drawing.Point(610, 161);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(624, 414);
             this.groupBox1.TabIndex = 15;
@@ -448,7 +453,7 @@
             this.btnGuardarCompra.Font = new System.Drawing.Font("Impact", 15.75F);
             this.btnGuardarCompra.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarCompra.Location = new System.Drawing.Point(417, 362);
+            this.btnGuardarCompra.Location = new System.Drawing.Point(422, 362);
             this.btnGuardarCompra.Name = "btnGuardarCompra";
             this.btnGuardarCompra.Size = new System.Drawing.Size(169, 43);
             this.btnGuardarCompra.TabIndex = 3;
@@ -555,12 +560,42 @@
             this.cmbCategoria.TabIndex = 21;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
+            // btnElminarIten
+            // 
+            this.btnElminarIten.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnElminarIten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElminarIten.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElminarIten.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnElminarIten.Location = new System.Drawing.Point(99, 362);
+            this.btnElminarIten.Name = "btnElminarIten";
+            this.btnElminarIten.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnElminarIten.Size = new System.Drawing.Size(54, 37);
+            this.btnElminarIten.TabIndex = 26;
+            this.btnElminarIten.Text = "-";
+            this.btnElminarIten.UseVisualStyleBackColor = false;
+            this.btnElminarIten.Click += new System.EventHandler(this.btnElminarIten_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(192, 362);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 43);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Eliminar";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // frmCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1323, 699);
+            this.ClientSize = new System.Drawing.Size(1249, 699);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -623,5 +658,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAgregarItemsCom;
         private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Button btnElminarIten;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -118,70 +118,6 @@ END
 --fin del procedimiento
 EXEC InsertarCompra josue72, '10-06-2023',0
 
---procedimiento almacenado para actualizar los datos de la tabla compra segun el id del usuario
-CREATE PROCEDURE ActualizarCompra
-	@CodigoCompra INT,
-	@NombreLibro VARCHAR(50),
-	@NombreEditorial VARCHAR(50),
-	@NombreUsuario VARCHAR(50),
-	@FechaCompra DATE
-AS
-BEGIN
-	DECLARE @ISBN VARCHAR(20);
-	DECLARE @CodigoEditorial INT;
-	DECLARE @CodigoUsuario INT;
-	DECLARE @PrecioLibro DECIMAL(5,2);
-	
-	-- Obtener el ISBN y precio del libro basado en el nombre del libro
-	SELECT @ISBN = ISBN, @PrecioLibro = PrecioLibro FROM Libros WHERE NombreLibro = @NombreLibro;
-
-	-- Obtener el CodigoEditorial basado en el nombre de la editorial
-	SELECT @CodigoEditorial = CodigoEditorial FROM Editorial WHERE NombreEditorial = @NombreEditorial;
-
-	-- Obtener el CodigoUser basado en el nombre del usuario
-	SELECT @CodigoUsuario = CodigoUser FROM Usuarios WHERE UserName = @NombreUsuario;
-
-	-- Actualizar la compra en la tabla Compras
-	UPDATE Compras
-	SET Libros = @ISBN, Editorial = @CodigoEditorial, Usuario = @CodigoUsuario, FechaCompra = @FechaCompra, Total = @PrecioLibro
-	WHERE CodigoCompra = @CodigoCompra;
-END
---fin del procedimiento almacenado
-EXEC ActualizarCompra 1, 'Cien años de soledad', 'Editorial Santillana', 'josue72', '01-01-2021' --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
-
---procedimiento almacenado para eliminar una compra segun el id de esta
-CREATE PROCEDURE EliminarCompra
-    @CodigoCompra INT
-AS
-BEGIN
-    -- Obtener información de la compra que se va a eliminar
-    DECLARE @Usuario INT, @FechaCompra DATE, @Total DECIMAL(5, 2);
-
-    SELECT @Usuario = Usuario, @FechaCompra = FechaCompra, @Total = Total
-    FROM Compras
-    WHERE CodigoCompra = @CodigoCompra;
-
-    -- Eliminar la compra unitaria
-    DELETE FROM Compras
-    WHERE CodigoCompra = @CodigoCompra;
-
-    -- Eliminar el registro correspondiente en la tabla ComprasAgrupadas
-    DELETE FROM ComprasAgrupadas
-    WHERE Usuario = @Usuario AND FechaCompra = @FechaCompra;
-END
---fin del procedimiento almacenado
-EXEC EliminarCompra 1 --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
-
-CREATE PROCEDURE ConsultarCompras --este procedimiento almacenado sirve para consultar todas las compras
-AS
-BEGIN
-	SELECT CodigoCompra, L.NombreLibro AS Libro, E.NombreEditorial AS Editorial, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C
-	INNER JOIN Libros L ON C.Libros = L.ISBN
-	INNER JOIN Editorial E ON C.Editorial = E.CodigoEditorial
-	INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
-END
-EXEC ConsultarCompras --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
-
 CREATE TABLE DetalleCompras ( --se crea la tabla DetalleCompras donde se alojaran todos los items que el usuario compre
 	CodigoDetalleCompra INT IDENTITY NOT NULL PRIMARY KEY,
 	CodigoCompra INT NOT NULL,--nombre de la llave foranea
@@ -221,22 +157,44 @@ EXEC InsertarDetalleCompra 1, 'Cien años de soledad', 15.00, 1, 15.00 --se ejecu
 SELECT D.CodigoDetalleCompra, D.CodigoCompra, L.NombreLibro AS Libro, D.PrecioLibro, D.Cantidad, D.SubTotal
 FROM DetalleCompras D
 INNER JOIN Libros L ON D.Libro = L.ISBN;
-CREATE PROCEDURE ActualizarTotalCompra
-    @CodigoCompra INT
+--procedimiento almacenado para actualizar el total de la compra
+CREATE PROCEDURE ActualizarTotalCompras
 AS
 BEGIN
-    DECLARE @NuevoTotal DECIMAL(5,2)
+    DECLARE @CodigoCompra INT
 
-    -- Calcular el nuevo total sumando los subtotales de los detalles de compra
-    SELECT @NuevoTotal = SUM(SubTotal)
-    FROM DetalleCompras
-    WHERE CodigoCompra = @CodigoCompra
+    -- Cursor para recorrer todas las compras
+    DECLARE actualizarCursor CURSOR FOR
+    SELECT CodigoCompra
+    FROM Compras
 
-    -- Actualizar el total en la tabla Compras
-    UPDATE Compras
-    SET Total = @NuevoTotal
-    WHERE CodigoCompra = @CodigoCompra
+    OPEN actualizarCursor
+    FETCH NEXT FROM actualizarCursor INTO @CodigoCompra
+
+    -- Iterar sobre todas las compras y actualizar el total
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        DECLARE @NuevoTotal DECIMAL(5,2)
+
+        -- Calcular el nuevo total sumando los subtotales de los detalles de compra
+        SELECT @NuevoTotal = SUM(SubTotal)
+        FROM DetalleCompras
+        WHERE CodigoCompra = @CodigoCompra
+
+        -- Actualizar el total en la tabla Compras
+        UPDATE Compras
+        SET Total = @NuevoTotal
+        WHERE CodigoCompra = @CodigoCompra
+
+        FETCH NEXT FROM actualizarCursor INTO @CodigoCompra
+    END
+
+    CLOSE actualizarCursor
+    DEALLOCATE actualizarCursor
 END
+--fin del procedimiento almacenado
+EXEC ActualizarTotalCompras--se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+
 SELECT C.*
 FROM Compras C
 JOIN Usuarios U ON C.Usuario = U.CodigoUser

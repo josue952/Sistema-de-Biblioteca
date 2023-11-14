@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DAE",
+    "\\DAE\\DAE",
+    "\\DAE\\DAE\\Interfaz"
   ],
-  "SelectedNode": "\\DAE.sln",
+  "SelectedNode": "\\DAE\\DAE.sln",
   "PreviewInSolutionExplorer": false
 }

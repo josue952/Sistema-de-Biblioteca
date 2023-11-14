@@ -168,13 +168,13 @@ namespace DAE.Interfaz
                 MessageBox.Show($"Error al cargar los detalles de compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        ClsDetalleCompra detalleTemporal = null;
         private void btnAgregarDetalleCom_Click(object sender, EventArgs e)
         {
             try
             {
                 // Crear una instancia de la clase ClsDetalleCompra con los datos del detalle actual
-                ClsDetalleCompra detalle = new ClsDetalleCompra
+                detalleTemporal = new ClsDetalleCompra
                 {
                     NombreLibro = cmbLibros.Text,
                     Cantidad = int.Parse(numCantidad.Text),
@@ -182,7 +182,7 @@ namespace DAE.Interfaz
                 };
 
                 // Agregar el detalle a la lista de detalles de compra
-                detallesCompra.Add(detalle);
+                detallesCompra.Add(detalleTemporal);
                 // Limpiar los campos después de agregar el detalle
                 limpiarCamposDetalleCompra();
                 // Mostrar los detalles de compra en el DataGridView DetalleCompras
@@ -364,6 +364,33 @@ namespace DAE.Interfaz
             {
                 // Restaurar el formato predeterminado si la opción seleccionada no es "FechaCompra"
                 dateFechaCompra.Format = DateTimePickerFormat.Short;
+            }
+        }
+
+        private void btnElminarIten_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Verificar si hay un detalle temporal
+                if (detalleTemporal != null)
+                {
+                    // Eliminar el detalle temporal
+                    detallesCompra.Remove(detalleTemporal);
+                    detalleTemporal = null; // Limpiar la variable temporal
+
+                    // Limpiar los campos después de eliminar el detalle
+                    limpiarCamposDetalleCompra();
+                    // Mostrar los detalles de compra en el DataGridView DetalleCompras
+                    cargarDetallesCompra();
+                }
+                else
+                {
+                    MessageBox.Show("No hay un detalle temporal para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar detalle: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -32,9 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRptCompras = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnRptProveedores = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
@@ -101,9 +101,9 @@
             // panelSubMenuReportes
             // 
             this.panelSubMenuReportes.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panelSubMenuReportes.Controls.Add(this.button2);
+            this.panelSubMenuReportes.Controls.Add(this.btnRptCompras);
             this.panelSubMenuReportes.Controls.Add(this.button4);
-            this.panelSubMenuReportes.Controls.Add(this.button5);
+            this.panelSubMenuReportes.Controls.Add(this.btnEmpleados);
             this.panelSubMenuReportes.Controls.Add(this.btnRptProveedores);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 462);
@@ -111,26 +111,27 @@
             this.panelSubMenuReportes.Size = new System.Drawing.Size(186, 161);
             this.panelSubMenuReportes.TabIndex = 17;
             // 
-            // button2
+            // btnRptCompras
             // 
-            this.button2.BackColor = System.Drawing.Color.Teal;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(33, 82);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button2.Size = new System.Drawing.Size(153, 41);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Categoria";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnRptCompras.BackColor = System.Drawing.Color.Teal;
+            this.btnRptCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRptCompras.FlatAppearance.BorderSize = 0;
+            this.btnRptCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRptCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRptCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRptCompras.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRptCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRptCompras.Location = new System.Drawing.Point(33, 82);
+            this.btnRptCompras.Name = "btnRptCompras";
+            this.btnRptCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnRptCompras.Size = new System.Drawing.Size(153, 41);
+            this.btnRptCompras.TabIndex = 19;
+            this.btnRptCompras.Text = "Compras por Mes";
+            this.btnRptCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRptCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnRptCompras.UseVisualStyleBackColor = false;
+            this.btnRptCompras.Click += new System.EventHandler(this.btnRptCompras_Click);
             // 
             // button4
             // 
@@ -152,25 +153,26 @@
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnEmpleados
             // 
-            this.button5.BackColor = System.Drawing.Color.Teal;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(33, 41);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button5.Size = new System.Drawing.Size(153, 41);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Editorial";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnEmpleados.BackColor = System.Drawing.Color.Teal;
+            this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleados.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEmpleados.Location = new System.Drawing.Point(33, 41);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnEmpleados.Size = new System.Drawing.Size(153, 41);
+            this.btnEmpleados.TabIndex = 12;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnEmpleados.UseVisualStyleBackColor = false;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
             // btnRptProveedores
             // 
@@ -516,9 +518,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPrestamo;
         private System.Windows.Forms.Panel panelSubMenuReportes;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRptCompras;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnRptProveedores;
     }
 }

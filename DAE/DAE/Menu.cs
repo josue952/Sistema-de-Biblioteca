@@ -127,5 +127,15 @@ namespace DAE
         {
             AbrirFormulario(new frmRptProveedor());
         }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmRptEmpleados());
+        }
+
+        private void btnRptCompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmRptComprasxMes());
+        }
     }
 }

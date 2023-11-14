@@ -72,3 +72,5 @@ C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\bin\Debug\Mic
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\bin\Debug\es\Microsoft.VisualStudio.Shell.15.0.resources.dll
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\bin\Debug\es\Microsoft.VisualStudio.GraphModel.resources.dll
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.Reportes_Interfaz.frmRptProveedor.resources
+C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.Reportes_Interfaz.frmRptEmpleados.resources
+C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.Reportes_Interfaz.frmRptComprasxMes.resources

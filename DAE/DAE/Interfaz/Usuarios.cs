@@ -32,7 +32,6 @@ namespace DAE.Interfaz
             txtNombreUsuario.Text = "";
             txtContraseñaUsuario.Text = "";
             cmbCargoUsuario.Text = "";
-            cmbDepartamentoUsuario.Text = "";
         }
 
         private void btnAgregarUs_Click(object sender, EventArgs e)
@@ -42,7 +41,6 @@ namespace DAE.Interfaz
                 obj.Usuario = txtNombreUsuario.Text;
                 obj.Contra = txtContraseñaUsuario.Text;
                 obj.Rol = cmbCargoUsuario.Text;
-                obj.Departamento = cmbDepartamentoUsuario.Text;
                 obj.insertarDatos(obj);
                 limpiarCampos();
                 cargar();
@@ -63,7 +61,6 @@ namespace DAE.Interfaz
                     obj.Usuario = txtNombreUsuario.Text;
                     obj.Contra = txtContraseñaUsuario.Text;
                     obj.Rol = cmbCargoUsuario.Text;
-                    obj.Departamento = cmbDepartamentoUsuario.Text;
                     obj.modificarDatos(obj);
                     limpiarCampos();
                     cargar();
@@ -137,13 +134,10 @@ namespace DAE.Interfaz
 
         private void dtTablaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
                 this.txtCodigoUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[0].Value.ToString();
                 this.txtNombreUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[1].Value.ToString();
                 this.txtContraseñaUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[2].Value.ToString();
                 this.cmbCargoUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[3].Value.ToString();
-                this.cmbDepartamentoUsuario.Text = dtTablaUsuarios.SelectedRows[0].Cells[4].Value.ToString();
-            
         }
 
         private void btnRegresarLogin_Click(object sender, EventArgs e)

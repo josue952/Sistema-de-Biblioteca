@@ -31,12 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbCargoUsuario = new System.Windows.Forms.ComboBox();
-            this.cmbDepartamentoUsuario = new System.Windows.Forms.ComboBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseñaUsuario = new System.Windows.Forms.TextBox();
             this.txtCodigoUsuario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,6 +52,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnRegresarLogin = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.CrudUsers.SuspendLayout();
             this.TablaUsers.SuspendLayout();
@@ -64,13 +63,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbCargoUsuario);
-            this.groupBox1.Controls.Add(this.cmbDepartamentoUsuario);
             this.groupBox1.Controls.Add(this.txtNombreUsuario);
             this.groupBox1.Controls.Add(this.txtContraseñaUsuario);
             this.groupBox1.Controls.Add(this.txtCodigoUsuario);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -90,37 +88,11 @@
             this.cmbCargoUsuario.Items.AddRange(new object[] {
             "Administrador",
             "Bibliotecario",
-            "Proveedor",
             "Normal"});
             this.cmbCargoUsuario.Location = new System.Drawing.Point(200, 80);
             this.cmbCargoUsuario.Name = "cmbCargoUsuario";
             this.cmbCargoUsuario.Size = new System.Drawing.Size(157, 27);
             this.cmbCargoUsuario.TabIndex = 10;
-            // 
-            // cmbDepartamentoUsuario
-            // 
-            this.cmbDepartamentoUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDepartamentoUsuario.FormattingEnabled = true;
-            this.cmbDepartamentoUsuario.Items.AddRange(new object[] {
-            "Ahuachapán",
-            "Santa Ana",
-            "Sonsonate",
-            "La Libertad",
-            "Chalatenango",
-            "San Salvador",
-            "Cuscatlán",
-            "La Paz",
-            "Cabañas",
-            "San Vicente",
-            "Usulután",
-            "San Miguel",
-            "Morazán",
-            "La Unión",
-            "Otro"});
-            this.cmbDepartamentoUsuario.Location = new System.Drawing.Point(514, 82);
-            this.cmbDepartamentoUsuario.Name = "cmbDepartamentoUsuario";
-            this.cmbDepartamentoUsuario.Size = new System.Drawing.Size(164, 27);
-            this.cmbDepartamentoUsuario.TabIndex = 9;
             // 
             // txtNombreUsuario
             // 
@@ -158,17 +130,6 @@
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Nombre";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Impact", 12F);
-            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Location = new System.Drawing.Point(406, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Departamento";
             // 
             // label3
             // 
@@ -403,6 +364,17 @@
             this.btnRegresarLogin.Visible = false;
             this.btnRegresarLogin.Click += new System.EventHandler(this.btnRegresarLogin_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Impact", 12F);
+            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label4.Location = new System.Drawing.Point(238, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Usuario";
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +403,6 @@
 
         #endregion
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -439,7 +410,6 @@
         public System.Windows.Forms.Button btnEditar;
         public System.Windows.Forms.Button btnAgregar;
         public System.Windows.Forms.ComboBox cmbCargoUsuario;
-        private System.Windows.Forms.ComboBox cmbDepartamentoUsuario;
         private System.Windows.Forms.TextBox txtNombreUsuario;
         public System.Windows.Forms.TextBox txtContraseñaUsuario;
         private System.Windows.Forms.TextBox txtCodigoUsuario;
@@ -455,5 +425,6 @@
         public System.Windows.Forms.GroupBox TablaUsers;
         public System.Windows.Forms.GroupBox BuscarDatos;
         public System.Windows.Forms.Button btnRegresarLogin;
+        private System.Windows.Forms.Label label4;
     }
 }

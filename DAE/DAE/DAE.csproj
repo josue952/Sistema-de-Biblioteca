@@ -136,6 +136,18 @@
     <Compile Include="Interfaz\Libros.designer.cs">
       <DependentUpon>Libros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaz\Reportes Interfaz\ReporteComprasPorMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Reportes Interfaz\ReporteComprasPorMes.Designer.cs">
+      <DependentUpon>ReporteComprasPorMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\Reportes Interfaz\ReporteEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Reportes Interfaz\ReporteEmpleados.Designer.cs">
+      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaz\Reportes Interfaz\ReporteProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\RptComprasXmes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptComprasXmes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptEmpleados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptEmpleados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RptProveedores.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Libros.resx">
       <DependentUpon>Libros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Reportes Interfaz\ReporteComprasPorMes.resx">
+      <DependentUpon>ReporteComprasPorMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Reportes Interfaz\ReporteEmpleados.resx">
+      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Reportes Interfaz\ReporteProveedores.resx">
       <DependentUpon>ReporteProveedores.cs</DependentUpon>
@@ -205,6 +235,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptComprasXmes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptComprasXmes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptEmpleados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptEmpleados.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RptProveedores.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
