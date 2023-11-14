@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DAE.Interfaz;
 using DAE.Clases;
 using DAE.DAO;
+using System.Data.SqlClient;
 
 namespace DAE.Interfaz
 {
@@ -22,47 +23,39 @@ namespace DAE.Interfaz
             // Configura el formato del DateTimePicker
             dateFechaCompra.Format = DateTimePickerFormat.Custom;
             dateFechaCompra.CustomFormat = "dd/MM/yyyy";
-
-            // Suscribe el método al evento ValueChanged del DateTimePicker
-            dateFechaCompra.ValueChanged += dateFechaCompra_ValueChanged;
+            txtUsuario.Text = UserLoginCache.userName;
+            txtCodigoCompras.Text = "0";
         }
         ClsCompras obj = new ClsCompras();
+        private List<ClsDetalleCompra> detallesCompra = new List<ClsDetalleCompra>();
 
         private void cargar()//carga los datos de la tabla compras
         {
             dtTablaCompras.DataSource = obj.getDatos("Compras");
         }
-        private void listarUsuarios()
-        {
-            cmbUsuario.DisplayMember = "UserName";
-            cmbUsuario.ValueMember = "CodigoUser";
-            cmbUsuario.DataSource = obj.getDatos("listaUsuarios");
-        }
 
         private void listarLibros()
         {
             cmbLibros.DisplayMember = "NombreLibro";
-            cmbLibros.ValueMember = "ISBN"; 
+            cmbLibros.ValueMember = "ISBN";
             cmbLibros.DataSource = obj.getDatos("listaLibros");
         }
 
         private void listarCategoria()
         {
             cmbCategoria.DisplayMember = "NombreCategoria";
-            cmbCategoria.ValueMember = "CodigoCategoria"; 
+            cmbCategoria.ValueMember = "CodigoCategoria";
             cmbCategoria.DataSource = obj.getDatos("listaCategorias");
         }
 
         private void limpiarCampos()
         {
-            listarUsuarios();
             listarLibros();
             listarCategoria();
         }
 
         private void frmCompras_Load(object sender, EventArgs e)
         {
-            listarUsuarios();
             listarLibros();
             listarCategoria();
             cargar();
@@ -71,6 +64,8 @@ namespace DAE.Interfaz
         {
             try
             {
+                obj.Usuario = txtUsuario.Text;
+                obj.FechaCompra = dateFechaCompra.Value;
                 obj.insertarDatos(obj);
                 limpiarCampos();
                 cargar();
@@ -87,6 +82,8 @@ namespace DAE.Interfaz
             {
                 try
                 {
+                    obj.CodigoCompra = int.Parse(txtCodigoCompras.Text);
+                    obj.FechaCompra = dateFechaCompra.Value;
                     obj.modificarDatos(obj);
                     limpiarCampos();
                     cargar();
@@ -128,42 +125,18 @@ namespace DAE.Interfaz
             if (txtBuscarCompras.Text != "" && cmbPorCompras.Text != "")
             {
                 string campo;
-                if (cmbPorCompras.Text == "Libros")
+                if (cmbPorCompras.Text == "CodigoCompra")
                 {
-                    campo = "Libros";
-                }
-                else if (cmbPorCompras.Text == "Editorial")
-                {
-                    campo = "Editorial";
+                    campo = "CodigoCompra";
                 }
                 else if (cmbPorCompras.Text == "Usuario")
                 {
                     campo = "Usuario";
                 }
-                else if (cmbPorCompras.Text == "CodigoCompra")
-                {
-                    campo = "CodigoCompra";
-                }
-                else if (cmbPorCompras.Text == "FechaCompra")
+                else
                 {
                     campo = "FechaCompra";
                 }
-                else if (cmbPorCompras.Text == "CodigoCompraAgrupada")
-                {
-                    campo = "CodigoCompraAgrupada";
-                }
-                else if (cmbPorCompras.Text == "UsuarioAgrp")
-                {
-                    campo = "UsuarioAgrp";
-                }
-                else if (cmbPorCompras.Text == "FechaCompraAgrp")
-                {
-                    campo = "FechaCompraAgrp";
-                }
-                else
-                {
-                    campo = "";
-                }   
                 dtTablaCompras.DataSource = obj.buscarRegistro(campo, txtBuscarCompras.Text);
                 limpiarCampos();
             }
@@ -178,24 +151,94 @@ namespace DAE.Interfaz
             cargar();
         }
 
-        bool ComprasAgrpClick = false;
 
         private void dtTableDetalleCompra_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                this.txtCodigoDetalleCompra.Text = dtTableDetalleCompra.CurrentRow.Cells[0].Value.ToString();
+                this.cmbCategoria.Text = dtTableDetalleCompra.CurrentRow.Cells[1].Value.ToString();
+                this.cmbLibros.Text = dtTableDetalleCompra.CurrentRow.Cells[2].Value.ToString();
+                this.txtPrecio.Text = dtTableDetalleCompra.CurrentRow.Cells[3].Value.ToString();
+                this.numCantidad.Text = dtTableDetalleCompra.CurrentRow.Cells[4].Value.ToString();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los detalles de compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAgregarDetalleCom_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No se puede agregar un detalle de compra a una compra agrupada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            try
+            {
+                // Crear una instancia de la clase ClsDetalleCompra con los datos del detalle actual
+                ClsDetalleCompra detalle = new ClsDetalleCompra
+                {
+                    NombreLibro = cmbLibros.Text,
+                    Cantidad = int.Parse(numCantidad.Text),
+                    Precio = decimal.Parse(txtPrecio.Text),
+                };
+
+                // Agregar el detalle a la lista de detalles de compra
+                detallesCompra.Add(detalle);
+                // Limpiar los campos después de agregar el detalle
+                limpiarCamposDetalleCompra();
+                // Mostrar los detalles de compra en el DataGridView DetalleCompras
+                cargarDetallesCompra();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar detalle: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void cargarDetallesCompra()
+        {
+            dtTableDetalleCompra.DataSource = null;
+            dtTableDetalleCompra.DataSource = detallesCompra;
         }
 
-        private void dtTablaCompras_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void limpiarCamposDetalleCompra()
         {
-            this.txtCodigoCompras.Text = dtTablaCompras.CurrentRow.Cells[0].Value.ToString();
-            this.cmbUsuario.Text = dtTablaCompras.CurrentRow.Cells[1].Value.ToString();
-            this.dateFechaCompra.Text = dtTablaCompras.CurrentRow.Cells[2].Value.ToString();
-            this.txtTotal.Text = dtTablaCompras.CurrentRow.Cells[3].Value.ToString();
+            txtCodigoDetalleCompra.Text = "";
+            cmbLibros.SelectedIndex = -1;
+            numCantidad.Value = 0;
+            txtPrecio.Clear();
+        }
+
+        bool AgregarItemsClic = false;
+
+        public void dtTablaCompras_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.txtCodigoCompras.Text = dtTablaCompras.CurrentRow.Cells[0].Value.ToString();
+                this.txtUsuario.Text = dtTablaCompras.CurrentRow.Cells[1].Value.ToString();
+                this.dateFechaCompra.Text = dtTablaCompras.CurrentRow.Cells[2].Value.ToString();
+                this.txtTotal.Text = dtTablaCompras.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los detalles de compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                codigoCompraActual = int.Parse(txtCodigoCompras.Text);
+                ClsDetalleCompra detalleCompra = new ClsDetalleCompra();
+                // Obtener los detalles de compra asociados al código de compra seleccionado
+                DataTable dtDetallesCompra = detalleCompra.getDetallesCompra(codigoCompraActual);
+                // Mostrar los detalles de compra en el DataGridView dtTableDetalleCompra
+                dtTableDetalleCompra.DataSource = dtDetallesCompra;
+                cmbCategoria.Enabled = false;
+                cmbLibros.Enabled = false;
+                txtPrecio.Enabled = false;
+                numCantidad.Enabled = false;
+                limpiarCamposDetalleCompra();
+                AgregarItemsClic = true;
+                btnAgregarItemsCom.Enabled = true;
+            }
         }
         LibroDB libro = new LibroDB("");
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,11 +250,14 @@ namespace DAE.Interfaz
             LibroDB libroDB = new LibroDB("");
             List<LibroDB> libros = libroDB.Get(categoriaSeleccionada);
 
-            // Configura la propiedad DataSource del ComboBox de libros
-            cmbLibros.DataSource = libros;
+            // Desvincula temporalmente el DataSource para evitar el error
+            cmbLibros.DataSource = null;
 
             // Configura la propiedad DisplayMember para indicar la propiedad que se mostrará
             cmbLibros.DisplayMember = "nombreLibro";
+
+            // Configura la propiedad DataSource del ComboBox de libros
+            cmbLibros.DataSource = libros;
 
             // Selecciona el primer libro si hay alguno
             if (libros.Count > 0)
@@ -221,74 +267,105 @@ namespace DAE.Interfaz
             else
             {
                 // Si no hay libros, limpia el ComboBox de libros
-                cmbLibros.DataSource = null;
+                cmbLibros.Text = "";
             }
         }
 
-        public void dateFechaCompra_ValueChanged(object sender, EventArgs e)
+        private void btnGuardarCompra_Click(object sender, EventArgs e)
         {
+            string connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
+            try
+            {
+                if (detallesCompra.Count == 0)
+                {
+                    MessageBox.Show("Debe agregar al menos un item al detalle antes de guardar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Sale del método si no hay detalles de compra
+                }
+
+                // Inserta datos en la tabla DetalleCompras utilizando parámetros
+                string insertDetalleQuery = "EXEC InsertarDetalleCompra @CodigoCompra, @Libro, @PrecioLibro, @Cantidad, @SubTotal";
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlTransaction transaction = con.BeginTransaction();
+
+                    try
+                    {
+                        foreach (ClsDetalleCompra detalleCompra in detallesCompra)
+                        {
+                            using (SqlCommand cmd = new SqlCommand(insertDetalleQuery, con, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@CodigoCompra", codigoCompraActual);
+                                cmd.Parameters.AddWithValue("@Libro", detalleCompra.NombreLibro);
+                                cmd.Parameters.AddWithValue("@PrecioLibro", detalleCompra.Precio);
+                                cmd.Parameters.AddWithValue("@Cantidad", detalleCompra.Cantidad);
+                                cmd.Parameters.AddWithValue("@SubTotal", detalleCompra.SubTotal);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        // Confirma la transacción si todo es exitoso
+                        transaction.Commit();
+                        // Limpiar la lista de detalles de compra después de guardar
+                        detallesCompra.Clear();
+                        MessageBox.Show("Detalles de compra guardados exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        // Ocurrió un error, realiza un rollback de la transacción
+                        transaction.Rollback();
+                        MessageBox.Show($"Error al guardar los detalles de compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        ClsDetalleCompra detalleCompra = new ClsDetalleCompra();
+                        // Obtener los detalles de compra asociados al código de compra seleccionado
+                        DataTable dtDetallesCompra = detalleCompra.getDetallesCompra(codigoCompraActual);
+                        // Mostrar los detalles de compra en el DataGridView dtTableDetalleCompra
+                        dtTableDetalleCompra.DataSource = dtDetallesCompra;
+
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Error al guardar: {err.Message}", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-
-
-        /*public void btnVerCompUnit_Click(object sender, EventArgs e) //carga los datos de la tabla compras unitarias
+        private int codigoCompraActual; // Variable para almacenar el código de la compra actual
+        private void btbAgregarItemsCom_Click(object sender, EventArgs e)
         {
-            btnAgregarCom.Enabled = true;
-            btnEditarCom.Enabled = true;
-            btnEliminarCom.Enabled = true;
-            ComprasAgrpClick = false;
-            //
-            cmbPorCompras.Items.Clear();
-            cmbPorCompras.Items.Add("CodigoCompra");
-            cmbPorCompras.Items.Add("Libros");
-            cmbPorCompras.Items.Add("Editorial");
-            cmbPorCompras.Items.Add("Usuario");
-            cmbPorCompras.Items.Add("FechaCompra");
-            cargar("ComprasUnitarias");
+            cmbCategoria.Enabled = true;
+            cmbLibros.Enabled = true;
+            txtPrecio.Enabled = true;
+            numCantidad.Enabled = true;
         }
-        public bool ComprasAgrpClick = false;
-        public void btnVerCompAgrp_Click(object sender, EventArgs e)
+        private void dateFechaCompra_ValueChanged(object sender, EventArgs e)
         {
-            ComprasAgrpClick = true;
-            btnAgregarCom.Enabled = false;
-            btnEditarCom.Enabled = false;
-            btnEliminarCom.Enabled = false;
-            //
-            cmbPorCompras.Items.Clear();
-            cmbPorCompras.Items.Add("CodigoCompraAgrupada");
-            cmbPorCompras.Items.Add("UsuarioAgrp");
-            cmbPorCompras.Items.Add("FechaCompraAgrp");
-            cargar("ComprasAgrupadas");
+            // Verificar si la opción seleccionada en cmbPorCompras es "FechaCompra"
+            if (cmbPorCompras.Text == "FechaCompra")
+            {
+                // Actualizar el contenido de txtBuscarCompras con la fecha formateada
+                txtBuscarCompras.Text = dateFechaCompra.Value.ToString("dd/MM/yyyy");
+            }
         }
-        
-        private void cmbLibros_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbPorCompras_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-        }
 
-        private void cmbEditorial_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Obtiene el libro y la editorial seleccionados
-            string libroSeleccionado = cmbLibros.Text;
-            string editorialSeleccionada = cmbEditorial.Text;
-
-            // Crear una instancia de la clase LibroDB y obtener el precio del libro
-            LibroDB libroDB = new LibroDB(0); // 0 es un valor ficticio para el precio inicial
-            List<LibroDB> libros = libroDB.Get(libroSeleccionado, editorialSeleccionada);
+            if (cmbPorCompras.Text == "FechaCompra")
+            {
+                // Configurar el formato del DateTimePicker para mostrar solo la fecha
+                dateFechaCompra.Format = DateTimePickerFormat.Custom;
+                dateFechaCompra.CustomFormat = "dd/MM/yyyy";
+            }
+            else
+            {
+                // Restaurar el formato predeterminado si la opción seleccionada no es "FechaCompra"
+                dateFechaCompra.Format = DateTimePickerFormat.Short;
+            }
         }
-
-        if (libros.Count > 0)
-        {
-            // Actualiza el precio en el cuadro de texto txtPrecioLibro
-            decimal precioLibro = libros[0].precioLibro; // Suponiendo que solo hay un libro coincidente
-            txtPrecioLibro.Text = precioLibro.ToString();
-        }
-        else
-        {
-            // Limpia el precio en el cuadro de texto txtPrecioLibro si el libro y la editorial no coinciden
-            txtPrecioLibro.Text = "";
-        }
-       }*/
-
     }
 }
+

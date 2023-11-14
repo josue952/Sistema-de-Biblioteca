@@ -95,38 +95,28 @@ SELECT CodigoCompra, Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaComp
 SELECT CodigoCompra, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C
 INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
 
-SELECT CodigoCategoria, NombreCategoria FROM Categoria
---consulta para insetar una compra
-INSERT INTO Compras VALUES (1, '01-01-2021', 0)--se crea la primera compra para verificar la funcionalidad de esta
-
---
+SELECT C.CodigoCompra, U.UserName AS Usuario, CONVERT(VARCHAR(10), C.FechaCompra, 103) AS FechaCompraFormateada, C.Total 
+FROM Compras C 
+INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser 
+WHERE C.FechaCompra = CONVERT(DATE, '28/09/2023', 103)
+--procedimiento almacenado para insertar compras
 CREATE PROCEDURE InsertarCompra
-    @NombreLibro VARCHAR(50),
-    @NombreEditorial VARCHAR(50),
-    @NombreUsuario VARCHAR(50),
-    @FechaCompra DATE
+	@Usuario VARCHAR(50),
+	@FechaCompra VARCHAR(20),
+	@Total DECIMAL(5,2)
 AS
 BEGIN
-    DECLARE @ISBN VARCHAR(20);
-    DECLARE @CodigoEditorial INT;
-    DECLARE @CodigoUsuario INT;
-    DECLARE @PrecioLibro DECIMAL(5,2);
-	
-    -- Obtener el ISBN y precio del libro basado en el nombre del libro
-    SELECT @ISBN = ISBN, @PrecioLibro = PrecioLibro FROM Libros WHERE NombreLibro = @NombreLibro;
-
-    -- Obtener el CodigoEditorial basado en el nombre de la editorial
-    SELECT @CodigoEditorial = CodigoEditorial FROM Editorial WHERE NombreEditorial = @NombreEditorial;
-
-    -- Obtener el CodigoUser basado en el nombre del usuario
-    SELECT @CodigoUsuario = CodigoUser FROM Usuarios WHERE UserName = @NombreUsuario;
-
-    -- Insertar la compra en la tabla Compras
-    INSERT INTO Compras (Libros, Editorial, Usuario, FechaCompra, Total)
-    VALUES (@ISBN, @CodigoEditorial, @CodigoUsuario, @FechaCompra, @PrecioLibro);
+	DECLARE @IdUsuario INT;
+	-- Obtenemos el ID del usuario a partir de su nombre
+	SELECT @IdUsuario = CodigoUser
+	FROM Usuarios
+	WHERE UserName = @Usuario;
+	-- Insertamos la compra
+	INSERT INTO Compras (Usuario, FechaCompra, Total)
+	VALUES (@IdUsuario, CONVERT(DATETIME, @FechaCompra, 103), @Total);
 END
--- fin del procedimiento almacenado
-EXEC InsertarCompra 'Cien años de soledad', 'Editorial Santillana', 'josue72', '01-01-2021' --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+--fin del procedimiento
+EXEC InsertarCompra josue72, '10-06-2023',0
 
 --procedimiento almacenado para actualizar los datos de la tabla compra segun el id del usuario
 CREATE PROCEDURE ActualizarCompra
@@ -192,7 +182,7 @@ BEGIN
 END
 EXEC ConsultarCompras --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
 
-CREATE TABLE DetalleCompras ( --se crea la tabla compras agrupadas donde se alojaran todas las compras agrupadas por usuario y fecha de compra
+CREATE TABLE DetalleCompras ( --se crea la tabla DetalleCompras donde se alojaran todos los items que el usuario compre
 	CodigoDetalleCompra INT IDENTITY NOT NULL PRIMARY KEY,
 	CodigoCompra INT NOT NULL,--nombre de la llave foranea
 	CONSTRAINT fk_idCompra FOREIGN KEY (CodigoCompra) REFERENCES Compras(CodigoCompra) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla compras y se le agrega la propiedad de actualizar y eliminar en cascada
@@ -202,52 +192,52 @@ CREATE TABLE DetalleCompras ( --se crea la tabla compras agrupadas donde se aloj
 	Cantidad INT NOT NULL,
 	SubTotal DECIMAL(5,2) NOT NULL
 );
---procedimiento almacenado para actualizar las compras agrupadas al momento de insertar una compra
-CREATE PROCEDURE ActualizarComprasAgrupadasAuto
+--procedimiento almacenado para insertar el detalle de la compra
+CREATE PROCEDURE InsertarDetalleCompra
+    @CodigoCompra INT,
+    @NombreLibro VARCHAR(50),
+    @PrecioLibro DECIMAL(5,2),
+    @Cantidad INT,
+    @SubTotal DECIMAL(5,2)
 AS
 BEGIN
-	-- Actualizar las compras agrupadas automáticamente
-	-- Agrupar por Usuario y FechaCompra y calcular el TotalCompra
-	UPDATE ComprasAgrupadas
-	SET TotalCompra = (
-		SELECT SUM(Total)
-		FROM Compras
-		WHERE Compras.Usuario = ComprasAgrupadas.Usuario
-		AND Compras.FechaCompra = ComprasAgrupadas.FechaCompra
-	)
-	WHERE EXISTS (
-		SELECT 1
-		FROM Compras
-		WHERE Compras.Usuario = ComprasAgrupadas.Usuario
-		AND Compras.FechaCompra = ComprasAgrupadas.FechaCompra
-	);
-	
-	-- Insertar nuevas compras agrupadas automáticamente
-	INSERT INTO ComprasAgrupadas (Usuario, FechaCompra, TotalCompra)
-	SELECT Usuario, FechaCompra, SUM(Total)
-	FROM Compras
-	GROUP BY Usuario, FechaCompra
-	HAVING SUM(Total) > 0
-	AND NOT EXISTS (
-		SELECT 1
-		FROM ComprasAgrupadas
-		WHERE Compras.Usuario = ComprasAgrupadas.Usuario
-		AND Compras.FechaCompra = ComprasAgrupadas.FechaCompra
-	);
+    DECLARE @ISBN VARCHAR(20)
+
+    -- Obtener el ISBN del libro basándose en el nombre del libro
+    SELECT @ISBN = ISBN
+    FROM Libros
+    WHERE NombreLibro = @NombreLibro
+
+    -- Insertar el detalle de la compra utilizando el ISBN
+    INSERT INTO DetalleCompras (CodigoCompra, Libro, PrecioLibro, Cantidad, SubTotal)
+    VALUES (@CodigoCompra, @ISBN, @PrecioLibro, @Cantidad, @SubTotal)
+
+    -- Actualizar el total de la compra
+    EXEC ActualizarTotalCompra @CodigoCompra;
 END
--- fin del procedimiento almacenado
---consulta personalizada para mostrar el nombre del usuario en vez del codigo de este
-SELECT IdCompraAgrupada, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas C
-INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
+--fin del procedimiento almacenado
+EXEC InsertarDetalleCompra 1, 'Cien años de soledad', 15.00, 1, 15.00 --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+--consulta personalizada para mostrar el nombre del libro en vez del codigo de este
+SELECT D.CodigoDetalleCompra, D.CodigoCompra, L.NombreLibro AS Libro, D.PrecioLibro, D.Cantidad, D.SubTotal
+FROM DetalleCompras D
+INNER JOIN Libros L ON D.Libro = L.ISBN;
+CREATE PROCEDURE ActualizarTotalCompra
+    @CodigoCompra INT
+AS
+BEGIN
+    DECLARE @NuevoTotal DECIMAL(5,2)
 
-SELECT idCompraAgrupada, Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, TotalCompra FROM ComprasAgrupadas; --transformar el formato 'AAAA-MM-DD' a 'DD-MM-AAAA'
--- Agrupar compras por usuario y fecha y calcular el total
-INSERT INTO ComprasAgrupadas (Usuario, FechaCompra, TotalCompra)
-SELECT Usuario, FechaCompra, SUM(Total)
-FROM Compras
-GROUP BY Usuario, FechaCompra;
---esta consulta muestra la compra total segun el usuario o la fecha de compra
-SELECT * FROM ComprasAgrupadas WHERE Usuario = 1 --se muestra la compra total segun la fecha de compra
+    -- Calcular el nuevo total sumando los subtotales de los detalles de compra
+    SELECT @NuevoTotal = SUM(SubTotal)
+    FROM DetalleCompras
+    WHERE CodigoCompra = @CodigoCompra
 
-
-
+    -- Actualizar el total en la tabla Compras
+    UPDATE Compras
+    SET Total = @NuevoTotal
+    WHERE CodigoCompra = @CodigoCompra
+END
+SELECT C.*
+FROM Compras C
+JOIN Usuarios U ON C.Usuario = U.CodigoUser
+WHERE U.UserName LIKE '%Josue%';
