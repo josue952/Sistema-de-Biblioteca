@@ -67,7 +67,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.btnElminarIten = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEliminarItenDB = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTablaCompras)).BeginInit();
@@ -388,7 +388,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnEliminarItenDB);
             this.groupBox1.Controls.Add(this.btnElminarIten);
             this.groupBox1.Controls.Add(this.txtCodigoDetalleCompra);
             this.groupBox1.Controls.Add(this.label2);
@@ -575,20 +575,22 @@
             this.btnElminarIten.UseVisualStyleBackColor = false;
             this.btnElminarIten.Click += new System.EventHandler(this.btnElminarIten_Click);
             // 
-            // button1
+            // btnEliminarItenDB
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Impact", 15.75F);
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(192, 362);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 43);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Eliminar";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEliminarItenDB.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEliminarItenDB.Enabled = false;
+            this.btnEliminarItenDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarItenDB.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnEliminarItenDB.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminarItenDB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarItenDB.Location = new System.Drawing.Point(192, 362);
+            this.btnEliminarItenDB.Name = "btnEliminarItenDB";
+            this.btnEliminarItenDB.Size = new System.Drawing.Size(169, 43);
+            this.btnEliminarItenDB.TabIndex = 27;
+            this.btnEliminarItenDB.Text = "Eliminar";
+            this.btnEliminarItenDB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarItenDB.UseVisualStyleBackColor = false;
+            this.btnEliminarItenDB.Click += new System.EventHandler(this.btnEliminarItenDB_Click);
             // 
             // frmCompras
             // 
@@ -659,6 +661,6 @@
         private System.Windows.Forms.Button btnAgregarItemsCom;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnElminarIten;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEliminarItenDB;
     }
 }

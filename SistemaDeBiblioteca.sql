@@ -199,3 +199,28 @@ SELECT C.*
 FROM Compras C
 JOIN Usuarios U ON C.Usuario = U.CodigoUser
 WHERE U.UserName LIKE '%Josue%';
+
+--procedimiento almacenado para eliminar un item o detalle dentro de la tabla DetalleCompras
+CREATE PROCEDURE EliminarDetalleCompra
+    @CodigoDetalleCompra INT
+AS
+BEGIN
+    -- Verificar si el detalle de compra existe
+    IF EXISTS (SELECT 1 FROM DetalleCompras WHERE CodigoDetalleCompra = @CodigoDetalleCompra)
+    BEGIN
+        -- Eliminar el detalle de compra
+        DELETE FROM DetalleCompras WHERE CodigoDetalleCompra = @CodigoDetalleCompra;
+
+        -- Actualizar el total de la compra
+        EXEC ActualizarTotalCompras;
+
+        -- Mensaje de éxito
+        PRINT 'Detalle de compra eliminado exitosamente.';
+    END
+    ELSE
+    BEGIN
+        -- Mensaje de error si el detalle de compra no existe
+        PRINT 'No se encontró el detalle de compra para eliminar.';
+    END
+END
+--fin del procedimiento almacenado

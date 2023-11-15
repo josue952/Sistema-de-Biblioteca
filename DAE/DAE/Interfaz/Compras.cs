@@ -101,23 +101,23 @@ namespace DAE.Interfaz
 
         private void btnEliminarCom_Click(object sender, EventArgs e)
         {
-            if (txtCodigoCompras.Text != "")
-            {
-                string mensaje = "Seguro que desea eliminar?";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                MessageBoxIcon icon = MessageBoxIcon.Question;
-                DialogResult result = MessageBox.Show(mensaje, "Eliminando", buttons, icon);
-                if (result == DialogResult.Yes)
+                if (txtCodigoCompras.Text != "")
                 {
-                    obj.eliminarDatos(txtCodigoCompras.Text);
-                    cargar();
-                    limpiarCampos();
+                    string mensaje = "Seguro que desea eliminar?";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    MessageBoxIcon icon = MessageBoxIcon.Question;
+                    DialogResult result = MessageBox.Show(mensaje, "Eliminando", buttons, icon);
+                    if (result == DialogResult.Yes)
+                    {
+                        obj.eliminarDatos(txtCodigoCompras.Text);
+                        cargar();
+                        limpiarCampos();
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Los campos no pueden estar vacios!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                else
+                {
+                    MessageBox.Show("Los campos no pueden estar vacios!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
@@ -209,7 +209,7 @@ namespace DAE.Interfaz
         }
 
         bool AgregarItemsClic = false;
-
+        bool EliminarItemsBD = false;
         public void dtTablaCompras_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -238,6 +238,9 @@ namespace DAE.Interfaz
                 limpiarCamposDetalleCompra();
                 AgregarItemsClic = true;
                 btnAgregarItemsCom.Enabled = true;
+                EliminarItemsBD = true;
+                btnEliminarItenDB.Enabled = true;
+
             }
         }
         LibroDB libro = new LibroDB("");
@@ -341,6 +344,7 @@ namespace DAE.Interfaz
             cmbLibros.Enabled = true;
             txtPrecio.Enabled = true;
             numCantidad.Enabled = true;
+            EliminarItemsBD = false;
         }
         private void dateFechaCompra_ValueChanged(object sender, EventArgs e)
         {
@@ -391,6 +395,69 @@ namespace DAE.Interfaz
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al eliminar detalle: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminarItenDB_Click(object sender, EventArgs e)
+        {
+            if (EliminarItemsBD == true)
+            {
+                if (cmbCategoria.Text != "")
+                {
+                    string mensaje = "Seguro que desea eliminar?";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    MessageBoxIcon icon = MessageBoxIcon.Question;
+                    DialogResult result = MessageBox.Show(mensaje, "Eliminando", buttons, icon);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Configurar la cadena de conexión a tu base de datos
+                        string connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
+
+                        // Crear una conexión a la base de datos
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            try
+                            {
+                                // Abrir la conexión
+                                connection.Open();
+
+                                // Configurar el comando SQL para ejecutar el procedimiento almacenado
+                                using (SqlCommand command = new SqlCommand("EliminarDetalleCompra", connection))
+                                {
+                                    // Especificar que es un procedimiento almacenado
+                                    command.CommandType = CommandType.StoredProcedure;
+
+                                    // Agregar el parámetro para el código de detalle de compra
+                                    command.Parameters.AddWithValue("@CodigoDetalleCompra", int.Parse(txtCodigoDetalleCompra.Text));
+
+                                    // Ejecutar el procedimiento almacenado
+                                    command.ExecuteNonQuery();
+
+                                    // Mensaje de éxito
+                                    MessageBox.Show("Detalle de compra eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error al eliminar detalle de compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            finally
+                            {
+                                // Cerrar la conexión después de usarla
+                                connection.Close();
+
+                                // Actualizar la interfaz después de la eliminación
+                                cargar();
+                                limpiarCampos();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Los campos no pueden estar vacíos!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }
