@@ -10,8 +10,7 @@ CREATE TABLE Usuarios --se crea la tabla usuarios donde se alojaran todos los us
 	CodigoUser INT IDENTITY NOT NULL PRIMARY KEY,
 	UserName VARCHAR(40) NOT NULL,
 	UserPassword VARCHAR(40) NOT NULL,
-	UserRol VARCHAR(25) NOT NULL,
-	UserDepartamento VARCHAR(50) NOT NULL
+	UserRol VARCHAR(25) NOT NULL
 )
 
 INSERT INTO Usuarios VALUES ('josue72', 'josue0074', 'Administrador', 'San Salvador')--se crea el primer usuario para verificar la funcionalidad de esta
@@ -224,3 +223,39 @@ BEGIN
     END
 END
 --fin del procedimiento almacenado
+
+-- Procedimiento almacenado para actualizar StockLibro en Libros
+CREATE PROCEDURE ActualizarStockLibro
+AS
+BEGIN
+    DECLARE @ISBN VARCHAR(20);
+    DECLARE @SumaCantidad INT;
+
+    -- Cursor para recorrer los detalles de compra y calcular la suma de cantidades por libro
+    DECLARE actualizarCursor CURSOR FOR
+    SELECT D.Libro, SUM(D.Cantidad) AS SumaCantidad
+    FROM DetalleCompras D
+    JOIN Compras C ON D.CodigoCompra = C.CodigoCompra
+    GROUP BY D.Libro;
+
+    OPEN actualizarCursor
+    FETCH NEXT FROM actualizarCursor INTO @ISBN, @SumaCantidad;
+
+    -- Iterar sobre los detalles de compra y actualizar StockLibro en Libros
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Actualizar StockLibro en Libros con la suma de cantidades
+        UPDATE Libros
+        SET StockLibro = @SumaCantidad
+        WHERE ISBN = @ISBN;
+
+        FETCH NEXT FROM actualizarCursor INTO @ISBN, @SumaCantidad;
+    END
+
+    CLOSE actualizarCursor
+    DEALLOCATE actualizarCursor
+END
+--fin del procedimiento almacenado
+
+EXEC ActualizarStockLibro --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+SELECT Cantidad FROM DetalleCompras WHERE Libro = '' --se verifica que la cantidad del libro sea 1

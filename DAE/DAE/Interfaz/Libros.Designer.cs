@@ -282,7 +282,6 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtPrecio.Location = new System.Drawing.Point(662, 29);

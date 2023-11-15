@@ -75,7 +75,7 @@ namespace DAE.DAO
             ClsUsuario us = new ClsUsuario();
             us = (ClsUsuario)objDatos;
             //Inserta datos en la tabla usuarios
-            string sql = "INSERT INTO Usuarios VALUES('"+us.Usuario+"','"+us.Contra+"','"+us.Rol+ "','"+us.Departamento+"')";
+            string sql = "INSERT INTO Usuarios VALUES('"+us.Usuario+"','"+us.Contra+"','"+us.Rol+ "')";
             if (ejecutar(sql))
             {
                 return true;

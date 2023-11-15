@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cmbCargoUsuario = new System.Windows.Forms.ComboBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseñaUsuario = new System.Windows.Forms.TextBox();
@@ -52,7 +53,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnRegresarLogin = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.CrudUsers.SuspendLayout();
             this.TablaUsers.SuspendLayout();
@@ -80,6 +81,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Impact", 12F);
+            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label4.Location = new System.Drawing.Point(238, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Usuario";
             // 
             // cmbCargoUsuario
             // 
@@ -259,6 +271,7 @@
             // 
             // BuscarDatos
             // 
+            this.BuscarDatos.Controls.Add(this.btnUpdate);
             this.BuscarDatos.Controls.Add(this.txtBuscarUsuarios);
             this.BuscarDatos.Controls.Add(this.cmbPorUsuarios);
             this.BuscarDatos.Controls.Add(this.label7);
@@ -267,9 +280,9 @@
             this.BuscarDatos.Controls.Add(this.btnFiltrar);
             this.BuscarDatos.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuscarDatos.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.BuscarDatos.Location = new System.Drawing.Point(92, 587);
+            this.BuscarDatos.Location = new System.Drawing.Point(27, 584);
             this.BuscarDatos.Name = "BuscarDatos";
-            this.BuscarDatos.Size = new System.Drawing.Size(876, 114);
+            this.BuscarDatos.Size = new System.Drawing.Size(1033, 114);
             this.BuscarDatos.TabIndex = 3;
             this.BuscarDatos.TabStop = false;
             this.BuscarDatos.Text = "Buscador";
@@ -277,7 +290,7 @@
             // txtBuscarUsuarios
             // 
             this.txtBuscarUsuarios.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarUsuarios.Location = new System.Drawing.Point(146, 49);
+            this.txtBuscarUsuarios.Location = new System.Drawing.Point(109, 49);
             this.txtBuscarUsuarios.Name = "txtBuscarUsuarios";
             this.txtBuscarUsuarios.Size = new System.Drawing.Size(214, 27);
             this.txtBuscarUsuarios.TabIndex = 6;
@@ -287,10 +300,10 @@
             this.cmbPorUsuarios.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPorUsuarios.FormattingEnabled = true;
             this.cmbPorUsuarios.Items.AddRange(new object[] {
-            "Departamento",
+            "Nombre",
             "Código",
             "Cargo"});
-            this.cmbPorUsuarios.Location = new System.Drawing.Point(472, 47);
+            this.cmbPorUsuarios.Location = new System.Drawing.Point(405, 47);
             this.cmbPorUsuarios.Name = "cmbPorUsuarios";
             this.cmbPorUsuarios.Size = new System.Drawing.Size(214, 27);
             this.cmbPorUsuarios.TabIndex = 5;
@@ -299,7 +312,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(383, 45);
+            this.label7.Location = new System.Drawing.Point(341, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 29);
             this.label7.TabIndex = 4;
@@ -309,7 +322,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(12, 47);
+            this.label6.Location = new System.Drawing.Point(10, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 29);
             this.label6.TabIndex = 3;
@@ -340,7 +353,7 @@
             this.btnFiltrar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
             this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFiltrar.Location = new System.Drawing.Point(707, 32);
+            this.btnFiltrar.Location = new System.Drawing.Point(632, 30);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(132, 52);
             this.btnFiltrar.TabIndex = 0;
@@ -364,16 +377,22 @@
             this.btnRegresarLogin.Visible = false;
             this.btnRegresarLogin.Click += new System.EventHandler(this.btnRegresarLogin_Click);
             // 
-            // label4
+            // btnUpdate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Impact", 12F);
-            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Location = new System.Drawing.Point(238, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Usuario";
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(787, 31);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(132, 52);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Actualizar";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmUsuarios
             // 
@@ -426,5 +445,6 @@
         public System.Windows.Forms.GroupBox BuscarDatos;
         public System.Windows.Forms.Button btnRegresarLogin;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

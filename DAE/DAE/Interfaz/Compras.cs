@@ -173,7 +173,7 @@ namespace DAE.Interfaz
         {
             try
             {
-                // Crear una instancia de la clase ClsDetalleCompra con los datos del detalle actual
+                // Crear una instancia(tabla) de la clase ClsDetalleCompra con los datos del detalle actual
                 detalleTemporal = new ClsDetalleCompra
                 {
                     NombreLibro = cmbLibros.Text,
@@ -251,7 +251,7 @@ namespace DAE.Interfaz
 
             // Crear una instancia de la clase LibroDB y obtener los nombres de los libros
             LibroDB libroDB = new LibroDB("");
-            List<LibroDB> libros = libroDB.Get(categoriaSeleccionada);
+            List<LibroDB> libros = libroDB.GetNombreLibro(categoriaSeleccionada);
 
             // Desvincula temporalmente el DataSource para evitar el error
             cmbLibros.DataSource = null;
@@ -279,9 +279,9 @@ namespace DAE.Interfaz
             string connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
             try
             {
-                if (detallesCompra.Count == 0)
+                if (detallesCompra.Count == 0 || numCantidad.Value == 0)
                 {
-                    MessageBox.Show("Debe agregar al menos un item al detalle antes de guardar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Debe agregar al menos un item o cantidad al detalle antes de guardar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Sale del método si no hay detalles de compra
                 }
 
@@ -342,7 +342,6 @@ namespace DAE.Interfaz
         {
             cmbCategoria.Enabled = true;
             cmbLibros.Enabled = true;
-            txtPrecio.Enabled = true;
             numCantidad.Enabled = true;
             EliminarItemsBD = false;
         }
@@ -459,6 +458,40 @@ namespace DAE.Interfaz
                     MessageBox.Show("Los campos no pueden estar vacíos!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private void cmbLibros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtiene la categoría seleccionada
+            string categoriaSeleccionada = cmbCategoria.Text;
+
+            // Obtiene el nombre del libro seleccionado
+            string nombreLibroSeleccionado = cmbLibros.Text;
+
+            // Crea una instancia de la clase LibroDB y obtiene los precios de los libros
+            LibroDB libroDB = new LibroDB("");
+            List<LibroDB> preciosLibros = libroDB.GetPrecios(categoriaSeleccionada, nombreLibroSeleccionado);
+
+            // Asigna el precio del primer libro si hay alguno
+            if (preciosLibros.Count > 0)
+            {
+                txtPrecio.Text = preciosLibros[0].precioLibro.ToString();
+            }
+            else
+            {
+                // Si no hay precios de libros, limpia el TextBox de precio
+                txtPrecio.Text = "";
+            }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dtTableDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using DAE.Clases;
 
@@ -16,6 +17,10 @@ namespace DAE.Interfaz
         public frmEditorial()
         {
             InitializeComponent();
+            if (UserLoginCache.rolUser == "Bibliotecario")
+            {
+                btnEliminar.Enabled = false;
+            }
         }
         ClsEditorial ed = new ClsEditorial();
         private void cargar()

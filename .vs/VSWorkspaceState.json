@@ -3,8 +3,8 @@
     "",
     "\\DAE",
     "\\DAE\\DAE",
-    "\\DAE\\DAE\\Interfaz"
+    "\\DAE\\DAE\\DAO"
   ],
-  "SelectedNode": "\\DAE\\DAE.sln",
+  "SelectedNode": "\\DAE\\DAE\\DAO\\ComprasDao.cs",
   "PreviewInSolutionExplorer": false
 }

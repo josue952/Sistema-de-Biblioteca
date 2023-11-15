@@ -108,9 +108,9 @@ namespace DAE.Interfaz
                 {
                     campo = "CodigoUser";
                 }
-                else if (cmbPorUsuarios.Text == "Departamento")
+                else if (cmbPorUsuarios.Text == "Nombre")
                 {
-                    campo = "UserDepartamento";
+                    campo = "UserName";
                 }
                 else { campo = "UserRol"; }//Si no es ninguna opcion anterior buscara por rol
                 dtTablaUsuarios.DataSource = obj.buscarRegistro(campo, txtBuscarUsuarios.Text);
@@ -151,6 +151,11 @@ namespace DAE.Interfaz
                 // Cerrar el formulario menu y mostrar el formulario login
                 this.Close();
             }   
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            cargar();
         }
     }
 }

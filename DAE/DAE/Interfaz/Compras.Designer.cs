@@ -53,6 +53,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarItenDB = new System.Windows.Forms.Button();
+            this.btnElminarIten = new System.Windows.Forms.Button();
             this.txtCodigoDetalleCompra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtTableDetalleCompra = new System.Windows.Forms.DataGridView();
@@ -66,8 +68,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.btnElminarIten = new System.Windows.Forms.Button();
-            this.btnEliminarItenDB = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTablaCompras)).BeginInit();
@@ -412,6 +412,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tabla Detalle Compras";
             // 
+            // btnEliminarItenDB
+            // 
+            this.btnEliminarItenDB.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEliminarItenDB.Enabled = false;
+            this.btnEliminarItenDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarItenDB.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnEliminarItenDB.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminarItenDB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarItenDB.Location = new System.Drawing.Point(192, 362);
+            this.btnEliminarItenDB.Name = "btnEliminarItenDB";
+            this.btnEliminarItenDB.Size = new System.Drawing.Size(169, 43);
+            this.btnEliminarItenDB.TabIndex = 27;
+            this.btnEliminarItenDB.Text = "Eliminar";
+            this.btnEliminarItenDB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarItenDB.UseVisualStyleBackColor = false;
+            this.btnEliminarItenDB.Click += new System.EventHandler(this.btnEliminarItenDB_Click);
+            // 
+            // btnElminarIten
+            // 
+            this.btnElminarIten.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnElminarIten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElminarIten.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElminarIten.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnElminarIten.Location = new System.Drawing.Point(99, 362);
+            this.btnElminarIten.Name = "btnElminarIten";
+            this.btnElminarIten.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnElminarIten.Size = new System.Drawing.Size(54, 37);
+            this.btnElminarIten.TabIndex = 26;
+            this.btnElminarIten.Text = "-";
+            this.btnElminarIten.UseVisualStyleBackColor = false;
+            this.btnElminarIten.Click += new System.EventHandler(this.btnElminarIten_Click);
+            // 
             // txtCodigoDetalleCompra
             // 
             this.txtCodigoDetalleCompra.Enabled = false;
@@ -445,6 +477,7 @@
             this.dtTableDetalleCompra.Size = new System.Drawing.Size(612, 244);
             this.dtTableDetalleCompra.TabIndex = 2;
             this.dtTableDetalleCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTableDetalleCompra_CellClick);
+            this.dtTableDetalleCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTableDetalleCompra_CellContentClick);
             // 
             // btnGuardarCompra
             // 
@@ -504,6 +537,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(110, 27);
             this.txtPrecio.TabIndex = 22;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // label10
             // 
@@ -526,6 +560,7 @@
             this.cmbLibros.Size = new System.Drawing.Size(195, 27);
             this.cmbLibros.TabIndex = 22;
             this.cmbLibros.UseWaitCursor = true;
+            this.cmbLibros.SelectedIndexChanged += new System.EventHandler(this.cmbLibros_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -559,38 +594,6 @@
             this.cmbCategoria.Size = new System.Drawing.Size(180, 27);
             this.cmbCategoria.TabIndex = 21;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
-            // 
-            // btnElminarIten
-            // 
-            this.btnElminarIten.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnElminarIten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElminarIten.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElminarIten.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnElminarIten.Location = new System.Drawing.Point(99, 362);
-            this.btnElminarIten.Name = "btnElminarIten";
-            this.btnElminarIten.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnElminarIten.Size = new System.Drawing.Size(54, 37);
-            this.btnElminarIten.TabIndex = 26;
-            this.btnElminarIten.Text = "-";
-            this.btnElminarIten.UseVisualStyleBackColor = false;
-            this.btnElminarIten.Click += new System.EventHandler(this.btnElminarIten_Click);
-            // 
-            // btnEliminarItenDB
-            // 
-            this.btnEliminarItenDB.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnEliminarItenDB.Enabled = false;
-            this.btnEliminarItenDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarItenDB.Font = new System.Drawing.Font("Impact", 15.75F);
-            this.btnEliminarItenDB.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminarItenDB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarItenDB.Location = new System.Drawing.Point(192, 362);
-            this.btnEliminarItenDB.Name = "btnEliminarItenDB";
-            this.btnEliminarItenDB.Size = new System.Drawing.Size(169, 43);
-            this.btnEliminarItenDB.TabIndex = 27;
-            this.btnEliminarItenDB.Text = "Eliminar";
-            this.btnEliminarItenDB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarItenDB.UseVisualStyleBackColor = false;
-            this.btnEliminarItenDB.Click += new System.EventHandler(this.btnEliminarItenDB_Click);
             // 
             // frmCompras
             // 

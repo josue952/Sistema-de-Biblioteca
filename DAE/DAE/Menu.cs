@@ -18,6 +18,7 @@ namespace DAE
         public FrmMenu()
         {
             InitializeComponent();
+            
         }
         //variable para saber cual formulario esta abierto
         private Form FormularioActivo = null;
@@ -42,15 +43,14 @@ namespace DAE
             lblRol.Text = "Nivel de Acceso: \n" + UserLoginCache.rolUser;
             if (UserLoginCache.rolUser == "Administrador")
             {
-
+                //el administrador puede ver todos los formularios
             }
             else if (UserLoginCache.rolUser == "Bibliotecario")
             {
+                btnUsuarios.Visible = false;
+                btnRptEmpleados.Visible = false;
             }
             else if (UserLoginCache.rolUser == "Estudiante")
-            {
-            }
-            else if (UserLoginCache.rolUser == "Proveedor")
             {
             }
             else if (UserLoginCache.rolUser == "Normal")
@@ -60,7 +60,9 @@ namespace DAE
             {
             }
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+            panelSubMenuAdmin.AutoSize = true;
             panelSubMenuReportes.Visible = false;
+            panelSubMenuReportes.AutoSize = true;
 
         }
         private void btnAdministrar_Click(object sender, EventArgs e)

@@ -33,16 +33,13 @@
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
             this.btnRptCompras = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnRptEmpleados = new System.Windows.Forms.Button();
             this.btnRptProveedores = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
-            this.brnCompras = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnAutor = new System.Windows.Forms.Button();
             this.btnEditorial = new System.Windows.Forms.Button();
-            this.btnLibros = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnAdministrar = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
@@ -52,6 +49,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelFormularioHijo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLibros = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.brnCompras = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelSubMenuAdmin.SuspendLayout();
@@ -101,9 +101,9 @@
             // panelSubMenuReportes
             // 
             this.panelSubMenuReportes.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panelSubMenuReportes.Controls.Add(this.btnRptCompras);
             this.panelSubMenuReportes.Controls.Add(this.button4);
-            this.panelSubMenuReportes.Controls.Add(this.btnEmpleados);
+            this.panelSubMenuReportes.Controls.Add(this.btnRptCompras);
+            this.panelSubMenuReportes.Controls.Add(this.btnRptEmpleados);
             this.panelSubMenuReportes.Controls.Add(this.btnRptProveedores);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 462);
@@ -115,6 +115,7 @@
             // 
             this.btnRptCompras.BackColor = System.Drawing.Color.Teal;
             this.btnRptCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRptCompras.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRptCompras.FlatAppearance.BorderSize = 0;
             this.btnRptCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRptCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -122,10 +123,10 @@
             this.btnRptCompras.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRptCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRptCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRptCompras.Location = new System.Drawing.Point(33, 82);
+            this.btnRptCompras.Location = new System.Drawing.Point(0, 82);
             this.btnRptCompras.Name = "btnRptCompras";
             this.btnRptCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnRptCompras.Size = new System.Drawing.Size(153, 41);
+            this.btnRptCompras.Size = new System.Drawing.Size(186, 41);
             this.btnRptCompras.TabIndex = 19;
             this.btnRptCompras.Text = "Compras por Mes";
             this.btnRptCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,51 +134,33 @@
             this.btnRptCompras.UseVisualStyleBackColor = false;
             this.btnRptCompras.Click += new System.EventHandler(this.btnRptCompras_Click);
             // 
-            // button4
+            // btnRptEmpleados
             // 
-            this.button4.BackColor = System.Drawing.Color.Teal;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(33, 123);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button4.Size = new System.Drawing.Size(153, 41);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Autor";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // btnEmpleados
-            // 
-            this.btnEmpleados.BackColor = System.Drawing.Color.Teal;
-            this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmpleados.FlatAppearance.BorderSize = 0;
-            this.btnEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleados.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEmpleados.Location = new System.Drawing.Point(33, 41);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnEmpleados.Size = new System.Drawing.Size(153, 41);
-            this.btnEmpleados.TabIndex = 12;
-            this.btnEmpleados.Text = "Empleados";
-            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnEmpleados.UseVisualStyleBackColor = false;
-            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            this.btnRptEmpleados.BackColor = System.Drawing.Color.Teal;
+            this.btnRptEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRptEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRptEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnRptEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnRptEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnRptEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRptEmpleados.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptEmpleados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRptEmpleados.Location = new System.Drawing.Point(0, 41);
+            this.btnRptEmpleados.Name = "btnRptEmpleados";
+            this.btnRptEmpleados.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnRptEmpleados.Size = new System.Drawing.Size(186, 41);
+            this.btnRptEmpleados.TabIndex = 12;
+            this.btnRptEmpleados.Text = "Empleados";
+            this.btnRptEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRptEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnRptEmpleados.UseVisualStyleBackColor = false;
+            this.btnRptEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
             // btnRptProveedores
             // 
             this.btnRptProveedores.BackColor = System.Drawing.Color.Teal;
             this.btnRptProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRptProveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRptProveedores.FlatAppearance.BorderSize = 0;
             this.btnRptProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnRptProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
@@ -185,10 +168,10 @@
             this.btnRptProveedores.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRptProveedores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRptProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRptProveedores.Location = new System.Drawing.Point(33, 0);
+            this.btnRptProveedores.Location = new System.Drawing.Point(0, 0);
             this.btnRptProveedores.Name = "btnRptProveedores";
             this.btnRptProveedores.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnRptProveedores.Size = new System.Drawing.Size(153, 41);
+            this.btnRptProveedores.Size = new System.Drawing.Size(186, 41);
             this.btnRptProveedores.TabIndex = 10;
             this.btnRptProveedores.Text = "Proveedores";
             this.btnRptProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -224,10 +207,10 @@
             // 
             this.panelSubMenuAdmin.BackColor = System.Drawing.SystemColors.GrayText;
             this.panelSubMenuAdmin.Controls.Add(this.brnCompras);
+            this.panelSubMenuAdmin.Controls.Add(this.btnLibros);
             this.panelSubMenuAdmin.Controls.Add(this.btnCategoria);
             this.panelSubMenuAdmin.Controls.Add(this.btnAutor);
             this.panelSubMenuAdmin.Controls.Add(this.btnEditorial);
-            this.panelSubMenuAdmin.Controls.Add(this.btnLibros);
             this.panelSubMenuAdmin.Controls.Add(this.btnUsuarios);
             this.panelSubMenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuAdmin.Location = new System.Drawing.Point(0, 160);
@@ -235,31 +218,11 @@
             this.panelSubMenuAdmin.Size = new System.Drawing.Size(186, 245);
             this.panelSubMenuAdmin.TabIndex = 1;
             // 
-            // brnCompras
-            // 
-            this.brnCompras.BackColor = System.Drawing.Color.Teal;
-            this.brnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.brnCompras.FlatAppearance.BorderSize = 0;
-            this.brnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.brnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.brnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.brnCompras.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brnCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.brnCompras.Location = new System.Drawing.Point(33, 204);
-            this.brnCompras.Name = "brnCompras";
-            this.brnCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.brnCompras.Size = new System.Drawing.Size(153, 41);
-            this.brnCompras.TabIndex = 20;
-            this.brnCompras.Text = "Compras";
-            this.brnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.brnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.brnCompras.UseVisualStyleBackColor = false;
-            this.brnCompras.Click += new System.EventHandler(this.brnCompras_Click);
-            // 
             // btnCategoria
             // 
             this.btnCategoria.BackColor = System.Drawing.Color.Teal;
             this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCategoria.FlatAppearance.BorderSize = 0;
             this.btnCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -267,10 +230,10 @@
             this.btnCategoria.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategoria.Location = new System.Drawing.Point(33, 82);
+            this.btnCategoria.Location = new System.Drawing.Point(0, 123);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnCategoria.Size = new System.Drawing.Size(153, 41);
+            this.btnCategoria.Size = new System.Drawing.Size(186, 41);
             this.btnCategoria.TabIndex = 19;
             this.btnCategoria.Text = "Categoria";
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,16 +245,17 @@
             // 
             this.btnAutor.BackColor = System.Drawing.Color.Teal;
             this.btnAutor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAutor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAutor.FlatAppearance.BorderSize = 0;
             this.btnAutor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAutor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAutor.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAutor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAutor.Location = new System.Drawing.Point(33, 123);
+            this.btnAutor.Location = new System.Drawing.Point(0, 82);
             this.btnAutor.Name = "btnAutor";
             this.btnAutor.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnAutor.Size = new System.Drawing.Size(153, 41);
+            this.btnAutor.Size = new System.Drawing.Size(186, 41);
             this.btnAutor.TabIndex = 13;
             this.btnAutor.Text = "Autor";
             this.btnAutor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -303,16 +267,17 @@
             // 
             this.btnEditorial.BackColor = System.Drawing.Color.Teal;
             this.btnEditorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditorial.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEditorial.FlatAppearance.BorderSize = 0;
             this.btnEditorial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnEditorial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnEditorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditorial.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditorial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditorial.Location = new System.Drawing.Point(33, 41);
+            this.btnEditorial.Location = new System.Drawing.Point(0, 41);
             this.btnEditorial.Name = "btnEditorial";
             this.btnEditorial.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnEditorial.Size = new System.Drawing.Size(153, 41);
+            this.btnEditorial.Size = new System.Drawing.Size(186, 41);
             this.btnEditorial.TabIndex = 12;
             this.btnEditorial.Text = "Editorial";
             this.btnEditorial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -320,32 +285,11 @@
             this.btnEditorial.UseVisualStyleBackColor = false;
             this.btnEditorial.Click += new System.EventHandler(this.btnEditorial_Click);
             // 
-            // btnLibros
-            // 
-            this.btnLibros.BackColor = System.Drawing.Color.Teal;
-            this.btnLibros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLibros.FlatAppearance.BorderSize = 0;
-            this.btnLibros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLibros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLibros.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLibros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLibros.Location = new System.Drawing.Point(33, 164);
-            this.btnLibros.Name = "btnLibros";
-            this.btnLibros.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnLibros.Size = new System.Drawing.Size(153, 41);
-            this.btnLibros.TabIndex = 11;
-            this.btnLibros.Text = "Libros";
-            this.btnLibros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLibros.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnLibros.UseVisualStyleBackColor = false;
-            this.btnLibros.Click += new System.EventHandler(this.btnLibros_Click);
-            // 
             // btnUsuarios
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.Teal;
             this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUsuarios.FlatAppearance.BorderSize = 0;
             this.btnUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
@@ -353,10 +297,10 @@
             this.btnUsuarios.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(33, 0);
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 0);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(153, 41);
+            this.btnUsuarios.Size = new System.Drawing.Size(186, 41);
             this.btnUsuarios.TabIndex = 10;
             this.btnUsuarios.Text = "Usuario";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -469,6 +413,70 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btnLibros
+            // 
+            this.btnLibros.BackColor = System.Drawing.Color.Teal;
+            this.btnLibros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLibros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLibros.FlatAppearance.BorderSize = 0;
+            this.btnLibros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLibros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLibros.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLibros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLibros.Location = new System.Drawing.Point(0, 164);
+            this.btnLibros.Name = "btnLibros";
+            this.btnLibros.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnLibros.Size = new System.Drawing.Size(186, 41);
+            this.btnLibros.TabIndex = 21;
+            this.btnLibros.Text = "Libros";
+            this.btnLibros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLibros.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnLibros.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Teal;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(0, 123);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.button4.Size = new System.Drawing.Size(186, 41);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Autor";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // brnCompras
+            // 
+            this.brnCompras.BackColor = System.Drawing.Color.Teal;
+            this.brnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.brnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.brnCompras.FlatAppearance.BorderSize = 0;
+            this.brnCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.brnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.brnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brnCompras.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.brnCompras.Location = new System.Drawing.Point(0, 205);
+            this.brnCompras.Name = "brnCompras";
+            this.brnCompras.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.brnCompras.Size = new System.Drawing.Size(186, 41);
+            this.brnCompras.TabIndex = 23;
+            this.brnCompras.Text = "Compras";
+            this.brnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.brnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.brnCompras.UseVisualStyleBackColor = false;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,18 +518,18 @@
         private System.Windows.Forms.Panel panelSubMenuAdmin;
         private System.Windows.Forms.Button btnAutor;
         private System.Windows.Forms.Button btnEditorial;
-        private System.Windows.Forms.Button btnLibros;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnCategoria;
-        private System.Windows.Forms.Button brnCompras;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPrestamo;
         private System.Windows.Forms.Panel panelSubMenuReportes;
         private System.Windows.Forms.Button btnRptCompras;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnRptEmpleados;
         private System.Windows.Forms.Button btnRptProveedores;
+        private System.Windows.Forms.Button btnLibros;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button brnCompras;
     }
 }
 
