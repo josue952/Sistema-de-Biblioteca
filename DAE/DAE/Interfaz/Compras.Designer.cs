@@ -34,9 +34,14 @@
             this.cmbPorCompras = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnUpdateTableCom = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtTablaCompras = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarCom = new System.Windows.Forms.Button();
+            this.btnEditarCom = new System.Windows.Forms.Button();
+            this.btnAgregarCom = new System.Windows.Forms.Button();
             this.gpCompras = new System.Windows.Forms.GroupBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnAgregarItemsCom = new System.Windows.Forms.Button();
@@ -49,10 +54,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnEliminarItenDB = new System.Windows.Forms.Button();
+            this.btnElminarIten = new System.Windows.Forms.Button();
             this.txtCodigoDetalleCompra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtTableDetalleCompra = new System.Windows.Forms.DataGridView();
             this.btnGuardarCompra = new System.Windows.Forms.Button();
+            this.btnAgregarItems = new System.Windows.Forms.Button();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -61,13 +68,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.btnElminarIten = new System.Windows.Forms.Button();
-            this.btnAgregarItems = new System.Windows.Forms.Button();
-            this.btnUpdateTableCom = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnEliminarCom = new System.Windows.Forms.Button();
-            this.btnEditarCom = new System.Windows.Forms.Button();
-            this.btnAgregarCom = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTablaCompras)).BeginInit();
@@ -137,6 +137,40 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Buscar";
             // 
+            // btnUpdateTableCom
+            // 
+            this.btnUpdateTableCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnUpdateTableCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateTableCom.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTableCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateTableCom.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTableCom.Image")));
+            this.btnUpdateTableCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateTableCom.Location = new System.Drawing.Point(804, 32);
+            this.btnUpdateTableCom.Name = "btnUpdateTableCom";
+            this.btnUpdateTableCom.Size = new System.Drawing.Size(132, 52);
+            this.btnUpdateTableCom.TabIndex = 1;
+            this.btnUpdateTableCom.Text = "Actualizar";
+            this.btnUpdateTableCom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateTableCom.UseVisualStyleBackColor = false;
+            this.btnUpdateTableCom.Click += new System.EventHandler(this.btnUpdateTableCom_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Impact", 15.75F);
+            this.btnFiltrar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
+            this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFiltrar.Location = new System.Drawing.Point(646, 32);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(132, 52);
+            this.btnFiltrar.TabIndex = 0;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
@@ -162,7 +196,7 @@
             this.dtTablaCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtTablaCompras.Size = new System.Drawing.Size(433, 386);
             this.dtTablaCompras.TabIndex = 1;
-            this.dtTablaCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTablaCompras_CellContentClick);
+            this.dtTablaCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTablaCompras_CellContentClick);
             // 
             // groupBox2
             // 
@@ -177,6 +211,57 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
+            // 
+            // btnEliminarCom
+            // 
+            this.btnEliminarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEliminarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCom.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCom.Image")));
+            this.btnEliminarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarCom.Location = new System.Drawing.Point(131, 42);
+            this.btnEliminarCom.Name = "btnEliminarCom";
+            this.btnEliminarCom.Size = new System.Drawing.Size(100, 41);
+            this.btnEliminarCom.TabIndex = 2;
+            this.btnEliminarCom.Text = "Eilminar";
+            this.btnEliminarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarCom.UseVisualStyleBackColor = false;
+            this.btnEliminarCom.Click += new System.EventHandler(this.btnEliminarCom_Click);
+            // 
+            // btnEditarCom
+            // 
+            this.btnEditarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEditarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCom.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEditarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCom.Image")));
+            this.btnEditarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarCom.Location = new System.Drawing.Point(11, 67);
+            this.btnEditarCom.Name = "btnEditarCom";
+            this.btnEditarCom.Size = new System.Drawing.Size(100, 41);
+            this.btnEditarCom.TabIndex = 1;
+            this.btnEditarCom.Text = "Editar";
+            this.btnEditarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarCom.UseVisualStyleBackColor = false;
+            this.btnEditarCom.Click += new System.EventHandler(this.btnEditarCom_Click);
+            // 
+            // btnAgregarCom
+            // 
+            this.btnAgregarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnAgregarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCom.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCom.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCom.Image")));
+            this.btnAgregarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCom.Location = new System.Drawing.Point(11, 20);
+            this.btnAgregarCom.Name = "btnAgregarCom";
+            this.btnAgregarCom.Size = new System.Drawing.Size(100, 41);
+            this.btnAgregarCom.TabIndex = 0;
+            this.btnAgregarCom.Text = "Agregar";
+            this.btnAgregarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarCom.UseVisualStyleBackColor = false;
+            this.btnAgregarCom.Click += new System.EventHandler(this.btnAgregarCom_Click);
             // 
             // gpCompras
             // 
@@ -345,6 +430,21 @@
             this.btnEliminarItenDB.UseVisualStyleBackColor = false;
             this.btnEliminarItenDB.Click += new System.EventHandler(this.btnEliminarItenDB_Click);
             // 
+            // btnElminarIten
+            // 
+            this.btnElminarIten.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnElminarIten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElminarIten.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElminarIten.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnElminarIten.Image = ((System.Drawing.Image)(resources.GetObject("btnElminarIten.Image")));
+            this.btnElminarIten.Location = new System.Drawing.Point(99, 362);
+            this.btnElminarIten.Name = "btnElminarIten";
+            this.btnElminarIten.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnElminarIten.Size = new System.Drawing.Size(54, 37);
+            this.btnElminarIten.TabIndex = 26;
+            this.btnElminarIten.UseVisualStyleBackColor = false;
+            this.btnElminarIten.Click += new System.EventHandler(this.btnElminarIten_Click);
+            // 
             // txtCodigoDetalleCompra
             // 
             this.txtCodigoDetalleCompra.Enabled = false;
@@ -394,6 +494,21 @@
             this.btnGuardarCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardarCompra.UseVisualStyleBackColor = false;
             this.btnGuardarCompra.Click += new System.EventHandler(this.btnGuardarCompra_Click);
+            // 
+            // btnAgregarItems
+            // 
+            this.btnAgregarItems.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnAgregarItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarItems.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarItems.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregarItems.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarItems.Image")));
+            this.btnAgregarItems.Location = new System.Drawing.Point(27, 362);
+            this.btnAgregarItems.Name = "btnAgregarItems";
+            this.btnAgregarItems.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAgregarItems.Size = new System.Drawing.Size(54, 37);
+            this.btnAgregarItems.TabIndex = 25;
+            this.btnAgregarItems.UseVisualStyleBackColor = false;
+            this.btnAgregarItems.Click += new System.EventHandler(this.btnAgregarDetalleCom_Click);
             // 
             // numCantidad
             // 
@@ -478,121 +593,6 @@
             this.cmbCategoria.Size = new System.Drawing.Size(180, 27);
             this.cmbCategoria.TabIndex = 21;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
-            // 
-            // btnElminarIten
-            // 
-            this.btnElminarIten.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnElminarIten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElminarIten.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElminarIten.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnElminarIten.Image = ((System.Drawing.Image)(resources.GetObject("btnElminarIten.Image")));
-            this.btnElminarIten.Location = new System.Drawing.Point(99, 362);
-            this.btnElminarIten.Name = "btnElminarIten";
-            this.btnElminarIten.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnElminarIten.Size = new System.Drawing.Size(54, 37);
-            this.btnElminarIten.TabIndex = 26;
-            this.btnElminarIten.UseVisualStyleBackColor = false;
-            this.btnElminarIten.Click += new System.EventHandler(this.btnElminarIten_Click);
-            // 
-            // btnAgregarItems
-            // 
-            this.btnAgregarItems.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnAgregarItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarItems.Font = new System.Drawing.Font("Impact", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarItems.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAgregarItems.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarItems.Image")));
-            this.btnAgregarItems.Location = new System.Drawing.Point(27, 362);
-            this.btnAgregarItems.Name = "btnAgregarItems";
-            this.btnAgregarItems.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAgregarItems.Size = new System.Drawing.Size(54, 37);
-            this.btnAgregarItems.TabIndex = 25;
-            this.btnAgregarItems.UseVisualStyleBackColor = false;
-            this.btnAgregarItems.Click += new System.EventHandler(this.btnAgregarDetalleCom_Click);
-            // 
-            // btnUpdateTableCom
-            // 
-            this.btnUpdateTableCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnUpdateTableCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateTableCom.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTableCom.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateTableCom.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTableCom.Image")));
-            this.btnUpdateTableCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateTableCom.Location = new System.Drawing.Point(804, 32);
-            this.btnUpdateTableCom.Name = "btnUpdateTableCom";
-            this.btnUpdateTableCom.Size = new System.Drawing.Size(132, 52);
-            this.btnUpdateTableCom.TabIndex = 1;
-            this.btnUpdateTableCom.Text = "Actualizar";
-            this.btnUpdateTableCom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateTableCom.UseVisualStyleBackColor = false;
-            this.btnUpdateTableCom.Click += new System.EventHandler(this.btnUpdateTableCom_Click);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrar.Font = new System.Drawing.Font("Impact", 15.75F);
-            this.btnFiltrar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
-            this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFiltrar.Location = new System.Drawing.Point(646, 32);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(132, 52);
-            this.btnFiltrar.TabIndex = 0;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFiltrar.UseVisualStyleBackColor = false;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            // 
-            // btnEliminarCom
-            // 
-            this.btnEliminarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnEliminarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarCom.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCom.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCom.Image")));
-            this.btnEliminarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarCom.Location = new System.Drawing.Point(131, 42);
-            this.btnEliminarCom.Name = "btnEliminarCom";
-            this.btnEliminarCom.Size = new System.Drawing.Size(100, 41);
-            this.btnEliminarCom.TabIndex = 2;
-            this.btnEliminarCom.Text = "Eilminar";
-            this.btnEliminarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarCom.UseVisualStyleBackColor = false;
-            this.btnEliminarCom.Click += new System.EventHandler(this.btnEliminarCom_Click);
-            // 
-            // btnEditarCom
-            // 
-            this.btnEditarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnEditarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarCom.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarCom.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEditarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCom.Image")));
-            this.btnEditarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarCom.Location = new System.Drawing.Point(11, 67);
-            this.btnEditarCom.Name = "btnEditarCom";
-            this.btnEditarCom.Size = new System.Drawing.Size(100, 41);
-            this.btnEditarCom.TabIndex = 1;
-            this.btnEditarCom.Text = "Editar";
-            this.btnEditarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditarCom.UseVisualStyleBackColor = false;
-            this.btnEditarCom.Click += new System.EventHandler(this.btnEditarCom_Click);
-            // 
-            // btnAgregarCom
-            // 
-            this.btnAgregarCom.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnAgregarCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCom.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCom.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAgregarCom.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCom.Image")));
-            this.btnAgregarCom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCom.Location = new System.Drawing.Point(11, 20);
-            this.btnAgregarCom.Name = "btnAgregarCom";
-            this.btnAgregarCom.Size = new System.Drawing.Size(100, 41);
-            this.btnAgregarCom.TabIndex = 0;
-            this.btnAgregarCom.Text = "Agregar";
-            this.btnAgregarCom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregarCom.UseVisualStyleBackColor = false;
-            this.btnAgregarCom.Click += new System.EventHandler(this.btnAgregarCom_Click);
             // 
             // frmCompras
             // 

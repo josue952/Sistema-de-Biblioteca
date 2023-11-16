@@ -86,6 +86,7 @@ namespace DAE
         {
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
             panelSubMenuReportes.Visible = false;
+            AbrirFormulario(new frmPrestamos());
 
         }
         private void btnCerrarSesion_Click(object sender, EventArgs e)

@@ -99,8 +99,10 @@
     <Compile Include="Clases\ClsAutor.cs" />
     <Compile Include="Clases\ClsCategoria.cs" />
     <Compile Include="Clases\ClsDetalleCompra.cs" />
+    <Compile Include="Clases\ClsDetallePrestamo.cs" />
     <Compile Include="Clases\ClsEditorial.cs" />
     <Compile Include="Clases\ClsLibro.cs" />
+    <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsUsuario.cs" />
     <Compile Include="DAO\AutorDao.cs" />
     <Compile Include="DAO\CategoriaDao.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="DAO\LibroDao.cs" />
     <Compile Include="Clases\LibroDB.cs" />
     <Compile Include="Clases\UserLoginCache.cs" />
+    <Compile Include="DAO\PrestamoDao.cs" />
     <Compile Include="DAO\UsuarioDao.cs" />
     <Compile Include="DAO\ComprasDao.cs" />
     <Compile Include="DAO\ConnectionDataBase.cs" />
@@ -135,6 +138,12 @@
     </Compile>
     <Compile Include="Interfaz\Libros.designer.cs">
       <DependentUpon>Libros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\Prestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Prestamos.designer.cs">
+      <DependentUpon>Prestamos.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\Reportes Interfaz\ReporteComprasPorMes.cs">
       <SubType>Form</SubType>
@@ -209,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Libros.resx">
       <DependentUpon>Libros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Prestamos.resx">
+      <DependentUpon>Prestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Reportes Interfaz\ReporteComprasPorMes.resx">
       <DependentUpon>ReporteComprasPorMes.cs</DependentUpon>

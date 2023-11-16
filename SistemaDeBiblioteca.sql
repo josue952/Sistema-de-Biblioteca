@@ -255,6 +255,91 @@ BEGIN
     DEALLOCATE actualizarCursor
 END
 --fin del procedimiento almacenado
+--
+CREATE TABLE Prestamo(
+CodigoPrestamo INT IDENTITY NOT NULL PRIMARY KEY,
+Usuario INT, --nombre de la llave foranea
+CONSTRAINT fk_idUsuario_pre FOREIGN KEY (Usuario) REFERENCES Usuarios(CodigoUser) ON UPDATE NO ACTION ON DELETE NO ACTION,
+FechaPrestamo DATE NOT NULL,
+Estado VARCHAR(10)--aqui se guardara si el libro esta aprobado o no
+)
+
+CREATE TABLE DetallePrestamo(
+CodigoDetallePrestamo INT IDENTITY NOT NULL PRIMARY KEY,
+CodigoPrestamo INT Not null,
+CONSTRAINT fk_idPrestamo_Pre FOREIGN KEY (CodigoPrestamo) REFERENCES Prestamo(CodigoPrestamo) ON UPDATE NO ACTION ON DELETE NO ACTION,
+Libro VARCHAR(20) NOT NULL,--nombre de la llave foranea	
+CONSTRAINT fk_idLibro_Pre FOREIGN KEY (Libro) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
+Cantidad INT NOT NULL,
+);
+
+CREATE PROCEDURE InsertarPrestamo
+	@Usuario VARCHAR(50),
+	@FechaPrestamo VARCHAR(20),
+	@Estado VARCHAR(10)
+AS
+BEGIN
+	DECLARE @IdUsuario INT;
+
+	SELECT @IdUsuario = CodigoUser
+	FROM Usuarios
+	WHERE UserName = @Usuario;
+
+	INSERT INTO Prestamo (Usuario, FechaPrestamo, Estado)
+	VALUES (@IdUsuario, CONVERT(DATETIME, @FechaPrestamo, 103), @Estado);
+END
+
+CREATE PROCEDURE InsertarDetallePrestamo
+    @CodigoPrestamo INT,
+    @NombreLibro VARCHAR(50),
+    @Cantidad INT
+AS
+BEGIN
+    DECLARE @ISBN VARCHAR(20)
+
+    -- Obtener el ISBN del libro basándose en el nombre del libro
+    SELECT @ISBN = ISBN
+    FROM Libros
+    WHERE NombreLibro = @NombreLibro
+
+    -- Insertar el detalle de la compra utilizando el ISBN
+    INSERT INTO DetallePrestamo(CodigoPrestamo, Libro, Cantidad)
+    VALUES (@CodigoPrestamo, @ISBN, @Cantidad)
+END
 
 EXEC ActualizarStockLibro --se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
 SELECT Cantidad FROM DetalleCompras WHERE Libro = '' --se verifica que la cantidad del libro sea 1
+
+SELECT L.StockLibro FROM Libros L INNER JOIN Categoria C ON L.Categoria = C.CodigoCategoria WHERE C.NombreCategoria = 'Terror' AND L.NombreLibro = 'El principito'
+
+-- Procedimiento almacenado para actualizar el StockLibro en Libros al realizar un préstamo
+CREATE PROCEDURE ActualizarStockPrestamo
+AS
+BEGIN
+    DECLARE @ISBN VARCHAR(20);
+    DECLARE @CantidadPrestamo INT;
+
+    -- Cursor para recorrer los detalles de préstamo y obtener la cantidad por libro
+    DECLARE actualizarCursor CURSOR FOR
+    SELECT DP.Libro, DP.Cantidad
+    FROM DetallePrestamo DP
+    JOIN Prestamo P ON DP.CodigoPrestamo = P.CodigoPrestamo;
+
+    OPEN actualizarCursor
+    FETCH NEXT FROM actualizarCursor INTO @ISBN, @CantidadPrestamo;
+
+    -- Iterar sobre los detalles de préstamo y actualizar StockLibro en Libros
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Actualizar StockLibro en Libros restando la cantidad de préstamo
+        UPDATE Libros
+        SET StockLibro = StockLibro - @CantidadPrestamo
+        WHERE ISBN = @ISBN;
+
+        FETCH NEXT FROM actualizarCursor INTO @ISBN, @CantidadPrestamo;
+    END
+
+    CLOSE actualizarCursor;
+    DEALLOCATE actualizarCursor;
+END
+EXEC ActualizarStockPrestamo

@@ -13,6 +13,7 @@ namespace DAE.Clases
         private string connectionString = "Server=sistemabiblioteca.database.windows.net; Initial Catalog=Sistema de Biblioteca; Persist Security Info=False; User ID=josue; Password=Biblioteca123$; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
         public string nombreLibro { get; set; }
         public decimal precioLibro { get; set; }
+        public int stockLibro { get; set; }
 
         public LibroDB(string nombreLibro)
         {
@@ -22,7 +23,12 @@ namespace DAE.Clases
         public LibroDB(decimal precioLibro)
         {
             this.precioLibro = precioLibro;
-        }   
+        }
+
+        public LibroDB(int stockLibro)
+        {
+            this.stockLibro = stockLibro;
+        }
 
         public List<LibroDB> GetNombreLibro(string nombreCategoria)
         {
@@ -71,6 +77,31 @@ namespace DAE.Clases
             }
 
             return preciosLibros;
+        }
+
+        public List<LibroDB> GetStock(string nombreCategoria, string nombreLibro)
+        {
+            List<LibroDB> stockLibros = new List<LibroDB>();
+            string query = $"SELECT L.StockLibro FROM Libros L INNER JOIN Categoria C ON L.Categoria = C.CodigoCategoria WHERE C.NombreCategoria = '{nombreCategoria}' AND L.NombreLibro = '{nombreLibro}'";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LibroDB libro = new LibroDB(0);
+                            libro.stockLibro = Convert.ToInt32(reader["StockLibro"]);
+                            stockLibros.Add(libro);
+                        }
+                    }
+                }
+            }
+
+            return stockLibros;
         }
     }
 }
