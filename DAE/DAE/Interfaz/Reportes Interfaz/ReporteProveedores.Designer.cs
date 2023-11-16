@@ -43,7 +43,6 @@
     "oveedores.rpt";
             this.frmRptProveedores.ShowGroupTreeButton = false;
             this.frmRptProveedores.ShowLogo = false;
-            this.frmRptProveedores.ShowPageNavigateButtons = false;
             this.frmRptProveedores.ShowParameterPanelButton = false;
             this.frmRptProveedores.Size = new System.Drawing.Size(800, 450);
             this.frmRptProveedores.TabIndex = 0;

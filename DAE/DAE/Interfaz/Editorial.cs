@@ -21,6 +21,7 @@ namespace DAE.Interfaz
             {
                 btnEliminar.Enabled = false;
             }
+            
         }
         ClsEditorial ed = new ClsEditorial();
         private void cargar()

@@ -46,6 +46,7 @@
             this.TablaUsers = new System.Windows.Forms.GroupBox();
             this.dtTablaUsuarios = new System.Windows.Forms.DataGridView();
             this.BuscarDatos = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.txtBuscarUsuarios = new System.Windows.Forms.TextBox();
             this.cmbPorUsuarios = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnRegresarLogin = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.CrudUsers.SuspendLayout();
             this.TablaUsers.SuspendLayout();
@@ -101,7 +101,7 @@
             "Administrador",
             "Bibliotecario",
             "Normal"});
-            this.cmbCargoUsuario.Location = new System.Drawing.Point(200, 80);
+            this.cmbCargoUsuario.Location = new System.Drawing.Point(330, 76);
             this.cmbCargoUsuario.Name = "cmbCargoUsuario";
             this.cmbCargoUsuario.Size = new System.Drawing.Size(157, 27);
             this.cmbCargoUsuario.TabIndex = 10;
@@ -159,7 +159,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Impact", 12F);
             this.label2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label2.Location = new System.Drawing.Point(143, 83);
+            this.label2.Location = new System.Drawing.Point(273, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 20);
             this.label2.TabIndex = 1;
@@ -183,9 +183,9 @@
             this.CrudUsers.Controls.Add(this.btnAgregar);
             this.CrudUsers.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CrudUsers.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.CrudUsers.Location = new System.Drawing.Point(827, 4);
+            this.CrudUsers.Location = new System.Drawing.Point(827, 29);
             this.CrudUsers.Name = "CrudUsers";
-            this.CrudUsers.Size = new System.Drawing.Size(233, 143);
+            this.CrudUsers.Size = new System.Drawing.Size(233, 118);
             this.CrudUsers.TabIndex = 1;
             this.CrudUsers.TabStop = false;
             this.CrudUsers.Text = "Acciones";
@@ -199,9 +199,9 @@
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(121, 46);
+            this.btnEliminar.Location = new System.Drawing.Point(121, 45);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(96, 51);
+            this.btnEliminar.Size = new System.Drawing.Size(100, 41);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eilminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -216,9 +216,9 @@
             this.btnEditar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(6, 82);
+            this.btnEditar.Location = new System.Drawing.Point(10, 70);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(100, 46);
+            this.btnEditar.Size = new System.Drawing.Size(100, 41);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -233,7 +233,7 @@
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(6, 25);
+            this.btnAgregar.Location = new System.Drawing.Point(10, 21);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 41);
             this.btnAgregar.TabIndex = 0;
@@ -248,7 +248,7 @@
             this.TablaUsers.Controls.Add(this.dtTablaUsuarios);
             this.TablaUsers.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TablaUsers.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.TablaUsers.Location = new System.Drawing.Point(214, 178);
+            this.TablaUsers.Location = new System.Drawing.Point(215, 178);
             this.TablaUsers.Name = "TablaUsers";
             this.TablaUsers.Size = new System.Drawing.Size(717, 391);
             this.TablaUsers.TabIndex = 2;
@@ -286,6 +286,23 @@
             this.BuscarDatos.TabIndex = 3;
             this.BuscarDatos.TabStop = false;
             this.BuscarDatos.Text = "Buscador";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(787, 31);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(132, 52);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Actualizar";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtBuscarUsuarios
             // 
@@ -367,32 +384,16 @@
             this.btnRegresarLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresarLogin.Font = new System.Drawing.Font("Impact", 15.75F);
             this.btnRegresarLogin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRegresarLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegresarLogin.Image = global::DAE.Properties.Resources.atras_icon;
             this.btnRegresarLogin.Location = new System.Drawing.Point(36, 178);
             this.btnRegresarLogin.Name = "btnRegresarLogin";
             this.btnRegresarLogin.Size = new System.Drawing.Size(158, 62);
             this.btnRegresarLogin.TabIndex = 3;
             this.btnRegresarLogin.Text = "Regresar";
+            this.btnRegresarLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRegresarLogin.UseVisualStyleBackColor = false;
             this.btnRegresarLogin.Visible = false;
             this.btnRegresarLogin.Click += new System.EventHandler(this.btnRegresarLogin_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(787, 31);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(132, 52);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Actualizar";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmUsuarios
             // 

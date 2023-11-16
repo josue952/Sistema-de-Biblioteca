@@ -88,10 +88,13 @@ namespace DAE
             frm.cmbCargoUsuario.Enabled = false;
             frm.cmbCargoUsuario.Text = "Normal";
             frm.btnRegresarLogin.Visible = true;
+            frm.btnEliminar.Visible = false;
+            frm.btnEditar.Visible = false;
             frm.txtContraseñaUsuario.PasswordChar = '\0';
-            frm.CrudUsers.Location = new Point(207, 179);
-            frm.Size = new Size(1075, 50);
-
+            frm.CrudUsers.Location = new Point(200, 150);
+            frm.CrudUsers.Size = new Size(180, 90);
+            frm.btnAgregar.Size = new Size(158, 62);
+            frm.Size = new Size(850, 300);
             frm.Show();
         }
     }

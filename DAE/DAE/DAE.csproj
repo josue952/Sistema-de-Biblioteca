@@ -109,7 +109,7 @@
     <Compile Include="DAO\LibroDao.cs" />
     <Compile Include="Clases\LibroDB.cs" />
     <Compile Include="Clases\UserLoginCache.cs" />
-    <Compile Include="Clases\UsuarioDao.cs" />
+    <Compile Include="DAO\UsuarioDao.cs" />
     <Compile Include="DAO\ComprasDao.cs" />
     <Compile Include="DAO\ConnectionDataBase.cs" />
     <Compile Include="Interfaz\Autor.cs">
@@ -281,7 +281,25 @@
   <ItemGroup>
     <None Include="Resources\libromenu.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\menos_icon.png" />
+    <None Include="Resources\+_icon.png" />
+    <None Include="Resources\atras_icon.png" />
+    <None Include="Resources\Login_icon.png" />
+    <None Include="Resources\NoUser_icon.png" />
+    <None Include="Resources\consultar_icon.png" />
+    <None Include="Resources\factura_icon.png" />
+    <None Include="Resources\empleados_icon.png" />
+    <None Include="Resources\proveedor_icon.png" />
+    <None Include="Resources\compra_icon.png" />
+    <None Include="Resources\libro_icon.png" />
+    <None Include="Resources\autor_icon.png" />
+    <None Include="Resources\categoria_icon.png" />
+    <None Include="Resources\Editorial_Icon.png" />
+    <Content Include="Resources\Logout_37127.png" />
+    <None Include="Resources\userIcon.png" />
+    <None Include="Resources\Logout_371271.png" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

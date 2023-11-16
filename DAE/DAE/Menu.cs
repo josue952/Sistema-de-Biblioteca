@@ -43,21 +43,23 @@ namespace DAE
             lblRol.Text = "Nivel de Acceso: \n" + UserLoginCache.rolUser;
             if (UserLoginCache.rolUser == "Administrador")
             {
-                //el administrador puede ver todos los formularios
+                btnConsultar.Visible = false;
             }
             else if (UserLoginCache.rolUser == "Bibliotecario")
             {
                 btnUsuarios.Visible = false;
                 btnRptEmpleados.Visible = false;
             }
-            else if (UserLoginCache.rolUser == "Estudiante")
-            {
-            }
             else if (UserLoginCache.rolUser == "Normal")
             {
+                btnAdministrar.Visible = false;
+                btnReportes.Visible = false;
             }
             else //cuando el usuario no esta registrado
             {
+                btnAdministrar.Visible = false;
+                btnReportes.Visible = false;
+                btnPrestamo.Visible = false;
             }
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
             panelSubMenuAdmin.AutoSize = true;
@@ -80,9 +82,10 @@ namespace DAE
             AbrirFormulario(new frmAutor());
         }
 
-        private void btnPrestamo_Click(object sender, EventArgs e)
+        private void btnSolicitarPrestamo_Click(object sender, EventArgs e)
         {
             panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+            panelSubMenuReportes.Visible = false;
 
         }
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -138,6 +141,18 @@ namespace DAE
         private void btnRptCompras_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmRptComprasxMes());
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmLibros());
+            panelSubMenuAdmin.Visible = false;//esconde el panel submenu de administrar
+            panelSubMenuReportes.Visible = false;   
+        }
+
+        private void btnPrestamos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

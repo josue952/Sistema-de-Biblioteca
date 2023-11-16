@@ -18,6 +18,16 @@ namespace DAE.Interfaz
             InitializeComponent();
             txtStock.Text = "0";
             txtPrecio.Text = "0";
+            if (UserLoginCache.rolUser == "Bibliotecario")
+            {
+                btnEliminar.Enabled = false;
+            }
+            else
+            {
+                btnAgregar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
         }
         ClsLibro li = new ClsLibro();
         private void cargar()

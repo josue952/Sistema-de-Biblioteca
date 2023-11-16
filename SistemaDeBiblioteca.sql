@@ -55,7 +55,6 @@ SELECT CodigoAutor, NombreAutor, CONVERT(VARCHAR(10), FechaNacAutor, 103) AS Fec
 
 INSERT INTO Autores VALUES ('Gabriel Garcia Marquez', '06-03-1899', 1)--se crea el primer autor para verificar la funcionalidad de esta
 
-
 CREATE TABLE Libros --se crea la tabla libros donde se alojaran todos los libros
 (
 	ISBN VARCHAR(20) NOT NULL PRIMARY KEY,

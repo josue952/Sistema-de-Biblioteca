@@ -17,6 +17,10 @@ namespace DAE.Interfaz
         public frmCategoria()
         {
             InitializeComponent();
+            if (UserLoginCache.rolUser == "Bibliotecario")
+            {
+                btnEliminar.Enabled = false;
+            }
         }
         ClsCategoria cat = new ClsCategoria();
 

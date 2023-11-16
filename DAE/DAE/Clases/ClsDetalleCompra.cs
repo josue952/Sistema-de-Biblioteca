@@ -14,14 +14,11 @@ namespace DAE.Clases
         public ClsDetalleCompra()
         {
         }
-
         public int CodigoCompra { get; set; }
         public string NombreLibro { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
         public decimal SubTotal => Cantidad * Precio;
-
-
         public DataTable getDetallesCompra(int codigoCompra)
         {
             string query = "SELECT D.CodigoDetalleCompra, L.NombreLibro AS Libro, D.PrecioLibro, D.Cantidad, D.SubTotal " +

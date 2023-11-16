@@ -16,6 +16,10 @@ namespace DAE.Interfaz
         public frmAutor()
         {
             InitializeComponent();
+            if (UserLoginCache.rolUser == "Bibliotecario")
+            {
+                btnEliminar.Enabled = false;
+            }
         }
         ClsAutor au = new ClsAutor();
         private void cargar()

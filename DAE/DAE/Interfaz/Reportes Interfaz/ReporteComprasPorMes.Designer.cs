@@ -47,7 +47,6 @@
             this.RptComprasView.ShowGotoPageButton = false;
             this.RptComprasView.ShowGroupTreeButton = false;
             this.RptComprasView.ShowLogo = false;
-            this.RptComprasView.ShowPageNavigateButtons = false;
             this.RptComprasView.ShowParameterPanelButton = false;
             this.RptComprasView.Size = new System.Drawing.Size(1045, 476);
             this.RptComprasView.TabIndex = 0;

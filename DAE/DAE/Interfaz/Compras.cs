@@ -25,6 +25,11 @@ namespace DAE.Interfaz
             dateFechaCompra.CustomFormat = "dd/MM/yyyy";
             txtUsuario.Text = UserLoginCache.userName;
             txtCodigoCompras.Text = "0";
+            if (UserLoginCache.rolUser == "Bibliotecario")
+            {
+                btnEliminarCom.Enabled = false;
+                btnEliminarItenDB.Enabled = false;
+            }
         }
         ClsCompras obj = new ClsCompras();
         private List<ClsDetalleCompra> detallesCompra = new List<ClsDetalleCompra>();
@@ -482,16 +487,6 @@ namespace DAE.Interfaz
                 // Si no hay precios de libros, limpia el TextBox de precio
                 txtPrecio.Text = "";
             }
-        }
-
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dtTableDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

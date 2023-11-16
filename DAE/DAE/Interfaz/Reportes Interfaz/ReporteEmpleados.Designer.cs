@@ -43,7 +43,6 @@
     "pleados.rpt";
             this.RptEmpleadosViewer.ShowGroupTreeButton = false;
             this.RptEmpleadosViewer.ShowLogo = false;
-            this.RptEmpleadosViewer.ShowPageNavigateButtons = false;
             this.RptEmpleadosViewer.ShowParameterPanelButton = false;
             this.RptEmpleadosViewer.Size = new System.Drawing.Size(800, 450);
             this.RptEmpleadosViewer.TabIndex = 0;
