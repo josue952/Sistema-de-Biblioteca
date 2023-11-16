@@ -102,6 +102,7 @@
     <Compile Include="Clases\ClsDetallePrestamo.cs" />
     <Compile Include="Clases\ClsEditorial.cs" />
     <Compile Include="Clases\ClsLibro.cs" />
+    <Compile Include="Clases\ClsMulta.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsUsuario.cs" />
     <Compile Include="DAO\AutorDao.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="DAO\LibroDao.cs" />
     <Compile Include="Clases\LibroDB.cs" />
     <Compile Include="Clases\UserLoginCache.cs" />
+    <Compile Include="DAO\MultaDao.cs" />
     <Compile Include="DAO\PrestamoDao.cs" />
     <Compile Include="DAO\UsuarioDao.cs" />
     <Compile Include="DAO\ComprasDao.cs" />
@@ -138,6 +140,24 @@
     </Compile>
     <Compile Include="Interfaz\Libros.designer.cs">
       <DependentUpon>Libros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\ListMultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\ListMultas.designer.cs">
+      <DependentUpon>ListMultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\ListPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\ListPrestamos.designer.cs">
+      <DependentUpon>ListPrestamos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\Multa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\Multa.designer.cs">
+      <DependentUpon>Multa.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\Prestamos.cs">
       <SubType>Form</SubType>
@@ -219,6 +239,15 @@
     <EmbeddedResource Include="Interfaz\Libros.resx">
       <DependentUpon>Libros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\ListMultas.resx">
+      <DependentUpon>ListMultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\ListPrestamos.resx">
+      <DependentUpon>ListPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\Multa.resx">
+      <DependentUpon>Multa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\Prestamos.resx">
       <DependentUpon>Prestamos.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +323,7 @@
     <None Include="Resources\libromenu.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\prestamo_icon.png" />
     <None Include="Resources\menos_icon.png" />
     <None Include="Resources\+_icon.png" />
     <None Include="Resources\atras_icon.png" />

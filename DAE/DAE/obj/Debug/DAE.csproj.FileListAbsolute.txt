@@ -75,3 +75,6 @@ C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.Reportes_Interfaz.frmRptEmpleados.resources
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.Reportes_Interfaz.frmRptComprasxMes.resources
 C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.frmPrestamos.resources
+C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.frmListMultas.resources
+C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.frmListPrestamos.resources
+C:\Users\josue\Source\Repos\josue952\Sistema-de-Biblioteca\DAE\DAE\obj\Debug\DAE.Interfaz.frmMulta.resources

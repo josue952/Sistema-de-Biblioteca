@@ -153,7 +153,7 @@ namespace DAE
 
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario(new frmListPrestamos());
         }
     }
 }

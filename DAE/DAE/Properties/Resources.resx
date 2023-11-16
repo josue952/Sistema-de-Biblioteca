@@ -124,7 +124,10 @@
   <data name="libro_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\libro_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-    <data name="userIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="menos_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menos_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="userIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NoUser_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -163,7 +166,7 @@
   <data name="categoria_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\categoria_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="menos_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menos_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="prestamo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prestamo_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

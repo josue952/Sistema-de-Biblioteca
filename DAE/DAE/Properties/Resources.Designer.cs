@@ -203,6 +203,16 @@ namespace DAE.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap prestamo_icon {
+            get {
+                object obj = ResourceManager.GetObject("prestamo_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap proveedor_icon {
             get {
                 object obj = ResourceManager.GetObject("proveedor_icon", resourceCulture);

@@ -343,3 +343,27 @@ BEGIN
     DEALLOCATE actualizarCursor;
 END
 EXEC ActualizarStockPrestamo
+
+--se crea una vista donde iran el contador de cuantas veces dicho libro fue prestado
+-- Crear la vista que incluye el contador de préstamos
+CREATE VIEW VistaLibrosConContador AS
+SELECT
+    L.ISBN,
+    L.NombreLibro,
+    L.Autor,
+    L.Editorial,
+    L.Categoria,
+    L.StockLibro,
+    L.PrecioLibro,
+    L.EstadoLibro,
+    ISNULL(DP.ContadorLibro, 0) AS ContadorPrestamos
+FROM Libros L
+LEFT JOIN (
+    SELECT DP.Libro, COUNT(*) AS ContadorLibro
+    FROM DetallePrestamo DP
+    INNER JOIN Prestamo P ON DP.CodigoPrestamo = P.CodigoPrestamo
+    WHERE P.Estado = 'Aprobado'
+    GROUP BY DP.Libro
+) DP ON L.ISBN = DP.Libro;
+
+SELECT * FROM VistaLibrosConContador;
