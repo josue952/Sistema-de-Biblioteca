@@ -5,6 +5,8 @@
 --Contraseña: Biblioteca123$
 --Si se modificaran elementos preguntar primeramente y luego utulizar las funciones alter Column, drop, etc. 
 --Para no eliminar la base de datos
+
+--se crea la base de datos e inserta datos de prueba
 CREATE TABLE Usuarios --se crea la tabla usuarios donde se alojaran todos los usuarios
 (
 	CodigoUser INT IDENTITY NOT NULL PRIMARY KEY,
@@ -12,10 +14,7 @@ CREATE TABLE Usuarios --se crea la tabla usuarios donde se alojaran todos los us
 	UserPassword VARCHAR(40) NOT NULL,
 	UserRol VARCHAR(25) NOT NULL
 )
-
 INSERT INTO Usuarios VALUES ('josue72', 'josue0074', 'Administrador', 'San Salvador')--se crea el primer usuario para verificar la funcionalidad de esta
-
-SELECT * FROM Usuarios
 
 CREATE TABLE Editorial --se crea la tabla editorial donde se alojaran todas las editoriales
 (
@@ -25,8 +24,7 @@ CREATE TABLE Editorial --se crea la tabla editorial donde se alojaran todas las 
 	DireccionEditorial VARCHAR(255) NOT NULL,
 	NumeroEditorial VARCHAR(9) NOT NULL,
 )
-
-INSERT INTO Editorial VALUES ('Editorial Santillana', 'santillana@gmail.com', 'San Salvador', '2505-8920')--se crea la primera editorial para verificar la funcionalidad de esta
+INSERT INTO Editorial VALUES ('Santillana', 'correo@santillana.com', 'San Salvador', '2222-2222')--se crea la primera editorial para verificar la funcionalidad de esta
 
 CREATE TABLE Categoria --se crea la tabla categoria donde se alojaran todas las categorias
 (
@@ -35,8 +33,6 @@ CREATE TABLE Categoria --se crea la tabla categoria donde se alojaran todas las 
 	DescripcionCategoria VARCHAR(255) NOT NULL,
 )
 INSERT INTO Categoria VALUES ('Realismo Magico', 'Es un genero literario que se caracteriza por la inclusion de elementos magicos o fantasticos en una narracion realista')--se crea la primera categoria para verificar la funcionalidad de esta
---consulta personalizada para mostrar el nombre de la categoria en vez del codigo de la categoria
-SELECT CodigoCategoria, NombreCategoria FROM Categoria
 
 CREATE TABLE Autores --se crea la tabla autores donde se alojaran todos los autores
 (
@@ -46,13 +42,6 @@ CREATE TABLE Autores --se crea la tabla autores donde se alojaran todos los auto
 	CodCategoria INT NOT NULL,--nombre de la llave foranea
 	CONSTRAINT fk_idCategoria FOREIGN KEY (CodCategoria) REFERENCES Categoria(CodigoCategoria) ON UPDATE CASCADE ON DELETE CASCADE--referencia a la tabla categoria y se le agrega la propiedad de actualizar y eliminar en cascada
 )
---es una consulta personalizada para mostrar el nombre de la categoria en vez del codigo de la categoria
-SELECT A.CodigoAutor, A.NombreAutor, A.FechaNacAutor, C.NombreCategoria AS CodCategoria --sirve para indicar que el campo CodCategoria llevara el nombre de la categoria
-FROM Autores A
-INNER JOIN Categoria C ON A.CodCategoria = C.CodigoCategoria;
-
-SELECT CodigoAutor, NombreAutor, CONVERT(VARCHAR(10), FechaNacAutor, 103) AS FechaNacFormateada, CodCategoria FROM Autores; --transformar el formato 'AAAA-MM-DD' a 'DD-MM-AAAA'
-
 INSERT INTO Autores VALUES ('Gabriel Garcia Marquez', '06-03-1899', 1)--se crea el primer autor para verificar la funcionalidad de esta
 
 CREATE TABLE Libros --se crea la tabla libros donde se alojaran todos los libros
@@ -73,14 +62,8 @@ CREATE TABLE Libros --se crea la tabla libros donde se alojaran todos los libros
 INSERT INTO Libros VALUES ('978-1-234567-89-0', 'Cien años de soledad', 1, 1, 1, 10, 15.00, 'Libre')--se crea el primer libro para verificar la funcionalidad de esta
 INSERT INTO Libros VALUES ('978-1-234567-89-1', 'El coronel no tiene quien le escriba', 1, 1, 1, 10, 10.00, 'Libre')--se crea el segundo libro para verificar la funcionalidad de esta
 INSERT INTO Libros VALUES ('978-1-234567-89-2', 'El amor en los tiempos del colera', 1, 1, 1, 10, 20.00, 'Libre')--se crea el tercer libro para verificar la funcionalidad de esta
---consulta personalizada para mostrar el nombre del autor, editorial y categoria en vez del codigo de estos
-SELECT L.ISBN, L.NombreLibro, A.NombreAutor AS Autor, E.NombreEditorial AS Editorial, C.NombreCategoria AS Categoria, L.StockLibro, L.PrecioLibro, L.EstadoLibro
-FROM Libros L
-INNER JOIN Autores A ON L.Autor = A.CodigoAutor
-INNER JOIN Editorial E ON L.Editorial = E.CodigoEditorial
-INNER JOIN Categoria C ON L.Categoria = C.CodigoCategoria;
 
-CREATE TABLE Compras 
+CREATE TABLE Compras  --se crea la tabla compras donde se alojaran todas las compras
 (
 	CodigoCompra INT IDENTITY NOT NULL PRIMARY KEY,
 	Usuario INT, --nombre de la llave foranea
@@ -88,15 +71,41 @@ CREATE TABLE Compras
 	FechaCompra DATE NOT NULL,
 	Total DECIMAL(5,2)
 )
-SELECT CodigoCompra, Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras; --transformar el formato 'AAAA-MM-DD' a 'DD-MM-AAAA'
---consulta personalizada para mostrar el nombre del usuario Y fecha formateada en vez del codigo de estos
-SELECT CodigoCompra, U.UserName AS Usuario,CONVERT(VARCHAR(10), FechaCompra, 103) AS FechaCompraFormateada, Total FROM Compras C
-INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser;
 
-SELECT C.CodigoCompra, U.UserName AS Usuario, CONVERT(VARCHAR(10), C.FechaCompra, 103) AS FechaCompraFormateada, C.Total 
-FROM Compras C 
-INNER JOIN Usuarios U ON C.Usuario = U.CodigoUser 
-WHERE C.FechaCompra = CONVERT(DATE, '28/09/2023', 103)
+INSERT INTO Compras VALUES (1, '10-06-2023', 0) --se crea la primera compra para verificar la funcionalidad de esta
+
+CREATE TABLE DetalleCompras ( --se crea la tabla DetalleCompras donde se alojaran todos los items que el usuario compre
+	CodigoDetalleCompra INT IDENTITY NOT NULL PRIMARY KEY,
+	CodigoCompra INT NOT NULL,--nombre de la llave foranea
+	CONSTRAINT fk_idCompra FOREIGN KEY (CodigoCompra) REFERENCES Compras(CodigoCompra) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla compras y se le agrega la propiedad de actualizar y eliminar en cascada
+	Libro VARCHAR(20) NOT NULL,--nombre de la llave foranea	
+	CONSTRAINT fk_idLibro FOREIGN KEY (Libro) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
+	PrecioLibro DECIMAL(5,2) NOT NULL,
+	Cantidad INT NOT NULL,
+	SubTotal DECIMAL(5,2) NOT NULL
+);
+
+--se crea la tabla prestamo donde se alojaran todos los prestamos
+CREATE TABLE Prestamo(
+CodigoPrestamo INT IDENTITY NOT NULL PRIMARY KEY,
+Usuario INT, --nombre de la llave foranea
+CONSTRAINT fk_idUsuario_pre FOREIGN KEY (Usuario) REFERENCES Usuarios(CodigoUser) ON UPDATE NO ACTION ON DELETE NO ACTION,
+FechaPrestamo DATE NOT NULL,
+Estado VARCHAR(10)--aqui se guardara si el libro esta aprobado o no
+)
+
+INSERT INTO Prestamo VALUES (1, '10-06-2023', 'Aprobado') --se crea el primer prestamo para verificar la funcionalidad de esta
+
+--se crea la tabla DetallePrestamo donde se alojaran todos los items que el usuario pida prestado
+CREATE TABLE DetallePrestamo(
+CodigoDetallePrestamo INT IDENTITY NOT NULL PRIMARY KEY,
+CodigoPrestamo INT Not null,
+CONSTRAINT fk_idPrestamo_Pre FOREIGN KEY (CodigoPrestamo) REFERENCES Prestamo(CodigoPrestamo) ON UPDATE NO ACTION ON DELETE NO ACTION,
+Libro VARCHAR(20) NOT NULL,--nombre de la llave foranea	
+CONSTRAINT fk_idLibro_Pre FOREIGN KEY (Libro) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
+Cantidad INT NOT NULL,
+);
+
 --procedimiento almacenado para insertar compras
 CREATE PROCEDURE InsertarCompra
 	@Usuario VARCHAR(50),
@@ -114,18 +123,11 @@ BEGIN
 	VALUES (@IdUsuario, CONVERT(DATETIME, @FechaCompra, 103), @Total);
 END
 --fin del procedimiento
-EXEC InsertarCompra josue72, '10-06-2023',0
 
-CREATE TABLE DetalleCompras ( --se crea la tabla DetalleCompras donde se alojaran todos los items que el usuario compre
-	CodigoDetalleCompra INT IDENTITY NOT NULL PRIMARY KEY,
-	CodigoCompra INT NOT NULL,--nombre de la llave foranea
-	CONSTRAINT fk_idCompra FOREIGN KEY (CodigoCompra) REFERENCES Compras(CodigoCompra) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla compras y se le agrega la propiedad de actualizar y eliminar en cascada
-	Libro VARCHAR(20) NOT NULL,--nombre de la llave foranea	
-	CONSTRAINT fk_idLibro FOREIGN KEY (Libro) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
-	PrecioLibro DECIMAL(5,2) NOT NULL,
-	Cantidad INT NOT NULL,
-	SubTotal DECIMAL(5,2) NOT NULL
-);
+EXEC InsertarCompra josue72, '10-06-2023',0--se ejecuta el procedimiento almacenado para verificar la funcionalidad de esta
+
+
+
 --procedimiento almacenado para insertar el detalle de la compra
 CREATE PROCEDURE InsertarDetalleCompra
     @CodigoCompra INT,
@@ -255,23 +257,8 @@ BEGIN
     DEALLOCATE actualizarCursor
 END
 --fin del procedimiento almacenado
---
-CREATE TABLE Prestamo(
-CodigoPrestamo INT IDENTITY NOT NULL PRIMARY KEY,
-Usuario INT, --nombre de la llave foranea
-CONSTRAINT fk_idUsuario_pre FOREIGN KEY (Usuario) REFERENCES Usuarios(CodigoUser) ON UPDATE NO ACTION ON DELETE NO ACTION,
-FechaPrestamo DATE NOT NULL,
-Estado VARCHAR(10)--aqui se guardara si el libro esta aprobado o no
-)
 
-CREATE TABLE DetallePrestamo(
-CodigoDetallePrestamo INT IDENTITY NOT NULL PRIMARY KEY,
-CodigoPrestamo INT Not null,
-CONSTRAINT fk_idPrestamo_Pre FOREIGN KEY (CodigoPrestamo) REFERENCES Prestamo(CodigoPrestamo) ON UPDATE NO ACTION ON DELETE NO ACTION,
-Libro VARCHAR(20) NOT NULL,--nombre de la llave foranea	
-CONSTRAINT fk_idLibro_Pre FOREIGN KEY (Libro) REFERENCES Libros(ISBN) ON UPDATE NO ACTION ON DELETE NO ACTION,--referencia a la tabla libros y se le agrega la propiedad de actualizar y eliminar en cascada
-Cantidad INT NOT NULL,
-);
+
 
 CREATE PROCEDURE InsertarPrestamo
 	@Usuario VARCHAR(50),

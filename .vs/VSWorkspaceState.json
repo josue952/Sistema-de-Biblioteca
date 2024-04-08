@@ -2,8 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\DAE",
-    "\\DAE\\DAE",
-    "\\DAE\\DAE\\DAO"
+    "\\DAE\\DAE"
   ],
   "SelectedNode": "\\DAE\\DAE\\Menu.cs",
   "PreviewInSolutionExplorer": false

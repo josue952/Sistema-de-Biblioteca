@@ -20,6 +20,71 @@ namespace DAE
             InitializeComponent();
             
         }
+
+        internal ClsEditorial ClsEditorial
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsCategoria ClsCategoria
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsAutor ClsAutor
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsLibro ClsLibro
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsCompras ClsCompras
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsPrestamo ClsPrestamo
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsMulta ClsMulta
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsUsuario ClsUsuario
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         //variable para saber cual formulario esta abierto
         private Form FormularioActivo = null;
         private void AbrirFormulario(Form FormularioHijo)
@@ -34,7 +99,6 @@ namespace DAE
             panelFormularioHijo.Tag = FormularioHijo;
             FormularioHijo.BringToFront();
             FormularioHijo.Show();
-
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {

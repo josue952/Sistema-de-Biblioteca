@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="CREA O ADMINISTRA UN USUARIO">
+    <Position X="3.231" Y="1.182" Height="0.712" Width="1.311" />
+  </Comment>
+  <Comment CommentText="CREA O ADMINISTRA UNA EDITORIAL">
+    <Position X="7.835" Y="1.245" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="CREA O ADMINISTRA UNA CATEGORIA">
+    <Position X="12.054" Y="1.089" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="CREA O ADMINISTRA UN LIBRO">
+    <Position X="15.996" Y="0.98" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="CREA O ADMINISTRA UNA COMPRA">
+    <Position X="17.169" Y="5.914" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="SE INSERTAN LOS LIBROS A COMPRAR">
+    <Position X="18.645" Y="12.795" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="CREA O ADMINISTRA UN PRESTAMO">
+    <Position X="15.532" Y="9.613" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="SE ASIGNA UNA MULTA AL PRESTAMO SI SE REQUIERE">
+    <Position X="10.63" Y="9.532" Height="0.863" Width="1.186" />
+  </Comment>
+  <Comment CommentText="SE INSERTAN LOS LIBROS A PRESTAR">
+    <Position X="12.519" Y="12.689" Height="0.863" Width="1.186" />
+  </Comment>
+  <Comment CommentText="SE INICIA SESION PARA ENTRAR AL SISTEMA">
+    <Position X="4.112" Y="6.274" Height="0.67" Width="1.186" />
+  </Comment>
+  <Comment CommentText="SE DA CLICK AL BOTON PARA SELECCIONAR UNA ACCION">
+    <Position X="9.266" Y="5.987" Height="0.78" Width="1.269" />
+  </Comment>
+  <Class Name="DAE.Clases.ClsAutor">
+    <Position X="13.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAAAQAQAQAACgEAAAoAAAAAAICAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Clases\ClsAutor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsLibro" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.Clases.ClsCategoria">
+    <Position X="9.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABBAAAAQAQAACAEAEAgAABAAAICAAAAAAAAAAABAA=</HashCode>
+      <FileName>Clases\ClsCategoria.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsAutor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.Clases.ClsCompras">
+    <Position X="17.25" Y="9" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAEAIQAQACAAAISAQAAEAUAAAAAAE=</HashCode>
+      <FileName>Clases\ClsCompras.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsDetalleCompra" />
+      <Property Name="ClsPrestamo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.Clases.ClsDetalleCompra">
+    <Position X="17.5" Y="14" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAUAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAAAgAAA=</HashCode>
+      <FileName>Clases\ClsDetalleCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAE.Clases.ClsDetallePrestamo">
+    <Position X="13" Y="14" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Clases\ClsDetallePrestamo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAE.Clases.ClsEditorial">
+    <Position X="5.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ClsCategoria" Type="DAE.Clases.ClsCategoria" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="2.25" />
+        <Point X="9.5" Y="2.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAABAAAAAAAQIACAUCAAgAAAAIAICACAAAAAAiAAAAI=</HashCode>
+      <FileName>Clases\ClsEditorial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsCategoria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.Clases.ClsLibro">
+    <Position X="17.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ClsCompras" Type="DAE.Clases.ClsCompras">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.199" Y="0.501" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAQwAACAEAYAgAQSgAEEGIAAAAwAAgAAAAk=</HashCode>
+      <FileName>Clases\ClsLibro.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsCompras" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.Clases.ClsMulta">
+    <Position X="7.75" Y="9" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AABAAAABKAAQAAAAEAAAAAAACAAICEgAAQAgAAEAAAA=</HashCode>
+      <FileName>Clases\ClsMulta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAE.Clases.ClsPrestamo">
+    <Position X="12.75" Y="9" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAQAAAAEAAACAAAAQkISQQAAEAkAAAAAAA=</HashCode>
+      <FileName>Clases\ClsPrestamo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsMulta" />
+      <Property Name="ClsDetallePrestamo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.Clases.ClsUsuario">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAQQAAAEGAAAAAgCAAAICkQABABEAAAACAA=</HashCode>
+      <FileName>Clases\ClsUsuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsEditorial" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.frmLogin">
+    <Position X="5.75" Y="5.5" Width="2.25" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgAghAAACAAABAAAgiAAAAGACAAAAABAAAAAQBAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FrmMenu" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAE.FrmMenu">
+    <Position X="11.75" Y="4.5" Width="2.75" />
+    <Members>
+      <Method Name="AbrirFormulario" Hidden="true" />
+      <Method Name="btnAdministrar_Click" Hidden="true" />
+      <Method Name="btnRptCompras_Click" Hidden="true" />
+      <Method Name="btnRptProveedores_Click" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="FrmMenu" Hidden="true" />
+      <Method Name="FrmMenu_Load" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ClsCompras" Type="DAE.Clases.ClsCompras" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.5" Y="6.588" />
+        <Point X="15.438" Y="6.588" />
+        <Point X="15.438" Y="7.191" />
+        <Point X="17.812" Y="7.191" />
+        <Point X="17.812" Y="9" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.151" Y="0.652" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ClsMulta" Type="DAE.Clases.ClsMulta" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.219" Y="8.108" />
+        <Point X="12.219" Y="8.483" />
+        <Point X="8.688" Y="8.483" />
+        <Point X="8.688" Y="9" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ClsUsuario" Type="DAE.Clases.ClsUsuario" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="5.312" />
+        <Point X="10.677" Y="5.312" Type="JumpStart" />
+        <Point X="10.51" Y="5.312" Type="JumpEnd" />
+        <Point X="1.625" Y="5.312" />
+        <Point X="1.625" Y="4.238" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEABAQIKICACANBAJESAAMBSA0GYIIEAAgAIARBIXQs=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClsEditorial" />
+      <Property Name="ClsCategoria" />
+      <Property Name="ClsAutor" />
+      <Property Name="ClsLibro" />
+      <Property Name="ClsCompras" />
+      <Property Name="ClsPrestamo" />
+      <Property Name="ClsMulta" />
+      <Property Name="ClsUsuario" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

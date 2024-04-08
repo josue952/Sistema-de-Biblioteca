@@ -22,6 +22,10 @@ namespace DAE.Interfaz
             {
                 btnEliminar.Enabled = false;
             }
+            else if (UserLoginCache.rolUser == "Administrador")
+            {
+                //tiene todos los permisos
+            }
             else
             {
                 btnAgregar.Enabled = false;

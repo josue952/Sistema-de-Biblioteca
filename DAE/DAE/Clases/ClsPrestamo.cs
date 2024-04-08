@@ -59,5 +59,21 @@ namespace DAE.Clases
         {
             return pre.buscar(campo, valorCampo);
         }
+
+        internal ClsMulta ClsMulta
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsDetallePrestamo ClsDetallePrestamo
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

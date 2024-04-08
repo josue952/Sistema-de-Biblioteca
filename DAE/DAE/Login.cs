@@ -19,6 +19,14 @@ namespace DAE
             InitializeComponent();
         }
 
+        public FrmMenu FrmMenu
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             if (txtUser.Text != "") 
@@ -52,7 +60,6 @@ namespace DAE
             {
                 MessageBox.Show("El Usuario es obligatorio!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         private void LogOut(object sender, FormClosedEventArgs e)
         {

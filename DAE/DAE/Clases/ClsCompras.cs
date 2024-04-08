@@ -59,5 +59,21 @@ namespace DAE.Clases
         {
             return com.buscar(campo, valorCampo);
         }
+
+        internal ClsDetalleCompra ClsDetalleCompra
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ClsPrestamo ClsPrestamo
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

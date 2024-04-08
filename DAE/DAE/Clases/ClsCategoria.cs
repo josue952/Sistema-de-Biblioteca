@@ -55,6 +55,14 @@ namespace DAE.Clases
 
 
         }
+
+        internal ClsAutor ClsAutor
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 
 }

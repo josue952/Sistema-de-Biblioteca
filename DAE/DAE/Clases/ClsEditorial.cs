@@ -60,5 +60,12 @@ namespace DAE.Clases
             return ed.buscar(campo, valorCampo);
         }
 
+        internal ClsCategoria ClsCategoria
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

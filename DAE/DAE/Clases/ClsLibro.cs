@@ -81,5 +81,13 @@ namespace DAE.Clases
         {
             return li.buscar(campo, valorCampo);
         }
+
+        internal ClsCompras ClsCompras
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

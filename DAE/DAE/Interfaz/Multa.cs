@@ -21,7 +21,7 @@ namespace DAE.Interfaz
         private void Multa_Load(object sender, EventArgs e)
         {
            frmListPrestamos frm = new frmListPrestamos();
-            txtCodigoPrestamo.Text = int.;
+            txtCodigoPrestamo.Text = 
             usuarioPrestamoActual = Convert.ToString(frm.usuarioPrestamoActual);
             txtCodigoPrestamo.Text = Convert.ToString(frm.fechaPrestamoActual);
         }

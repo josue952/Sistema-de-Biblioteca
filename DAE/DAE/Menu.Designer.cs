@@ -30,21 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelSubMenuReportes = new System.Windows.Forms.Panel();
-            this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panelFormularioHijo = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnPrestamo = new System.Windows.Forms.Button();
+            this.panelSubMenuReportes = new System.Windows.Forms.Panel();
             this.btnRptCompras = new System.Windows.Forms.Button();
             this.btnRptEmpleados = new System.Windows.Forms.Button();
             this.btnRptProveedores = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
+            this.panelSubMenuAdmin = new System.Windows.Forms.Panel();
             this.btnPrestamos = new System.Windows.Forms.Button();
             this.brnCompras = new System.Windows.Forms.Button();
             this.btnLibros = new System.Windows.Forms.Button();
@@ -54,6 +47,12 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnAdministrar = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelFormularioHijo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelSubMenuAdmin.SuspendLayout();
@@ -80,117 +79,6 @@
             this.panel1.Size = new System.Drawing.Size(186, 782);
             this.panel1.TabIndex = 0;
             // 
-            // panelSubMenuReportes
-            // 
-            this.panelSubMenuReportes.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panelSubMenuReportes.Controls.Add(this.button4);
-            this.panelSubMenuReportes.Controls.Add(this.btnRptCompras);
-            this.panelSubMenuReportes.Controls.Add(this.btnRptEmpleados);
-            this.panelSubMenuReportes.Controls.Add(this.btnRptProveedores);
-            this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 462);
-            this.panelSubMenuReportes.Name = "panelSubMenuReportes";
-            this.panelSubMenuReportes.Size = new System.Drawing.Size(186, 161);
-            this.panelSubMenuReportes.TabIndex = 17;
-            // 
-            // panelSubMenuAdmin
-            // 
-            this.panelSubMenuAdmin.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panelSubMenuAdmin.Controls.Add(this.btnPrestamos);
-            this.panelSubMenuAdmin.Controls.Add(this.brnCompras);
-            this.panelSubMenuAdmin.Controls.Add(this.btnLibros);
-            this.panelSubMenuAdmin.Controls.Add(this.btnAutor);
-            this.panelSubMenuAdmin.Controls.Add(this.btnCategoria);
-            this.panelSubMenuAdmin.Controls.Add(this.btnEditorial);
-            this.panelSubMenuAdmin.Controls.Add(this.btnUsuarios);
-            this.panelSubMenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuAdmin.Location = new System.Drawing.Point(0, 160);
-            this.panelSubMenuAdmin.Name = "panelSubMenuAdmin";
-            this.panelSubMenuAdmin.Size = new System.Drawing.Size(186, 245);
-            this.panelSubMenuAdmin.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblRol);
-            this.panel2.Controls.Add(this.lblUser);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 103);
-            this.panel2.TabIndex = 0;
-            // 
-            // lblRol
-            // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblRol.Location = new System.Drawing.Point(3, 42);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(116, 20);
-            this.lblRol.TabIndex = 1;
-            this.lblRol.Text = "Nivel Acceso:\r\n";
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUser.Location = new System.Drawing.Point(3, 9);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(76, 20);
-            this.lblUser.TabIndex = 0;
-            this.lblUser.Text = "Usuario:";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(189, 722);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1194, 63);
-            this.panel3.TabIndex = 1;
-            // 
-            // panelFormularioHijo
-            // 
-            this.panelFormularioHijo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
-            this.panelFormularioHijo.Controls.Add(this.pictureBox1);
-            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormularioHijo.Location = new System.Drawing.Point(189, 3);
-            this.panelFormularioHijo.Name = "panelFormularioHijo";
-            this.panelFormularioHijo.Size = new System.Drawing.Size(1194, 719);
-            this.panelFormularioHijo.TabIndex = 2;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Teal;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(0, 123);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.button4.Size = new System.Drawing.Size(186, 41);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Autor";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(111, 193);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(704, 351);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnConsultar
             // 
             this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
@@ -204,7 +92,7 @@
             this.btnConsultar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnConsultar.Image = global::DAE.Properties.Resources.consultar_icon;
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConsultar.Location = new System.Drawing.Point(0, 680);
+            this.btnConsultar.Location = new System.Drawing.Point(0, 642);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnConsultar.Size = new System.Drawing.Size(186, 57);
@@ -228,7 +116,7 @@
             this.btnPrestamo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPrestamo.Image = ((System.Drawing.Image)(resources.GetObject("btnPrestamo.Image")));
             this.btnPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrestamo.Location = new System.Drawing.Point(0, 623);
+            this.btnPrestamo.Location = new System.Drawing.Point(0, 585);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnPrestamo.Size = new System.Drawing.Size(186, 57);
@@ -238,6 +126,19 @@
             this.btnPrestamo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrestamo.UseVisualStyleBackColor = false;
             this.btnPrestamo.Click += new System.EventHandler(this.btnSolicitarPrestamo_Click);
+            // 
+            // panelSubMenuReportes
+            // 
+            this.panelSubMenuReportes.AutoSize = true;
+            this.panelSubMenuReportes.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panelSubMenuReportes.Controls.Add(this.btnRptCompras);
+            this.panelSubMenuReportes.Controls.Add(this.btnRptEmpleados);
+            this.panelSubMenuReportes.Controls.Add(this.btnRptProveedores);
+            this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 462);
+            this.panelSubMenuReportes.Name = "panelSubMenuReportes";
+            this.panelSubMenuReportes.Size = new System.Drawing.Size(186, 123);
+            this.panelSubMenuReportes.TabIndex = 17;
             // 
             // btnRptCompras
             // 
@@ -334,6 +235,22 @@
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // panelSubMenuAdmin
+            // 
+            this.panelSubMenuAdmin.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panelSubMenuAdmin.Controls.Add(this.btnPrestamos);
+            this.panelSubMenuAdmin.Controls.Add(this.brnCompras);
+            this.panelSubMenuAdmin.Controls.Add(this.btnLibros);
+            this.panelSubMenuAdmin.Controls.Add(this.btnAutor);
+            this.panelSubMenuAdmin.Controls.Add(this.btnCategoria);
+            this.panelSubMenuAdmin.Controls.Add(this.btnEditorial);
+            this.panelSubMenuAdmin.Controls.Add(this.btnUsuarios);
+            this.panelSubMenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuAdmin.Location = new System.Drawing.Point(0, 160);
+            this.panelSubMenuAdmin.Name = "panelSubMenuAdmin";
+            this.panelSubMenuAdmin.Size = new System.Drawing.Size(186, 245);
+            this.panelSubMenuAdmin.TabIndex = 1;
             // 
             // btnPrestamos
             // 
@@ -551,6 +468,67 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblRol);
+            this.panel2.Controls.Add(this.lblUser);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(186, 103);
+            this.panel2.TabIndex = 0;
+            // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblRol.Location = new System.Drawing.Point(3, 42);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(116, 20);
+            this.lblRol.TabIndex = 1;
+            this.lblRol.Text = "Nivel Acceso:\r\n";
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblUser.Location = new System.Drawing.Point(3, 9);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(76, 20);
+            this.lblUser.TabIndex = 0;
+            this.lblUser.Text = "Usuario:";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(103)))), ((int)(((byte)(138)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(189, 722);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1194, 63);
+            this.panel3.TabIndex = 1;
+            // 
+            // panelFormularioHijo
+            // 
+            this.panelFormularioHijo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.panelFormularioHijo.Controls.Add(this.pictureBox1);
+            this.panelFormularioHijo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormularioHijo.Location = new System.Drawing.Point(189, 3);
+            this.panelFormularioHijo.Name = "panelFormularioHijo";
+            this.panelFormularioHijo.Size = new System.Drawing.Size(1194, 719);
+            this.panelFormularioHijo.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(111, 193);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(704, 351);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,6 +547,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelSubMenuReportes.ResumeLayout(false);
             this.panelSubMenuAdmin.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -605,7 +584,6 @@
         private System.Windows.Forms.Button btnAutor;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnPrestamos;
-        private System.Windows.Forms.Button button4;
     }
 }
 

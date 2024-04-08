@@ -28,7 +28,7 @@ namespace DAE.Clases
             this.usuario = usuario;
             this.contra = contra;
             this.rol = rol;
-            this.departamento = departamento;   
+            this.departamento = departamento;
         }
 
         public int UserId { get => userId; set => userId = value; }
@@ -47,7 +47,7 @@ namespace DAE.Clases
         public bool insertarDatos(object datos)
         {
             return us.insertar(datos);
-        } 
+        }
 
         public bool modificarDatos(object datos)
         {
@@ -67,6 +67,14 @@ namespace DAE.Clases
         public bool getLogin()
         {
             return us.Login(this.usuario, this.contra);
+        }
+
+        internal ClsEditorial ClsEditorial
+        {
+            get => default;
+            set
+            {
+            }
         }
     }
 }

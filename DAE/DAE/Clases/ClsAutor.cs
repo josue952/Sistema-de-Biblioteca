@@ -55,5 +55,12 @@ namespace DAE.Clases
             return au.buscar(campo, valorCampo);
         }
 
+        internal ClsLibro ClsLibro
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
